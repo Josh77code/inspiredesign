@@ -94,3 +94,7 @@ jspm_packages/
 
 # TernJS port file
 .tern-port
+
+# Large image files and product assets
+public/Digital Products/
+public/invideo-ai-1080*
