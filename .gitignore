@@ -98,3 +98,4 @@ jspm_packages/
 # Large image files and product assets
 public/Digital Products/
 public/invideo-ai-1080*
+.vercel
