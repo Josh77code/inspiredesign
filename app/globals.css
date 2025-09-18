@@ -1,0 +1,483 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Typing Animation */
+.typing-animation {
+  animation: typing 0.5s ease-in-out;
+}
+
+@keyframes typing {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Updated color scheme to match client requirements */
+  --background: #f4f4f4;
+  --foreground: #191314;
+  --card: #ffffff;
+  --card-foreground: #191314;
+  --popover: rgba(244, 244, 244, 0.95);
+  --popover-foreground: #191314;
+  --primary: #b8c734;
+  --primary-foreground: #191314;
+  --secondary: #e5e5e5;
+  --secondary-foreground: #191314;
+  --muted: #e5e5e5;
+  --muted-foreground: #666666;
+  --accent: #b8c734;
+  --accent-foreground: #191314;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #ffffff;
+  --ring: rgba(184, 199, 52, 0.5);
+  --chart-1: #b8c734;
+  --chart-2: #191314;
+  --chart-3: #f4f4f4;
+  --chart-4: #ffffff;
+  --chart-5: #4b5563;
+  --radius: 0.5rem;
+  --sidebar: #f4f4f4;
+  --sidebar-foreground: #191314;
+  --sidebar-primary: #b8c734;
+  --sidebar-primary-foreground: #191314;
+  --sidebar-accent: #b8c734;
+  --sidebar-accent-foreground: #191314;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: rgba(184, 199, 52, 0.5);
+}
+
+.dark {
+  /* Updated dark theme colors */
+  --background: #191314;
+  --foreground: #f4f4f4;
+  --card: #2a2a2a;
+  --card-foreground: #f4f4f4;
+  --popover: rgba(25, 19, 20, 0.95);
+  --popover-foreground: #f4f4f4;
+  --primary: #ecf95a;
+  --primary-foreground: #191314;
+  --secondary: #333333;
+  --secondary-foreground: #f4f4f4;
+  --muted: #333333;
+  --muted-foreground: #999999;
+  --accent: #ecf95a;
+  --accent-foreground: #191314;
+  --destructive: #ff4d4d;
+  --destructive-foreground: #ffffff;
+  --border: #4b5563;
+  --input: #2a2a2a;
+  --ring: rgba(236, 249, 90, 0.5);
+  --chart-1: #ecf95a;
+  --chart-2: #f4f4f4;
+  --chart-3: #333333;
+  --chart-4: #191314;
+  --chart-5: #4b5563;
+  --sidebar: #191314;
+  --sidebar-foreground: #f4f4f4;
+  --sidebar-primary: #ecf95a;
+  --sidebar-primary-foreground: #191314;
+  --sidebar-accent: #ecf95a;
+  --sidebar-accent-foreground: #191314;
+  --sidebar-border: #4b5563;
+  --sidebar-ring: rgba(236, 249, 90, 0.5);
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Added custom animations for the marketplace */
+@keyframes cart-bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 5px rgba(236, 249, 90, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(236, 249, 90, 0.8), 0 0 30px rgba(236, 249, 90, 0.6);
+  }
+}
+
+@keyframes text-reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes magic-nav {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes loader-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes product-hover {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(-5px) scale(1.02);
+  }
+}
+
+.cart-bounce {
+  animation: cart-bounce 2s infinite;
+}
+
+.glow-button {
+  animation: glow-pulse 2s infinite;
+  transition: all 0.3s ease;
+}
+
+.glow-button:hover {
+  animation: none;
+  box-shadow: 0 0 25px rgba(236, 249, 90, 1);
+}
+
+.text-reveal {
+  animation: text-reveal 0.8s ease-out forwards;
+}
+
+.magic-nav {
+  transition: all 0.3s ease;
+}
+
+.magic-nav:hover {
+  animation: magic-nav 0.6s ease;
+}
+
+.loader-spin {
+  animation: loader-spin 1s linear infinite;
+}
+
+.product-hover {
+  transition: all 0.3s ease;
+}
+
+.product-hover:hover {
+  animation: product-hover 0.3s ease forwards;
+}
+
+/* Enhanced LED toggle styles for theme indicator */
+.led-indicator {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ecf95a;
+  box-shadow: 0 0 10px rgba(236, 249, 90, 0.8), 0 0 20px rgba(236, 249, 90, 0.4);
+  animation: glow-pulse 2s infinite;
+}
+
+.led-indicator.off {
+  background: #666;
+  box-shadow: 0 0 5px rgba(102, 102, 102, 0.3);
+  animation: none;
+}
+
+/* Enhanced search input animation styles */
+.search-expand {
+  transition: all 0.3s ease;
+  background: var(--input);
+  border: 2px solid var(--border);
+}
+
+.search-expand:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(236, 249, 90, 0.3), 0 0 25px rgba(236, 249, 90, 0.1);
+  border-color: var(--primary);
+}
+
+.search-expand:hover {
+  box-shadow: 0 0 10px rgba(236, 249, 90, 0.2);
+}
+
+/* Glowing Tube Loader Animation */
+@keyframes tube-glow {
+  0% {
+    background-position: -200px 0;
+    box-shadow: 0 0 10px rgba(236, 249, 90, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(236, 249, 90, 0.8), 0 0 30px rgba(236, 249, 90, 0.6);
+  }
+  100% {
+    background-position: 200px 0;
+    box-shadow: 0 0 10px rgba(236, 249, 90, 0.3);
+  }
+}
+
+@keyframes tube-slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+.tube-loader {
+  width: 200px;
+  height: 20px;
+  background: linear-gradient(90deg, transparent, rgba(236, 249, 90, 0.4), transparent);
+  background-size: 200px 100%;
+  border: 2px solid rgba(236, 249, 90, 0.3);
+  border-radius: 10px;
+  animation: tube-glow 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.tube-loader::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(236, 249, 90, 0.8), transparent);
+  animation: tube-slide 1.5s ease-in-out infinite;
+}
+
+.tube-loader-sm {
+  width: 120px;
+  height: 12px;
+}
+
+.tube-loader-lg {
+  width: 300px;
+  height: 24px;
+}
+
+/* Enhanced product animation */
+@keyframes product-float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.product-float {
+  animation: product-float 3s ease-in-out infinite;
+}
+
+.product-glow {
+  transition: all 0.3s ease;
+}
+
+.product-glow:hover {
+  box-shadow: 0 10px 25px rgba(236, 249, 90, 0.2), 0 0 20px rgba(236, 249, 90, 0.1);
+  transform: translateY(-5px) scale(1.02);
+}
+
+/* Animation delay utilities */
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Logo styling for dark mode */
+.logo-text-inspire {
+  fill: #1a1a1a;
+}
+
+.logo-text-design {
+  fill: #666;
+}
+
+.dark .logo-text-inspire {
+  fill: #ecf95a;
+}
+
+.dark .logo-text-design {
+  fill: #ecf95a;
+}
+
+/* Digital Art Background Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(45deg);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(-10px);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+@keyframes ping-slow {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Animation classes */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 4s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 10s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 3s infinite;
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 6s linear infinite;
+}
