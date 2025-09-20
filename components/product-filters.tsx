@@ -1,12 +1,15 @@
 "use client"
 
 import { useState } from "react"
+import { useRouter, useSearchParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { AnimatedSearch } from "./animated-search"
 
 export function ProductFilters() {
-  const [activeCategory, setActiveCategory] = useState("all")
+  const router = useRouter()
+  const searchParams = useSearchParams()
+  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || "all")
 
   const categories = [
     { id: "all", name: "All Categories" },
@@ -19,6 +22,19 @@ export function ProductFilters() {
     { id: "inspirational", name: "Inspirational" },
   ]
 
+  const handleCategoryChange = (categoryId: string) => {
+    setActiveCategory(categoryId)
+    const params = new URLSearchParams(searchParams.toString())
+    
+    if (categoryId === "all") {
+      params.delete('category')
+    } else {
+      params.set('category', categoryId)
+    }
+    
+    router.push(`/products?${params.toString()}`)
+  }
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col lg:flex-row gap-4 items-center justify-between">
@@ -27,7 +43,7 @@ export function ProductFilters() {
             <Button
               key={category.id}
               variant={activeCategory === category.id ? "default" : "outline"}
-              onClick={() => setActiveCategory(category.id)}
+              onClick={() => handleCategoryChange(category.id)}
               className={
                 activeCategory === category.id
                   ? "bg-primary text-primary-foreground"

@@ -31,7 +31,10 @@ export default function ProductsPage({ searchParams }: ProductsPageProps) {
           </div>
 
           <ProductFilters />
-          <ProductsGallery searchQuery={search} categoryFilter={category} />
+          <ProductsGallery 
+            searchQuery={search} 
+            categoryFilter={category}
+          />
         </div>
       </main>
       <Footer />

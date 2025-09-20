@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "title": "Adonai - Faith-Based Wall Art",
+    "price": 10.50,
+    "category": "faith-decor",
+    "image": "/Digital Products/Adonai/Mockups/Mockup 1.png",
+    "downloadUrl": "/Digital Products/Adonai/Adonai- 300pdi JPG - 5 different Backgrounds.zip",
+    "artist": "Grace Aribasoye",
+    "rating": 4.9,
+    "downloads": 245,
+    "description": "Beautiful faith-based wall art featuring 'Adonai' with multiple background variations. Perfect for home décor and spiritual inspiration. Available in both PDF and high-resolution JPG formats.",
+    "tags": ["faith", "christian", "wall-art", "adonai", "spiritual"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["12 × 12in"],
+    "variations": 5,
+    "pricing": { "12x12": 10.50 },
+    "files": {
+      "jpg": [
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in) - No Broader.jpg",
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in) - Thin Broader.jpg",
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in)- Black & Fire background.jpg",
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in)- Fire Background.jpg",
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in)- Thick Broader.jpg",
+        "/Digital Products/Adonai/Adonai- 300pdi- JPG/Adonai (12 × 12in).jpg"
+      ],
+      "pdf": [
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in) - No Broader.pdf",
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in) - thin border.pdf",
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in)- Black & Fire background.pdf",
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in)- Fire Background.pdf",
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in)- Thick Broader.pdf",
+        "/Digital Products/Adonai/PDF/Adonai (12 × 12in).pdf"
+      ],
+      "mockups": [
+        "/Digital Products/Adonai/Mockups/Mockup 1.png",
+        "/Digital Products/Adonai/Mockups/Mockup 10.png",
+        "/Digital Products/Adonai/Mockups/Mockup 12.png"
+      ]
+    },
+    "createdAt": "2024-01-15T00:00:00.000Z",
+    "updatedAt": "2024-01-15T00:00:00.000Z"
+  },
+  {
+    "id": 2,
+    "title": "I Am Enough - Inspirational Print",
+    "price": 7.00,
+    "category": "inspirational",
+    "image": "/Digital Products/Wonderfully Made/Mockup/Mockup 3.png",
+    "downloadUrl": "/Digital Products/I am enough/I am enough (11 × 14in).pdf",
+    "artist": "Grace Aribasoye",
+    "rating": 4.8,
+    "downloads": 189,
+    "description": "Powerful inspirational print with 'I Am Enough' message. Available in multiple sizes for different spaces. Perfect for self-affirmation and encouragement.",
+    "tags": ["inspirational", "self-love", "encouragement", "affirmation"],
+    "formats": ["PDF"],
+    "sizes": ["5 × 7in", "11 × 14in", "16x20", "18 × 24in", "24 × 36in"],
+    "variations": 5,
+    "pricing": { 
+      "5x7": 3.50, 
+      "11x14": 7.00, 
+      "16x20": 12.00, 
+      "18x24": 18.00, 
+      "24x36": 25.00 
+    },
+    "files": {
+      "pdf": [
+        "/Digital Products/I am enough/I am enough (5 × 7in).pdf",
+        "/Digital Products/I am enough/I am enough (11 × 14in).pdf",
+        "/Digital Products/I am enough/I am enough (16x20).pdf",
+        "/Digital Products/I am enough/I am enough (18 × 24in).pdf",
+        "/Digital Products/I am enough/I am enough (24 × 36in).pdf"
+      ]
+    },
+    "createdAt": "2024-01-20T00:00:00.000Z",
+    "updatedAt": "2024-01-20T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "title": "Wonderfully Made - Faith Art",
+    "price": 8.50,
+    "category": "faith-decor",
+    "image": "/Digital Products/Wonderfully Made/Mockup/Mockup 1.png",
+    "downloadUrl": "/Digital Products/Wonderfully Made/Wonderfully Made (11 × 14in).pdf",
+    "artist": "Grace Aribasoye",
+    "rating": 4.9,
+    "downloads": 156,
+    "description": "Beautiful faith-based art featuring 'Wonderfully Made' with elegant design. Available in multiple sizes and formats. Perfect for home décor and spiritual inspiration.",
+    "tags": ["faith", "christian", "wonderfully-made", "psalm", "spiritual"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["5 × 7in", "11 × 14in", "16x20", "18 × 24in", "24 × 36in"],
+    "variations": 5,
+    "pricing": { 
+      "5x7": 4.50, 
+      "11x14": 8.50, 
+      "16x20": 14.00, 
+      "18x24": 20.00, 
+      "24x36": 28.00 
+    },
+    "files": {
+      "pdf": [
+        "/Digital Products/Wonderfully Made/Wonderfully Made  (5 × 7in).pdf",
+        "/Digital Products/Wonderfully Made/Wonderfully Made (11 × 14in).pdf",
+        "/Digital Products/Wonderfully Made/Wonderfully Made (16x20).pdf",
+        "/Digital Products/Wonderfully Made/Wonderfully Made (18 × 24in).pdf",
+        "/Digital Products/Wonderfully Made/Wonderfully Made (24 × 36in).pdf"
+      ],
+      "mockups": [
+        "/Digital Products/Wonderfully Made/Mockup/Mockup 1.png",
+        "/Digital Products/Wonderfully Made/Mockup/Mockup 2.png",
+        "/Digital Products/Wonderfully Made/Mockup/Mockup 3.png",
+        "/Digital Products/Wonderfully Made/Mockup/Mockup 4.png",
+        "/Digital Products/Wonderfully Made/Mockup/Mockup 5.png"
+      ]
+    },
+    "createdAt": "2024-01-25T00:00:00.000Z",
+    "updatedAt": "2024-01-25T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "title": "The Brooding of the Holy Spirit",
+    "price": 12.00,
+    "category": "faith-decor",
+    "image": "/Digital Products/Adonai/Mockups/Mockup 1.png",
+    "downloadUrl": "/Digital Products/Brooding of the Holy Spirit/The Brooding of the Holy Spirit- PDF/PDF",
+    "artist": "Grace Aribasoye",
+    "rating": 4.7,
+    "downloads": 98,
+    "description": "Powerful spiritual art depicting the brooding of the Holy Spirit. A unique faith-based design that brings peace and spiritual connection.",
+    "tags": ["holy-spirit", "faith", "christian", "spiritual", "brooding"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["12 × 12in"],
+    "variations": 1,
+    "pricing": { "12x12": 12.00 },
+    "files": {
+      "jpg": ["/Digital Products/Brooding of the Holy Spirit/The Brooding of the Holy Spirit- PDF/300dpi JPG"],
+      "pdf": ["/Digital Products/Brooding of the Holy Spirit/The Brooding of the Holy Spirit- PDF/PDF"]
+    },
+    "createdAt": "2024-02-01T00:00:00.000Z",
+    "updatedAt": "2024-02-01T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "title": "He is Brooding Over Every Darkness",
+    "price": 11.50,
+    "category": "faith-decor",
+    "image": "/Digital Products/Adonai/Mockups/Mockup 10.png",
+    "downloadUrl": "/Digital Products/Brooding of the Holy Spirit/He is brooding over every Darkness - PDF/PDF",
+    "artist": "Grace Aribasoye",
+    "rating": 4.6,
+    "downloads": 87,
+    "description": "Inspiring faith art with the message 'He is brooding over every darkness'. A powerful reminder of God's presence in difficult times.",
+    "tags": ["holy-spirit", "faith", "christian", "darkness", "hope"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["12 × 12in"],
+    "variations": 1,
+    "pricing": { "12x12": 11.50 },
+    "files": {
+      "jpg": ["/Digital Products/Brooding of the Holy Spirit/He is brooding over every Darkness - PDF/300dpi JPG"],
+      "pdf": ["/Digital Products/Brooding of the Holy Spirit/He is brooding over every Darkness - PDF/PDF"]
+    },
+    "createdAt": "2024-02-05T00:00:00.000Z",
+    "updatedAt": "2024-02-05T00:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "title": "Holy Spirit Causing Light to Shine",
+    "price": 13.00,
+    "category": "faith-decor",
+    "image": "/Digital Products/Adonai/Mockups/Mockup 12.png",
+    "downloadUrl": "/Digital Products/Brooding of the Holy Spirit/Holy Spirit causing light to shine- PDF/PDF",
+    "artist": "Grace Aribasoye",
+    "rating": 4.8,
+    "downloads": 112,
+    "description": "Beautiful spiritual art showing the Holy Spirit causing light to shine. A perfect piece for meditation and spiritual reflection.",
+    "tags": ["holy-spirit", "light", "faith", "christian", "spiritual"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["12 × 12in"],
+    "variations": 1,
+    "pricing": { "12x12": 13.00 },
+    "files": {
+      "jpg": ["/Digital Products/Brooding of the Holy Spirit/Holy Spirit causing light to shine- PDF/300dpi JPG"],
+      "pdf": ["/Digital Products/Brooding of the Holy Spirit/Holy Spirit causing light to shine- PDF/PDF"]
+    },
+    "createdAt": "2024-02-10T00:00:00.000Z",
+    "updatedAt": "2024-02-10T00:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "title": "HS Causing Light to Shine (Three Drove)",
+    "price": 14.50,
+    "category": "faith-decor",
+    "image": "/Digital Products/Wonderfully Made/Mockup/Mockup 2.png",
+    "downloadUrl": "/Digital Products/Brooding of the Holy Spirit/HS causing light to shine  (Three Drove)/PDF",
+    "artist": "Grace Aribasoye",
+    "rating": 4.7,
+    "downloads": 76,
+    "description": "Unique spiritual art featuring the Holy Spirit causing light to shine in three drove. A special piece for deep spiritual connection.",
+    "tags": ["holy-spirit", "light", "three-drove", "faith", "christian"],
+    "formats": ["PDF", "JPG"],
+    "sizes": ["12 × 12in"],
+    "variations": 1,
+    "pricing": { "12x12": 14.50 },
+    "files": {
+      "jpg": ["/Digital Products/Brooding of the Holy Spirit/HS causing light to shine  (Three Drove)/300dpi JPG"],
+      "pdf": ["/Digital Products/Brooding of the Holy Spirit/HS causing light to shine  (Three Drove)/PDF"]
+    },
+    "createdAt": "2024-02-15T00:00:00.000Z",
+    "updatedAt": "2024-02-15T00:00:00.000Z"
+  }
+]

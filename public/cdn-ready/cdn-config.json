@@ -1,0 +1,10 @@
+{
+  "provider": "vercel-blob",
+  "baseUrl": "https://your-cdn-domain.com",
+  "fallbackUrl": "/api/images",
+  "optimization": {
+    "autoFormat": true,
+    "quality": 80,
+    "progressive": true
+  }
+}

@@ -6,7 +6,12 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
-    "start": "next start"
+    "start": "next start",
+    "optimize-products": "node scripts/optimize-products.js",
+    "analyze-products": "node scripts/analyze-catalog.js",
+    "optimize-images": "node scripts/optimize-images.js",
+    "update-products": "node scripts/update-products-json.js",
+    "performance-report": "node scripts/performance-report.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -59,6 +64,7 @@
     "react-hook-form": "^7.60.0",
     "react-resizable-panels": "^2.1.7",
     "recharts": "2.15.4",
+    "sharp": "^0.34.4",
     "sonner": "^1.7.4",
     "stripe": "^18.5.0",
     "tailwind-merge": "^2.5.5",

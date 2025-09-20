@@ -61,7 +61,7 @@ export function ProductsGallery({ searchQuery, categoryFilter }: ProductsGallery
         if (searchQuery) params.append('search', searchQuery)
         if (categoryFilter) params.append('category', categoryFilter)
         
-        const response = await fetch(`/api/products?${params.toString()}`)
+        const response = await fetch(`/api/products?${params.toString()}&limit=50`)
         const data: ProductsResponse = await response.json()
         
         if (data.success) {

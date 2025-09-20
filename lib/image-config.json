@@ -1,0 +1,23 @@
+{
+  "optimization": {
+    "enabled": true,
+    "sizes": [
+      "thumbnail",
+      "medium",
+      "large"
+    ],
+    "defaultSize": "medium",
+    "lazyLoading": true,
+    "placeholder": "blur"
+  },
+  "cdn": {
+    "enabled": false,
+    "baseUrl": "/optimized-products",
+    "fallbackUrl": "/api/images"
+  },
+  "performance": {
+    "batchSize": 20,
+    "preloadImages": 5,
+    "cacheStrategy": "aggressive"
+  }
+}
