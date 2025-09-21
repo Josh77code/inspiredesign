@@ -16,7 +16,57 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.9,
-    "downloads": 245
+    "downloads": 245,
+    "pdfs": [
+      {
+        "name": "Adonai (12 × 12in) - No Broader.pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in) - No Broader.pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Adonai (12 × 12in) - thin border.pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in) - thin border.pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Adonai (12 × 12in)- Black & Fire background.pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Black & Fire background.pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Adonai (12 × 12in)- Fire Background.pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Fire Background.pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Adonai (12 × 12in)- Thick Broader.pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Thick Broader.pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Adonai (12 × 12in).pdf",
+        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in).pdf",
+        "size": "12×12in"
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Mockup 1.png",
+        "path": "Digital Products/Adonai/Mockups/Mockup 1.png"
+      },
+      {
+        "name": "Mockup 10.png",
+        "path": "Digital Products/Adonai/Mockups/Mockup 10.png"
+      },
+      {
+        "name": "Mockup 12.png",
+        "path": "Digital Products/Adonai/Mockups/Mockup 12.png"
+      }
+    ],
+    "folderPath": "Digital Products/Adonai",
+    "sizes": [
+      "12×12in"
+    ]
   },
   {
     "id": 2,
@@ -34,7 +84,11 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.8,
-    "downloads": 189
+    "downloads": 189,
+    "pdfs": [],
+    "mockups": [],
+    "folderPath": "Digital Products/I am enough",
+    "sizes": []
   },
   {
     "id": 3,
@@ -53,7 +107,32 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.9,
-    "downloads": 156
+    "downloads": 156,
+    "pdfs": [],
+    "mockups": [
+      {
+        "name": "Mockup 1.png",
+        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 1.png"
+      },
+      {
+        "name": "Mockup 2.png",
+        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 2.png"
+      },
+      {
+        "name": "Mockup 3.png",
+        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 3.png"
+      },
+      {
+        "name": "Mockup 4.png",
+        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 4.png"
+      },
+      {
+        "name": "Mockup 5.png",
+        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 5.png"
+      }
+    ],
+    "folderPath": "Digital Products/Wonderfully Made",
+    "sizes": []
   },
   {
     "id": 4,
@@ -72,7 +151,11 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.7,
-    "downloads": 98
+    "downloads": 98,
+    "pdfs": [],
+    "mockups": [],
+    "folderPath": "Digital Products/Brooding of the Holy Spirit",
+    "sizes": []
   },
   {
     "id": 5,
@@ -148,7 +231,52 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.9,
-    "downloads": 203
+    "downloads": 203,
+    "pdfs": [
+      {
+        "name": "A wife of noble character - 2.3 Ratio.pdf",
+        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character - 2.3 Ratio.pdf",
+        "size": null
+      },
+      {
+        "name": "A wife of noble character - 3.4 Ratio.pdf",
+        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character - 3.4 Ratio.pdf",
+        "size": null
+      },
+      {
+        "name": "A wife of noble character -4.5 Ratio.pdf",
+        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character -4.5 Ratio.pdf",
+        "size": null
+      },
+      {
+        "name": "A wife of noble character (16 × 20in).pdf",
+        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (16 × 20in).pdf",
+        "size": "16×20in"
+      },
+      {
+        "name": "A wife of noble character (18 × 24in).pdf",
+        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (18 × 24in).pdf",
+        "size": "18×24in"
+      },
+      {
+        "name": "A wife of noble character (24 × 36in).pdf",
+        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (24 × 36in).pdf",
+        "size": "24×36in"
+      },
+      {
+        "name": "A wife of noble character (8 × 10in).pdf",
+        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (8 × 10in).pdf",
+        "size": "8×10in"
+      }
+    ],
+    "mockups": [],
+    "folderPath": "Digital Products/A wife of noble character",
+    "sizes": [
+      "16×20in",
+      "18×24in",
+      "24×36in",
+      "8×10in"
+    ]
   },
   {
     "id": 9,
@@ -186,7 +314,61 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.7,
-    "downloads": 134
+    "downloads": 134,
+    "pdfs": [
+      {
+        "name": "Hope -Black Background (24 × 32in).pdf",
+        "path": "Digital Products/Hope/Hope- PDF/Hope -Black Background (24 × 32in).pdf",
+        "size": "24×32in"
+      },
+      {
+        "name": "Hope Background (24 × 32in).pdf",
+        "path": "Digital Products/Hope/Hope- PDF/Hope Background (24 × 32in).pdf",
+        "size": "24×32in"
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Hope 1.png",
+        "path": "Digital Products/Hope/Mockups/Hope 1.png"
+      },
+      {
+        "name": "Hope 2.png",
+        "path": "Digital Products/Hope/Mockups/Hope 2.png"
+      },
+      {
+        "name": "Hope 3.png",
+        "path": "Digital Products/Hope/Mockups/Hope 3.png"
+      },
+      {
+        "name": "Hope 4.png",
+        "path": "Digital Products/Hope/Mockups/Hope 4.png"
+      },
+      {
+        "name": "Hope 5.png",
+        "path": "Digital Products/Hope/Mockups/Hope 5.png"
+      },
+      {
+        "name": "Hope 6.png",
+        "path": "Digital Products/Hope/Mockups/Hope 6.png"
+      },
+      {
+        "name": "Hope 7.png",
+        "path": "Digital Products/Hope/Mockups/Hope 7.png"
+      },
+      {
+        "name": "Hope 8.png",
+        "path": "Digital Products/Hope/Mockups/Hope 8.png"
+      },
+      {
+        "name": "Hope 9.png",
+        "path": "Digital Products/Hope/Mockups/Hope 9.png"
+      }
+    ],
+    "folderPath": "Digital Products/Hope",
+    "sizes": [
+      "24×32in"
+    ]
   },
   {
     "id": 11,
@@ -205,7 +387,43 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.6,
-    "downloads": 98
+    "downloads": 98,
+    "pdfs": [
+      {
+        "name": "I AM saved  (11 × 14in).pdf",
+        "path": "Digital Products/I am saved/PDFs/I AM saved  (11 × 14in).pdf",
+        "size": "11×14in"
+      },
+      {
+        "name": "I AM saved (16 × 20in).pdf",
+        "path": "Digital Products/I am saved/PDFs/I AM saved (16 × 20in).pdf",
+        "size": "16×20in"
+      },
+      {
+        "name": "I AM saved (18 × 24in).pdf",
+        "path": "Digital Products/I am saved/PDFs/I AM saved (18 × 24in).pdf",
+        "size": "18×24in"
+      },
+      {
+        "name": "I AM saved (24 × 36in).pdf",
+        "path": "Digital Products/I am saved/PDFs/I AM saved (24 × 36in).pdf",
+        "size": "24×36in"
+      },
+      {
+        "name": "I AM saved (5 × 7in).pdf",
+        "path": "Digital Products/I am saved/PDFs/I AM saved (5 × 7in).pdf",
+        "size": "5×7in"
+      }
+    ],
+    "mockups": [],
+    "folderPath": "Digital Products/I am saved",
+    "sizes": [
+      "11×14in",
+      "16×20in",
+      "18×24in",
+      "24×36in",
+      "5×7in"
+    ]
   },
   {
     "id": 12,
@@ -224,7 +442,40 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.8,
-    "downloads": 145
+    "downloads": 145,
+    "pdfs": [
+      {
+        "name": "Healed.Delivered.Restored- Black Background 1.pdf",
+        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored- Black Background 1.pdf",
+        "size": null
+      },
+      {
+        "name": "Healed.Delivered.Restored-Black Background 2.pdf",
+        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored-Black Background 2.pdf",
+        "size": null
+      },
+      {
+        "name": "Healed.Delivered.Restored-Orange Background.pdf",
+        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored-Orange Background.pdf",
+        "size": null
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Healed.Delivered.Restored - 1.png",
+        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 1.png"
+      },
+      {
+        "name": "Healed.Delivered.Restored - 2.png",
+        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 2.png"
+      },
+      {
+        "name": "Healed.Delivered.Restored - 3.png",
+        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 3.png"
+      }
+    ],
+    "folderPath": "Digital Products/Healed.Delivered.Restored",
+    "sizes": []
   },
   {
     "id": 13,
@@ -243,7 +494,80 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.7,
-    "downloads": 89
+    "downloads": 89,
+    "pdfs": [
+      {
+        "name": "Be that one that came back (12x12).pdf",
+        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (12x12).pdf",
+        "size": "12×12in"
+      },
+      {
+        "name": "Be that one that came back (16x20).pdf",
+        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (16x20).pdf",
+        "size": "16×20in"
+      },
+      {
+        "name": "Be that one that came back (5x7).pdf",
+        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (5x7).pdf",
+        "size": "5×7in"
+      },
+      {
+        "name": "Be that one that came back (8x10).pdf",
+        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (8x10).pdf",
+        "size": "8×10in"
+      },
+      {
+        "name": "Be that ONE- Thankful (16 × 24in).pdf",
+        "path": "Digital Products/Be the one that came back/PDF/Be that ONE- Thankful (16 × 24in).pdf",
+        "size": "16×24in"
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Be that one- Mock 1.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 1.png"
+      },
+      {
+        "name": "Be that one- Mock 2.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 2.png"
+      },
+      {
+        "name": "Be that one- Mock 3.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 3.png"
+      },
+      {
+        "name": "Be that one- Mock 4.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 4.png"
+      },
+      {
+        "name": "Be that one- Mock 5.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 5.png"
+      },
+      {
+        "name": "Be that one- Mock 6.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 6.png"
+      },
+      {
+        "name": "Be that one- Mock 7.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 7.png"
+      },
+      {
+        "name": "Be that one- Mock 8.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 8.png"
+      },
+      {
+        "name": "Be that one- Mock 9.png",
+        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 9.png"
+      }
+    ],
+    "folderPath": "Digital Products/Be the one that came back",
+    "sizes": [
+      "12×12in",
+      "16×20in",
+      "5×7in",
+      "8×10in",
+      "16×24in"
+    ]
   },
   {
     "id": 14,
@@ -262,7 +586,22 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.8,
-    "downloads": 123
+    "downloads": 123,
+    "pdfs": [
+      {
+        "name": "Chosen- Black Boarder.pdf",
+        "path": "Digital Products/Chosen/PDF/Chosen- Black Boarder.pdf",
+        "size": null
+      },
+      {
+        "name": "Chosen- No Boarder.pdf",
+        "path": "Digital Products/Chosen/PDF/Chosen- No Boarder.pdf",
+        "size": null
+      }
+    ],
+    "mockups": [],
+    "folderPath": "Digital Products/Chosen",
+    "sizes": []
   },
   {
     "id": 15,
@@ -281,7 +620,22 @@
     ],
     "artist": "Grace Aribasoye",
     "rating": 4.9,
-    "downloads": 156
+    "downloads": 156,
+    "pdfs": [
+      {
+        "name": "Chosen- Black Boarder.pdf",
+        "path": "Digital Products/Chosen/PDF/Chosen- Black Boarder.pdf",
+        "size": null
+      },
+      {
+        "name": "Chosen- No Boarder.pdf",
+        "path": "Digital Products/Chosen/PDF/Chosen- No Boarder.pdf",
+        "size": null
+      }
+    ],
+    "mockups": [],
+    "folderPath": "Digital Products/Chosen",
+    "sizes": []
   },
   {
     "id": 16,

@@ -1,24 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-
-// This would typically come from a database
-const sampleProducts = [
-  {
-    id: 1,
-    title: "Abstract Geometric Patterns",
-    price: 29.99,
-    category: "patterns",
-    image: "/colorful-geometric-abstract.png",
-    downloadUrl: "#",
-    artist: "Sarah Johnson",
-    rating: 4.8,
-    downloads: 1250,
-    description: "Modern geometric patterns perfect for backgrounds and design projects.",
-    tags: ["geometric", "abstract", "patterns", "modern"],
-    createdAt: new Date('2024-01-15'),
-    updatedAt: new Date('2024-01-15')
-  },
-  // ... other products would be here
-]
+import { productsDB } from '@/lib/database'
 
 // GET /api/products/[id] - Fetch a specific product
 export async function GET(
@@ -35,7 +16,7 @@ export async function GET(
       )
     }
 
-    const product = sampleProducts.find(p => p.id === productId)
+    const product = productsDB.getById(productId)
     
     if (!product) {
       return NextResponse.json(
@@ -73,27 +54,34 @@ export async function PUT(
     }
 
     const body = await request.json()
-    const productIndex = sampleProducts.findIndex(p => p.id === productId)
     
-    if (productIndex === -1) {
+    // Validate input data
+    const { title, price, category, description, artist, tags } = body
+    
+    if (!title || !price || !category) {
+      return NextResponse.json(
+        { success: false, error: 'Missing required fields' },
+        { status: 400 }
+      )
+    }
+
+    // Update in database
+    const updatedProduct = productsDB.update(productId, {
+      title,
+      price: parseFloat(price),
+      category,
+      description,
+      artist,
+      tags: tags || [],
+      updatedAt: new Date().toISOString()
+    })
+    
+    if (!updatedProduct) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },
         { status: 404 }
       )
     }
-
-    // In a real app, you would:
-    // 1. Validate input data
-    // 2. Update in database
-
-    const updatedProduct = {
-      ...sampleProducts[productIndex],
-      ...body,
-      id: productId, // Ensure ID doesn't change
-      updatedAt: new Date()
-    }
-
-    sampleProducts[productIndex] = updatedProduct
 
     return NextResponse.json({
       success: true,
@@ -123,20 +111,14 @@ export async function DELETE(
       )
     }
 
-    const productIndex = sampleProducts.findIndex(p => p.id === productId)
+    const deleted = productsDB.delete(productId)
     
-    if (productIndex === -1) {
+    if (!deleted) {
       return NextResponse.json(
         { success: false, error: 'Product not found' },
         { status: 404 }
       )
     }
-
-    // In a real app, you would:
-    // 1. Handle file cleanup
-    // 2. Soft delete or hard delete from database
-
-    sampleProducts.splice(productIndex, 1)
 
     return NextResponse.json({
       success: true,

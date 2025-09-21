@@ -2,7 +2,8 @@
 
 import { useState } from "react"
 import Image from "next/image"
-import { Download, ShoppingCart, MessageCircle, Star, Heart, Lock } from "lucide-react"
+import Link from "next/link"
+import { Download, ShoppingCart, MessageCircle, Star, Heart, Lock, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -29,6 +30,16 @@ interface Product {
   sizes?: string[]
   formats?: string[]
   variations?: number
+  pdfs?: Array<{
+    name: string
+    path: string
+    size?: string
+  }>
+  mockups?: Array<{
+    name: string
+    path: string
+  }>
+  folderPath?: string
 }
 
 interface ProductCardProps {
@@ -172,6 +183,17 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="flex gap-2">
+          <Link href={`/products/${product.id}`} className="flex-1">
+            <Button
+              size="sm"
+              variant="outline"
+              className="w-full bg-card text-card-foreground border-border hover:bg-blue-500 hover:text-white hover:border-blue-500"
+            >
+              <Eye className="h-4 w-4 mr-1" />
+              View Details
+            </Button>
+          </Link>
+
           <Button
             size="sm"
             variant="outline"
