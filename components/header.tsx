@@ -31,32 +31,47 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-3">
-            <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" className="h-10 w-auto">
-              {/* Background circle with gradient */}
+            <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" className="h-12 w-auto">
               <defs>
-                <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:"#ecf95a",stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:"#b8c734",stopOpacity:1}} />
+                {/* Golden gradient for the circle and text */}
+                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor:"#FFD700",stopOpacity:1}} />
+                  <stop offset="50%" style={{stopColor:"#FFA500",stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:"#B8860B",stopOpacity:1}} />
+                </linearGradient>
+                {/* Dark teal for the dot */}
+                <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style={{stopColor:"#008B8B",stopOpacity:1}} />
+                  <stop offset="100%" style={{stopColor:"#2F4F4F",stopOpacity:1}} />
                 </linearGradient>
               </defs>
               
-              {/* Main logo circle */}
-              <circle cx="30" cy="30" r="25" fill="url(#logoGradient)" stroke="#1a1a1a" strokeWidth="2"/>
+              {/* Main golden circle */}
+              <circle cx="30" cy="30" r="25" fill="none" stroke="url(#goldGradient)" strokeWidth="3"/>
               
-              {/* Creative design elements inside circle */}
-              <path d="M20 20 L25 15 L30 20 L35 15 L40 20 L40 25 L35 30 L30 25 L25 30 L20 25 Z" fill="#1a1a1a" opacity="0.8"/>
-              <circle cx="30" cy="30" r="3" fill="#1a1a1a"/>
+              {/* Script "id" text */}
+              <g transform="translate(30, 30)">
+                {/* Letter "i" */}
+                <path d="M-8 -8 Q-8 -12 -4 -12 Q0 -12 0 -8 Q0 -4 -4 -4 Q-8 -4 -8 -8" 
+                      fill="url(#goldGradient)" 
+                      stroke="url(#goldGradient)" 
+                      strokeWidth="1.5"/>
+                {/* Dot above "i" */}
+                <circle cx="0" cy="-15" r="2.5" fill="url(#tealGradient)"/>
+                {/* Letter "d" */}
+                <path d="M0 -8 Q0 -12 4 -12 Q8 -12 8 -8 Q8 -4 4 -4 Q0 -4 0 -8 M0 -8 L0 8 Q0 12 4 12 Q8 12 8 8" 
+                      fill="none" 
+                      stroke="url(#goldGradient)" 
+                      strokeWidth="1.5"/>
+              </g>
               
-              {/* Company name */}
-              <text x="70" y="25" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="bold" className="fill-foreground dark:fill-[#ecf95a]">
-                Inspire
+              {/* "INSPIRE DESIGNS" text */}
+              <text x="70" y="25" fontSize="14" fontWeight="600" fill="url(#goldGradient)" letterSpacing="1px">
+                INSPIRE DESIGNS
               </text>
-              <text x="70" y="45" fontFamily="Arial, sans-serif" fontSize="16" fontWeight="normal" className="fill-muted-foreground dark:fill-[#ecf95a]">
-                Design
+              <text x="70" y="45" fontSize="10" fill="currentColor" className="text-muted-foreground">
+                Faith-Based Digital Prints
               </text>
-              
-              {/* Decorative line */}
-              <line x1="70" y1="50" x2="180" y2="50" stroke="url(#logoGradient)" strokeWidth="2" strokeLinecap="round"/>
             </svg>
           </Link>
 
