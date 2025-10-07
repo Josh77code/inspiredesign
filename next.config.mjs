@@ -8,6 +8,19 @@ const nextConfig = {
   },
   images: {
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
+  swcMinify: true,
+  experimental: {
+    optimizeCss: true,
   },
 }
 

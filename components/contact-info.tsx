@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button"
 
 export function ContactInfo() {
   const handleWhatsApp = () => {
-    const message = "Hi! I'd like to know more about Inspire Design."
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`
+    // Direct WhatsApp link with business number
+    const whatsappUrl = "https://wa.me/qr/C6TRYNUZNSCQI1"
     window.open(whatsappUrl, "_blank")
   }
 
@@ -33,8 +33,8 @@ export function ContactInfo() {
                 <Phone className="h-5 w-5 text-primary" />
               </div>
               <div>
-                <p className="font-medium text-card-foreground">Phone</p>
-                <p className="text-muted-foreground">WhatsApp Number (Coming Soon)</p>
+                <p className="font-medium text-card-foreground">WhatsApp</p>
+                <p className="text-muted-foreground">Click below to chat with us</p>
               </div>
             </div>
 

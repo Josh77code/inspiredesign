@@ -116,7 +116,9 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <span className="text-muted-foreground text-sm">Phone number</span>
+                <Link href="https://wa.me/qr/C6TRYNUZNSCQI1" target="_blank" className="text-muted-foreground hover:text-primary text-sm transition-colors">
+                  WhatsApp - Chat with us
+                </Link>
               </div>
               <div className="flex items-center space-x-3">
                 <MapPin className="h-4 w-4 text-primary" />

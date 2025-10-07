@@ -70,8 +70,8 @@ export function ProductCard({ product }: ProductCardProps) {
   }
 
   const handleMessageArtist = () => {
-    const message = `Hi! I'm interested in your digital art: "${product.title}". Can you provide more details?`
-    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(message)}`
+    const message = `Hi! I'm interested in: "${product.title}" - €${product.price.toFixed(2)}`
+    const whatsappUrl = `https://wa.me/qr/C6TRYNUZNSCQI1?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
@@ -138,7 +138,8 @@ export function ProductCard({ product }: ProductCardProps) {
             size="icon"
             variant="secondary"
             onClick={handleMessageArtist}
-            className="bg-card/90 text-card-foreground hover:bg-green-500 hover:text-white"
+            className="bg-green-500 text-white hover:bg-green-600"
+            title="Order via WhatsApp"
           >
             <MessageCircle className="h-4 w-4" />
           </Button>
@@ -196,12 +197,12 @@ export function ProductCard({ product }: ProductCardProps) {
 
           <Button
             size="sm"
-            variant="outline"
             onClick={handleMessageArtist}
-            className="bg-card text-card-foreground border-border hover:bg-green-500 hover:text-white hover:border-green-500"
+            className="bg-green-500 text-white hover:bg-green-600 border-0"
+            title="Order via WhatsApp"
           >
             <MessageCircle className="h-4 w-4 mr-1" />
-            Message
+            Order
           </Button>
 
           {isLoading ? (

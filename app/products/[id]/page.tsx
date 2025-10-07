@@ -8,7 +8,7 @@ import { SimplePDFViewer } from '@/components/simple-pdf-viewer'
 import { MockupGallery } from '@/components/mockup-gallery'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
-import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft } from 'lucide-react'
+import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 import { productsDB } from '@/lib/database'
 
@@ -118,15 +118,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </div>
                 </div>
                 
-                <div className="flex gap-3">
-                  <Button className="flex-1" size="lg">
-                    <ShoppingCart className="h-4 w-4 mr-2" />
-                    Add to Cart
+                <div className="flex flex-col gap-3">
+                  <Button 
+                    className="w-full bg-green-500 hover:bg-green-600 text-white" 
+                    size="lg"
+                    onClick={() => window.open('https://wa.me/qr/C6TRYNUZNSCQI1', '_blank')}
+                  >
+                    <MessageCircle className="h-4 w-4 mr-2" />
+                    Order via WhatsApp
                   </Button>
-                  <Button variant="outline" size="lg">
-                    <Download className="h-4 w-4 mr-2" />
-                    Buy Now
-                  </Button>
+                  <div className="flex gap-3">
+                    <Button className="flex-1" size="lg">
+                      <ShoppingCart className="h-4 w-4 mr-2" />
+                      Add to Cart
+                    </Button>
+                    <Button variant="outline" size="lg">
+                      <Download className="h-4 w-4 mr-2" />
+                      Buy Now
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

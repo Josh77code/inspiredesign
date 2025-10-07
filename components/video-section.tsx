@@ -63,15 +63,17 @@ export function VideoSection() {
                 onLoadedData={handleVideoLoaded}
                 onError={handleVideoError}
                 muted={isMuted}
-                preload="metadata"
+                preload="none"
+                playsInline
                 controls={false}
+                style={{ backgroundColor: '#191314' }}
               >
                 <source src="/invideo-ai-1080 Discover Artistry—Shop Inspire Design To 2025-09-14 (1).mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
               {/* Video Overlay */}
-              <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40 flex flex-col items-center justify-center">
                 {/* Welcome Text Overlay */}
                 <div className="text-center mb-8">
                   <h4 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 animate-pulse">
