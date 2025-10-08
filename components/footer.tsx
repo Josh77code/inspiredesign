@@ -116,8 +116,12 @@ export function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="h-4 w-4 text-primary" />
-                <Link href="https://wa.me/qr/C6TRYNUZNSCQI1" target="_blank" className="text-muted-foreground hover:text-primary text-sm transition-colors">
-                  WhatsApp - Chat with us
+                <Link 
+                  href="https://wa.me/353899464758?text=Hello%20Inspire%20Design!%20%F0%9F%91%8B%0A%0AI%20found%20your%20website%20and%20would%20like%20to%20know%20more%20about%20your%20products%20and%20services.%0A%0ALooking%20forward%20to%20connecting!" 
+                  target="_blank" 
+                  className="text-muted-foreground hover:text-primary text-sm transition-colors"
+                >
+                  WhatsApp - +353 89 946 4758
                 </Link>
               </div>
               <div className="flex items-center space-x-3">

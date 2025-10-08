@@ -122,7 +122,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <Button 
                     className="w-full bg-green-500 hover:bg-green-600 text-white" 
                     size="lg"
-                    onClick={() => window.open('https://wa.me/qr/C6TRYNUZNSCQI1', '_blank')}
+                    onClick={() => {
+                      const message = `Hello Inspire Design! 👋
+
+I'm interested in ordering:
+📦 *${product.title}*
+💰 Price: ${getPriceRange()}
+🎨 By: ${product.artist}
+⭐ Rating: ${product.rating}/5
+
+Available sizes: ${product.sizes ? product.sizes.join(', ') : 'Multiple options'}
+
+Please provide more details about:
+• Available formats and sizes
+• Delivery/download options
+• Any current discounts
+
+Thank you!`
+                      window.open(`https://wa.me/353899464758?text=${encodeURIComponent(message)}`, '_blank')
+                    }}
                   >
                     <MessageCircle className="h-4 w-4 mr-2" />
                     Order via WhatsApp
