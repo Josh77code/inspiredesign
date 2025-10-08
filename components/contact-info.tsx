@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button"
 export function ContactInfo() {
   const handleWhatsApp = () => {
     // Direct WhatsApp link with business number
-    const whatsappUrl = "https://wa.me/qr/C6TRYNUZNSCQI1"
+    const whatsappUrl = "https://wa.me/353899464758"
     window.open(whatsappUrl, "_blank")
   }
 
@@ -34,7 +34,7 @@ export function ContactInfo() {
               </div>
               <div>
                 <p className="font-medium text-card-foreground">WhatsApp</p>
-                <p className="text-muted-foreground">Click below to chat with us</p>
+                <p className="text-muted-foreground">+353 89 946 4758</p>
               </div>
             </div>
 

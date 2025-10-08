@@ -72,7 +72,7 @@ export function ProductCard({ product }: ProductCardProps) {
   const handleMessageArtist = () => {
     const message = `Hi! I'm interested in: "${product.title}" - €${product.price.toFixed(2)}`
     // Direct WhatsApp link - opens the chat directly
-    const whatsappUrl = `https://wa.me/qr/C6TRYNUZNSCQI1`
+    const whatsappUrl = `https://wa.me/353899464758?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
   }
 
