@@ -44,7 +44,7 @@ export async function GET(
       }
     }
 
-    // Get the folder path
+    // Get the folder path - folderPath is relative to public folder
     const folderPath = product.folderPath 
       ? path.join(process.cwd(), 'public', product.folderPath.replace(/^\//, ''))
       : null
@@ -69,7 +69,8 @@ export async function GET(
     // Add all files from the product folder
     if (product.allFiles && product.allFiles.length > 0) {
       product.allFiles.forEach((file: any) => {
-        const filePath = path.join(process.cwd(), file.path.replace(/^\//, ''))
+        // File paths are already relative to root (without /public prefix)
+        const filePath = path.join(process.cwd(), 'public', file.path.replace(/^\//, ''))
         if (fs.existsSync(filePath)) {
           const fileName = path.basename(file.path)
           archive.file(filePath, { name: fileName })

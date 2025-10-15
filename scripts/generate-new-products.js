@@ -32,7 +32,7 @@ function categorizeFiles(files, productFolder) {
   };
 
   files.forEach((file) => {
-    const relativePath = file.replace(process.cwd(), '').replace(/\\/g, '/');
+    const relativePath = file.replace(process.cwd(), '').replace(/\\/g, '/').replace('/public/', '/');
     const fileName = path.basename(file);
     const ext = path.extname(file).toLowerCase();
 
@@ -73,13 +73,20 @@ function findPreviewImage(files) {
     ['.jpg', '.jpeg', '.png'].includes(path.extname(f).toLowerCase())
   );
   
-  if (mockup) return mockup.replace(process.cwd(), '').replace(/\\/g, '/');
+  if (mockup) {
+    const relativePath = mockup.replace(process.cwd(), '').replace(/\\/g, '/');
+    // Remove /public prefix since Next.js serves public files from root
+    return relativePath.replace('/public/', '/');
+  }
 
   const image = files.find(f => 
     ['.jpg', '.jpeg', '.png'].includes(path.extname(f).toLowerCase())
   );
   
-  if (image) return image.replace(process.cwd(), '').replace(/\\/g, '/');
+  if (image) {
+    const relativePath = image.replace(process.cwd(), '').replace(/\\/g, '/');
+    return relativePath.replace('/public/', '/');
+  }
 
   return '/placeholder.svg';
 }
