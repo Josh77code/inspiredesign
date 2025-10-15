@@ -63,7 +63,7 @@ export function VideoSection() {
                 onLoadedData={handleVideoLoaded}
                 onError={handleVideoError}
                 muted={isMuted}
-                preload="none"
+                preload="metadata"
                 playsInline
                 controls={false}
                 style={{ backgroundColor: '#191314' }}
@@ -149,19 +149,8 @@ export function VideoSection() {
                 </Button>
               </div>
               
-              {!hasVideo && (
-                <div className="bg-orange-50 border border-orange-200 rounded-xl p-6 md:p-8">
-                  <h4 className="text-orange-800 font-bold mb-4 flex items-center gap-3 text-lg md:text-xl">
-                    <Download className="h-5 w-5 md:h-6 md:w-6" />
-                    Video Loading
-                  </h4>
-                  <div className="text-orange-700 text-base md:text-lg space-y-2">
-                    <p><strong>Your custom Inspire Design video is loading...</strong></p>
-                    <p>If you don't see the video, please check your internet connection or try refreshing the page.</p>
-                    <p className="text-sm mt-3 font-medium">Video: "Discover Artistry—Shop Inspire Design"</p>
-                  </div>
-                </div>
-              )}
+              {/* Video loading message - only show if explicitly errored */}
+              {/* Removed the loading warning to keep the page clean */}
             </div>
           </div>
         </div>
