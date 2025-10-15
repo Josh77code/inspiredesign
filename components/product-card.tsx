@@ -39,7 +39,25 @@ interface Product {
     name: string
     path: string
   }>
+  images?: Array<{
+    name: string
+    path: string
+    size?: string
+  }>
+  videos?: Array<{
+    name: string
+    path: string
+    size?: string
+  }>
+  allFiles?: Array<{
+    name: string
+    path: string
+    size?: string
+  }>
   folderPath?: string
+  totalFiles?: number
+  totalSize?: string
+  downloadType?: string
 }
 
 interface ProductCardProps {
@@ -185,6 +203,20 @@ Looking forward to hearing from you!`
             <span className="text-sm text-muted-foreground">•</span>
             <span className="text-sm text-muted-foreground">{product.downloads} downloads</span>
           </div>
+
+          {/* File info for folder-based products */}
+          {product.totalFiles && (
+            <div className="flex items-center gap-2 text-xs text-muted-foreground pt-1">
+              <Badge variant="secondary" className="text-xs">
+                📦 {product.totalFiles} files
+              </Badge>
+              {product.pdfs && product.pdfs.length > 0 && (
+                <Badge variant="secondary" className="text-xs">
+                  📄 {product.pdfs.length} PDFs
+                </Badge>
+              )}
+            </div>
+          )}
         </div>
       </CardContent>
 

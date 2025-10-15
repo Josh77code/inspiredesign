@@ -11,7 +11,8 @@
     "analyze-products": "node scripts/analyze-catalog.js",
     "optimize-images": "node scripts/optimize-images.js",
     "update-products": "node scripts/update-products-json.js",
-    "performance-report": "node scripts/performance-report.js"
+    "performance-report": "node scripts/performance-report.js",
+    "generate-products": "node scripts/generate-new-products.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
@@ -43,7 +44,9 @@
     "@radix-ui/react-toggle-group": "1.1.1",
     "@radix-ui/react-tooltip": "1.1.6",
     "@stripe/stripe-js": "^7.9.0",
+    "@types/archiver": "^6.0.3",
     "@vercel/analytics": "latest",
+    "archiver": "^7.0.1",
     "autoprefixer": "^10.4.20",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.1",

@@ -1,869 +1,1302 @@
 [
   {
     "id": 1,
-    "name": "Adonai - Faith-Based Wall Art",
-    "title": "Adonai - Faith-Based Wall Art",
-    "price": 10.5,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/Adonai (12 × 12in) - No Broader_medium.webp",
-    "description": "Beautiful faith-based wall art featuring 'Adonai' with multiple background variations.",
-    "tags": [
-      "faith",
-      "christian",
-      "wall-art",
-      "adonai",
-      "spiritual"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 245,
-    "pdfs": [
+    "title": "A wife of noble character",
+    "price": 12.99,
+    "category": "Scripture Art",
+    "image": "/public/New Digital Product/A wife of noble character/Mockup 1.jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"A wife of noble character\". Includes all files: 1 PDF(s), 1 high-resolution image(s), 2 mockup(s), and video content. Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/A wife of noble character",
+    "downloadType": "folder",
+    "allFiles": [
       {
-        "name": "Adonai (12 × 12in) - No Broader.pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in) - No Broader.pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Adonai (12 × 12in) - thin border.pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in) - thin border.pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Adonai (12 × 12in)- Black & Fire background.pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Black & Fire background.pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Adonai (12 × 12in)- Fire Background.pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Fire Background.pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Adonai (12 × 12in)- Thick Broader.pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in)- Thick Broader.pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Adonai (12 × 12in).pdf",
-        "path": "Digital Products/Adonai/PDF/Adonai (12 × 12in).pdf",
-        "size": "12×12in"
-      }
-    ],
-    "mockups": [
-      {
-        "name": "Mockup 1.png",
-        "path": "Digital Products/Adonai/Mockups/Mockup 1.png"
-      },
-      {
-        "name": "Mockup 10.png",
-        "path": "Digital Products/Adonai/Mockups/Mockup 10.png"
-      },
-      {
-        "name": "Mockup 12.png",
-        "path": "Digital Products/Adonai/Mockups/Mockup 12.png"
-      }
-    ],
-    "folderPath": "Digital Products/Adonai",
-    "sizes": [
-      "12×12in"
-    ]
-  },
-  {
-    "id": 2,
-    "name": "I Am Enough - Inspirational Print",
-    "title": "I Am Enough - Inspirational Print",
-    "price": 7,
-    "category": "inspirational",
-    "image": "/optimized-products/medium/Believe in You (11 × 14in)_medium.webp",
-    "description": "Powerful inspirational print with 'I Am Enough' message.",
-    "tags": [
-      "inspirational",
-      "self-love",
-      "encouragement",
-      "affirmation"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 189,
-    "pdfs": [],
-    "mockups": [],
-    "folderPath": "Digital Products/I am enough",
-    "sizes": []
-  },
-  {
-    "id": 3,
-    "name": "Wonderfully Made - Faith Art",
-    "title": "Wonderfully Made - Faith Art",
-    "price": 8.5,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/Hope -Black Background (24 × 32in)_medium.webp",
-    "description": "Beautiful faith-based art featuring 'Wonderfully Made' with elegant design.",
-    "tags": [
-      "faith",
-      "christian",
-      "wonderfully-made",
-      "psalm",
-      "spiritual"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 156,
-    "pdfs": [],
-    "mockups": [
-      {
-        "name": "Mockup 1.png",
-        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 1.png"
-      },
-      {
-        "name": "Mockup 2.png",
-        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 2.png"
-      },
-      {
-        "name": "Mockup 3.png",
-        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 3.png"
-      },
-      {
-        "name": "Mockup 4.png",
-        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 4.png"
-      },
-      {
-        "name": "Mockup 5.png",
-        "path": "Digital Products/Wonderfully Made/Mockup/Mockup 5.png"
-      }
-    ],
-    "folderPath": "Digital Products/Wonderfully Made",
-    "sizes": []
-  },
-  {
-    "id": 4,
-    "name": "The Brooding of the Holy Spirit",
-    "title": "The Brooding of the Holy Spirit",
-    "price": 12,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Healed.Delivered.Restored - 1_medium.webp",
-    "description": "Powerful spiritual art depicting the brooding of the Holy Spirit.",
-    "tags": [
-      "holy-spirit",
-      "faith",
-      "christian",
-      "spiritual",
-      "brooding"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 98,
-    "pdfs": [],
-    "mockups": [],
-    "folderPath": "Digital Products/Brooding of the Holy Spirit",
-    "sizes": []
-  },
-  {
-    "id": 5,
-    "name": "He is Brooding Over Every Darkness",
-    "title": "He is Brooding Over Every Darkness",
-    "price": 11.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Healed.Delivered.Restored - 2_medium.webp",
-    "description": "Inspiring faith art with the message 'He is brooding over every darkness'.",
-    "tags": [
-      "holy-spirit",
-      "faith",
-      "christian",
-      "darkness",
-      "hope"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.6,
-    "downloads": 87
-  },
-  {
-    "id": 6,
-    "name": "Holy Spirit Causing Light to Shine",
-    "title": "Holy Spirit Causing Light to Shine",
-    "price": 13,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Healed.Delivered.Restored - 3_medium.webp",
-    "description": "Beautiful spiritual art showing the Holy Spirit causing light to shine.",
-    "tags": [
-      "holy-spirit",
-      "light",
-      "faith",
-      "christian",
-      "spiritual"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 112
-  },
-  {
-    "id": 7,
-    "name": "HS Causing Light to Shine (Three Drove)",
-    "title": "HS Causing Light to Shine (Three Drove)",
-    "price": 14.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Jesus & Me  (12 × 12in)_medium.webp",
-    "description": "Unique spiritual art featuring the Holy Spirit causing light to shine in three drove.",
-    "tags": [
-      "holy-spirit",
-      "light",
-      "three-drove",
-      "faith",
-      "christian"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 76
-  },
-  {
-    "id": 8,
-    "name": "A Wife of Noble Character - Wedding Print",
-    "title": "A Wife of Noble Character - Wedding Print",
-    "price": 15,
-    "category": "wedding-decor",
-    "image": "/optimized-products/medium/A wife of noble character (2.3 ratio)_medium.webp",
-    "description": "Beautiful wedding print featuring 'A Wife of Noble Character' - perfect for bridal showers, weddings, and anniversary celebrations.",
-    "tags": [
-      "wedding",
-      "bridal",
-      "marriage",
-      "proverbs",
-      "celebration"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 203,
-    "pdfs": [
-      {
-        "name": "A wife of noble character - 2.3 Ratio.pdf",
-        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character - 2.3 Ratio.pdf",
-        "size": null
+        "name": "A wife of noble character (4.5 ratio).jpg",
+        "path": "/public/New Digital Product/A wife of noble character/A wife of noble character (4.5 ratio).jpg",
+        "size": "1.84 MB"
       },
       {
         "name": "A wife of noble character - 3.4 Ratio.pdf",
-        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character - 3.4 Ratio.pdf",
-        "size": null
+        "path": "/public/New Digital Product/A wife of noble character/A wife of noble character - 3.4 Ratio.pdf",
+        "size": "1.03 MB"
       },
       {
-        "name": "A wife of noble character -4.5 Ratio.pdf",
-        "path": "Digital Products/A wife of noble character/A wife of noble character-pdf/A wife of noble character -4.5 Ratio.pdf",
-        "size": null
+        "name": "Mockup 1.jpg",
+        "path": "/public/New Digital Product/A wife of noble character/Mockup 1.jpg",
+        "size": "2.10 MB"
       },
       {
-        "name": "A wife of noble character (16 × 20in).pdf",
-        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (16 × 20in).pdf",
-        "size": "16×20in"
+        "name": "Mockup 2.jpg",
+        "path": "/public/New Digital Product/A wife of noble character/Mockup 2.jpg",
+        "size": "1.91 MB"
       },
       {
-        "name": "A wife of noble character (18 × 24in).pdf",
-        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (18 × 24in).pdf",
-        "size": "18×24in"
-      },
-      {
-        "name": "A wife of noble character (24 × 36in).pdf",
-        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (24 × 36in).pdf",
-        "size": "24×36in"
-      },
-      {
-        "name": "A wife of noble character (8 × 10in).pdf",
-        "path": "Digital Products/A wife of noble character/All pdf sizes/A wife of noble character (8 × 10in).pdf",
-        "size": "8×10in"
+        "name": "Video.mp4",
+        "path": "/public/New Digital Product/A wife of noble character/Video.mp4",
+        "size": "0.58 MB"
       }
     ],
-    "mockups": [],
-    "folderPath": "Digital Products/A wife of noble character",
-    "sizes": [
-      "16×20in",
-      "18×24in",
-      "24×36in",
-      "8×10in"
-    ]
-  },
-  {
-    "id": 9,
-    "name": "Jesus & Me - Love Decor",
-    "title": "Jesus & Me - Love Decor",
-    "price": 9.5,
-    "category": "love-decor",
-    "image": "/optimized-products/medium/Jesus & Me (16 × 24in)_medium.webp",
-    "description": "Beautiful love-themed decor featuring 'Jesus & Me' - perfect for couples, romantic spaces, and expressing love for God.",
-    "tags": [
-      "love",
-      "couples",
-      "romantic",
-      "jesus",
-      "relationship"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 167
-  },
-  {
-    "id": 10,
-    "name": "Hope - Home Décor Print",
-    "title": "Hope - Home Décor Print",
-    "price": 6.5,
-    "category": "home-decor",
-    "image": "/optimized-products/medium/Hope 1_medium.webp",
-    "description": "Beautiful home décor print featuring 'Hope' - perfect for living rooms, bedrooms, and any space that needs inspiration.",
-    "tags": [
-      "home-decor",
-      "hope",
-      "inspiration",
-      "living-room",
-      "bedroom"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 134,
     "pdfs": [
       {
-        "name": "Hope -Black Background (24 × 32in).pdf",
-        "path": "Digital Products/Hope/Hope- PDF/Hope -Black Background (24 × 32in).pdf",
-        "size": "24×32in"
-      },
+        "name": "A wife of noble character - 3.4 Ratio.pdf",
+        "path": "/public/New Digital Product/A wife of noble character/A wife of noble character - 3.4 Ratio.pdf",
+        "size": "1.03 MB"
+      }
+    ],
+    "images": [
       {
-        "name": "Hope Background (24 × 32in).pdf",
-        "path": "Digital Products/Hope/Hope- PDF/Hope Background (24 × 32in).pdf",
-        "size": "24×32in"
+        "name": "A wife of noble character (4.5 ratio).jpg",
+        "path": "/public/New Digital Product/A wife of noble character/A wife of noble character (4.5 ratio).jpg",
+        "size": "1.84 MB"
       }
     ],
     "mockups": [
       {
-        "name": "Hope 1.png",
-        "path": "Digital Products/Hope/Mockups/Hope 1.png"
+        "name": "Mockup 1.jpg",
+        "path": "/public/New Digital Product/A wife of noble character/Mockup 1.jpg",
+        "size": "2.10 MB"
       },
       {
-        "name": "Hope 2.png",
-        "path": "Digital Products/Hope/Mockups/Hope 2.png"
-      },
-      {
-        "name": "Hope 3.png",
-        "path": "Digital Products/Hope/Mockups/Hope 3.png"
-      },
-      {
-        "name": "Hope 4.png",
-        "path": "Digital Products/Hope/Mockups/Hope 4.png"
-      },
-      {
-        "name": "Hope 5.png",
-        "path": "Digital Products/Hope/Mockups/Hope 5.png"
-      },
-      {
-        "name": "Hope 6.png",
-        "path": "Digital Products/Hope/Mockups/Hope 6.png"
-      },
-      {
-        "name": "Hope 7.png",
-        "path": "Digital Products/Hope/Mockups/Hope 7.png"
-      },
-      {
-        "name": "Hope 8.png",
-        "path": "Digital Products/Hope/Mockups/Hope 8.png"
-      },
-      {
-        "name": "Hope 9.png",
-        "path": "Digital Products/Hope/Mockups/Hope 9.png"
+        "name": "Mockup 2.jpg",
+        "path": "/public/New Digital Product/A wife of noble character/Mockup 2.jpg",
+        "size": "1.91 MB"
       }
     ],
-    "folderPath": "Digital Products/Hope",
-    "sizes": [
-      "24×32in"
-    ]
-  },
-  {
-    "id": 11,
-    "name": "I AM Saved - Digital Print",
-    "title": "I AM Saved - Digital Print",
-    "price": 8,
-    "category": "digital-prints",
-    "image": "/optimized-products/medium/I AM saved (11 × 14in)_medium.webp",
-    "description": "Powerful digital print featuring 'I AM Saved' - perfect for instant download and printing.",
-    "tags": [
-      "digital-print",
-      "saved",
-      "salvation",
-      "instant-download",
-      "printable"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.6,
-    "downloads": 98,
-    "pdfs": [
+    "videos": [
       {
-        "name": "I AM saved  (11 × 14in).pdf",
-        "path": "Digital Products/I am saved/PDFs/I AM saved  (11 × 14in).pdf",
-        "size": "11×14in"
-      },
-      {
-        "name": "I AM saved (16 × 20in).pdf",
-        "path": "Digital Products/I am saved/PDFs/I AM saved (16 × 20in).pdf",
-        "size": "16×20in"
-      },
-      {
-        "name": "I AM saved (18 × 24in).pdf",
-        "path": "Digital Products/I am saved/PDFs/I AM saved (18 × 24in).pdf",
-        "size": "18×24in"
-      },
-      {
-        "name": "I AM saved (24 × 36in).pdf",
-        "path": "Digital Products/I am saved/PDFs/I AM saved (24 × 36in).pdf",
-        "size": "24×36in"
-      },
-      {
-        "name": "I AM saved (5 × 7in).pdf",
-        "path": "Digital Products/I am saved/PDFs/I AM saved (5 × 7in).pdf",
-        "size": "5×7in"
+        "name": "Video.mp4",
+        "path": "/public/New Digital Product/A wife of noble character/Video.mp4",
+        "size": "0.58 MB"
       }
     ],
-    "mockups": [],
-    "folderPath": "Digital Products/I am saved",
-    "sizes": [
-      "11×14in",
-      "16×20in",
-      "18×24in",
-      "24×36in",
-      "5×7in"
-    ]
+    "totalFiles": 5,
+    "totalSize": "7.46 MB",
+    "pricing": {
+      "Basic (Digital Files)": 12.99,
+      "Premium (All Files + Commercial License)": "19.48"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "1 High-Resolution Images (300 DPI)",
+      "2 Professional Mockups",
+      "Video Preview Included",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF",
+      "MP4"
+    ],
+    "tags": [
+      "a wife of noble character",
+      "scripture art",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.243Z",
+    "updatedAt": "2025-10-15T00:27:15.245Z"
   },
   {
-    "id": 12,
-    "name": "Healed.Delivered.Restored - Christian Faith",
-    "title": "Healed.Delivered.Restored - Christian Faith",
-    "price": 10,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Healed.Delivered.Restored- Black Background 1_medium.webp",
-    "description": "Powerful Christian faith print featuring 'Healed.Delivered.Restored' - a testament to God's healing power.",
-    "tags": [
-      "healed",
-      "delivered",
-      "restored",
-      "christian-faith",
-      "healing"
+    "id": 2,
+    "title": "Adonai",
+    "price": 5.99,
+    "category": "Names of God",
+    "image": "/public/New Digital Product/Adonai/Mockup 1.png",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Adonai\". Includes all files: 2 PDF(s), 2 high-resolution image(s), 2 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Adonai",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Adonai (12 × 12in) - thin border.pdf",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in) - thin border.pdf",
+        "size": "0.13 MB"
+      },
+      {
+        "name": "Adonai (12 × 12in) - Thin Broader.jpg",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in) - Thin Broader.jpg",
+        "size": "0.67 MB"
+      },
+      {
+        "name": "Adonai (12 × 12in)- Black & Fire background.jpg",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in)- Black & Fire background.jpg",
+        "size": "0.91 MB"
+      },
+      {
+        "name": "Adonai (12 × 12in)- Black & Fire background.pdf",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in)- Black & Fire background.pdf",
+        "size": "3.45 MB"
+      },
+      {
+        "name": "Mockup 1.png",
+        "path": "/public/New Digital Product/Adonai/Mockup 1.png",
+        "size": "1.00 MB"
+      },
+      {
+        "name": "Mockup 10.png",
+        "path": "/public/New Digital Product/Adonai/Mockup 10.png",
+        "size": "1.13 MB"
+      }
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 145,
     "pdfs": [
       {
-        "name": "Healed.Delivered.Restored- Black Background 1.pdf",
-        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored- Black Background 1.pdf",
-        "size": null
+        "name": "Adonai (12 × 12in) - thin border.pdf",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in) - thin border.pdf",
+        "size": "0.13 MB"
       },
       {
-        "name": "Healed.Delivered.Restored-Black Background 2.pdf",
-        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored-Black Background 2.pdf",
-        "size": null
+        "name": "Adonai (12 × 12in)- Black & Fire background.pdf",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in)- Black & Fire background.pdf",
+        "size": "3.45 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Adonai (12 × 12in) - Thin Broader.jpg",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in) - Thin Broader.jpg",
+        "size": "0.67 MB"
       },
       {
-        "name": "Healed.Delivered.Restored-Orange Background.pdf",
-        "path": "Digital Products/Healed.Delivered.Restored/PDF- 12x12/Healed.Delivered.Restored-Orange Background.pdf",
-        "size": null
+        "name": "Adonai (12 × 12in)- Black & Fire background.jpg",
+        "path": "/public/New Digital Product/Adonai/Adonai (12 × 12in)- Black & Fire background.jpg",
+        "size": "0.91 MB"
       }
     ],
     "mockups": [
       {
-        "name": "Healed.Delivered.Restored - 1.png",
-        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 1.png"
+        "name": "Mockup 1.png",
+        "path": "/public/New Digital Product/Adonai/Mockup 1.png",
+        "size": "1.00 MB"
       },
       {
-        "name": "Healed.Delivered.Restored - 2.png",
-        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 2.png"
-      },
-      {
-        "name": "Healed.Delivered.Restored - 3.png",
-        "path": "Digital Products/Healed.Delivered.Restored/Mockups/Healed.Delivered.Restored - 3.png"
+        "name": "Mockup 10.png",
+        "path": "/public/New Digital Product/Adonai/Mockup 10.png",
+        "size": "1.13 MB"
       }
     ],
-    "folderPath": "Digital Products/Healed.Delivered.Restored",
-    "sizes": []
+    "videos": [],
+    "totalFiles": 6,
+    "totalSize": "7.29 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "2 Print-Ready PDF Files",
+      "2 High-Resolution Images (300 DPI)",
+      "2 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "PDF",
+      "JPG",
+      "PNG"
+    ],
+    "tags": [
+      "adonai",
+      "names of god",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.248Z",
+    "updatedAt": "2025-10-15T00:27:15.248Z"
   },
   {
-    "id": 13,
-    "name": "Be the One That Came Back",
-    "title": "Be the One That Came Back",
-    "price": 9,
-    "category": "inspirational",
-    "image": "/optimized-products/medium/Be that one that came back (12x12)_medium.webp",
-    "description": "Inspiring print featuring 'Be the one that came back' - perfect for motivation and encouragement.",
-    "tags": [
-      "inspirational",
-      "motivation",
-      "encouragement",
-      "comeback",
-      "strength"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 89,
-    "pdfs": [
-      {
-        "name": "Be that one that came back (12x12).pdf",
-        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (12x12).pdf",
-        "size": "12×12in"
-      },
-      {
-        "name": "Be that one that came back (16x20).pdf",
-        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (16x20).pdf",
-        "size": "16×20in"
-      },
+    "id": 3,
+    "title": "Be the one that come back",
+    "price": 5.99,
+    "category": "Faith-Based Art",
+    "image": "/public/New Digital Product/Be the one that come back/Be that one that came back (8x10).jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Be the one that come back\". Includes all files: 1 PDF(s), 1 high-resolution image(s), 3 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Be the one that come back",
+    "downloadType": "folder",
+    "allFiles": [
       {
         "name": "Be that one that came back (5x7).pdf",
-        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (5x7).pdf",
-        "size": "5×7in"
+        "path": "/public/New Digital Product/Be the one that come back/Be that one that came back (5x7).pdf",
+        "size": "0.10 MB"
       },
       {
-        "name": "Be that one that came back (8x10).pdf",
-        "path": "Digital Products/Be the one that came back/PDF/Be that one that came back (8x10).pdf",
-        "size": "8×10in"
+        "name": "Be that one that came back (8x10).jpg",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one that came back (8x10).jpg",
+        "size": "0.27 MB"
       },
       {
-        "name": "Be that ONE- Thankful (16 × 24in).pdf",
-        "path": "Digital Products/Be the one that came back/PDF/Be that ONE- Thankful (16 × 24in).pdf",
-        "size": "16×24in"
+        "name": "Be that one- Mock 1.png",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 1.png",
+        "size": "0.96 MB"
+      },
+      {
+        "name": "Be that one- Mock 2.png",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 2.png",
+        "size": "1.32 MB"
+      },
+      {
+        "name": "Be that one- Mock 3.png",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 3.png",
+        "size": "1.18 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Be that one that came back (5x7).pdf",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one that came back (5x7).pdf",
+        "size": "0.10 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Be that one that came back (8x10).jpg",
+        "path": "/public/New Digital Product/Be the one that come back/Be that one that came back (8x10).jpg",
+        "size": "0.27 MB"
       }
     ],
     "mockups": [
       {
         "name": "Be that one- Mock 1.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 1.png"
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 1.png",
+        "size": "0.96 MB"
       },
       {
         "name": "Be that one- Mock 2.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 2.png"
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 2.png",
+        "size": "1.32 MB"
       },
       {
         "name": "Be that one- Mock 3.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 3.png"
-      },
-      {
-        "name": "Be that one- Mock 4.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 4.png"
-      },
-      {
-        "name": "Be that one- Mock 5.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 5.png"
-      },
-      {
-        "name": "Be that one- Mock 6.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 6.png"
-      },
-      {
-        "name": "Be that one- Mock 7.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 7.png"
-      },
-      {
-        "name": "Be that one- Mock 8.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 8.png"
-      },
-      {
-        "name": "Be that one- Mock 9.png",
-        "path": "Digital Products/Be the one that came back/Mock Ups/Be that one- Mock 9.png"
+        "path": "/public/New Digital Product/Be the one that come back/Be that one- Mock 3.png",
+        "size": "1.18 MB"
       }
     ],
-    "folderPath": "Digital Products/Be the one that came back",
-    "sizes": [
-      "12×12in",
-      "16×20in",
-      "5×7in",
-      "8×10in",
-      "16×24in"
-    ]
+    "videos": [],
+    "totalFiles": 5,
+    "totalSize": "3.83 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "1 High-Resolution Images (300 DPI)",
+      "3 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "PDF",
+      "JPG",
+      "PNG"
+    ],
+    "tags": [
+      "be the one that come back",
+      "faith-based art",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.250Z",
+    "updatedAt": "2025-10-15T00:27:15.250Z"
   },
   {
-    "id": 14,
-    "name": "Chosen - Faith Print",
-    "title": "Chosen - Faith Print",
-    "price": 8.5,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/Chosen- No Boarder_medium.webp",
-    "description": "Beautiful faith print featuring 'Chosen' - perfect for spiritual inspiration and faith-based décor.",
+    "id": 4,
+    "title": "Beleive in You",
+    "price": 5.99,
+    "category": "Faith-Based Art",
+    "image": "/public/New Digital Product/Beleive in You/Mockup 1- Believe in you.png",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Beleive in You\". Includes all files: 1 PDF(s), 1 high-resolution image(s), 2 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Beleive in You",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Believe in You (16 × 20in).jpg",
+        "path": "/public/New Digital Product/Beleive in You/Believe in You (16 × 20in).jpg",
+        "size": "1.74 MB"
+      },
+      {
+        "name": "Believe in You (18 × 24in).pdf",
+        "path": "/public/New Digital Product/Beleive in You/Believe in You (18 × 24in).pdf",
+        "size": "3.88 MB"
+      },
+      {
+        "name": "Mockup 1- Believe in you.png",
+        "path": "/public/New Digital Product/Beleive in You/Mockup 1- Believe in you.png",
+        "size": "1.68 MB"
+      },
+      {
+        "name": "Mockup- Believe in you.png",
+        "path": "/public/New Digital Product/Beleive in You/Mockup- Believe in you.png",
+        "size": "2.16 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Believe in You (18 × 24in).pdf",
+        "path": "/public/New Digital Product/Beleive in You/Believe in You (18 × 24in).pdf",
+        "size": "3.88 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Believe in You (16 × 20in).jpg",
+        "path": "/public/New Digital Product/Beleive in You/Believe in You (16 × 20in).jpg",
+        "size": "1.74 MB"
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Mockup 1- Believe in you.png",
+        "path": "/public/New Digital Product/Beleive in You/Mockup 1- Believe in you.png",
+        "size": "1.68 MB"
+      },
+      {
+        "name": "Mockup- Believe in you.png",
+        "path": "/public/New Digital Product/Beleive in You/Mockup- Believe in you.png",
+        "size": "2.16 MB"
+      }
+    ],
+    "videos": [],
+    "totalFiles": 4,
+    "totalSize": "9.46 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "1 High-Resolution Images (300 DPI)",
+      "2 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF",
+      "PNG"
+    ],
+    "tags": [
+      "beleive in you",
+      "faith-based art",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.253Z",
+    "updatedAt": "2025-10-15T00:27:15.253Z"
+  },
+  {
+    "id": 5,
+    "title": "Chosen",
+    "price": 5.99,
+    "category": "Identity in Christ",
+    "image": "/public/New Digital Product/Chosen/Chosen- Black Boarder.jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Chosen\". Includes all files: 1 PDF(s), 1 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Chosen",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Chosen- Black Boarder.jpg",
+        "path": "/public/New Digital Product/Chosen/Chosen- Black Boarder.jpg",
+        "size": "1.48 MB"
+      },
+      {
+        "name": "Chosen- Black Boarder.pdf",
+        "path": "/public/New Digital Product/Chosen/Chosen- Black Boarder.pdf",
+        "size": "13.66 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Chosen- Black Boarder.pdf",
+        "path": "/public/New Digital Product/Chosen/Chosen- Black Boarder.pdf",
+        "size": "13.66 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Chosen- Black Boarder.jpg",
+        "path": "/public/New Digital Product/Chosen/Chosen- Black Boarder.jpg",
+        "size": "1.48 MB"
+      }
+    ],
+    "mockups": [],
+    "videos": [],
+    "totalFiles": 2,
+    "totalSize": "15.14 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "1 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF"
+    ],
     "tags": [
       "chosen",
-      "faith",
+      "identity in christ",
       "christian",
-      "spiritual",
-      "election"
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 123,
-    "pdfs": [
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.255Z",
+    "updatedAt": "2025-10-15T00:27:15.255Z"
+  },
+  {
+    "id": 6,
+    "title": "Chosen Generation",
+    "price": 9.99,
+    "category": "Identity in Christ",
+    "image": "/public/New Digital Product/Chosen Generation/Chosen generation- Black Background.jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Chosen Generation\". Includes all files: 4 PDF(s), 5 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Chosen Generation",
+    "downloadType": "folder",
+    "allFiles": [
       {
-        "name": "Chosen- Black Boarder.pdf",
-        "path": "Digital Products/Chosen/PDF/Chosen- Black Boarder.pdf",
-        "size": null
+        "name": "Chosen generation- Black Background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Black Background.jpg",
+        "size": "0.42 MB"
       },
       {
-        "name": "Chosen- No Boarder.pdf",
-        "path": "Digital Products/Chosen/PDF/Chosen- No Boarder.pdf",
-        "size": null
+        "name": "Chosen generation- Black background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Black background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- Blue background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Blue background.jpg",
+        "size": "0.45 MB"
+      },
+      {
+        "name": "Chosen generation- blue background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- blue background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- Dark Pink background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Dark Pink background.jpg",
+        "size": "0.43 MB"
+      },
+      {
+        "name": "Chosen generation- Dark Pink background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Dark Pink background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- Light Pink background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Light Pink background.jpg",
+        "size": "0.35 MB"
+      },
+      {
+        "name": "Chosen generation- Pink background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Pink background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Thank you for your Purchase.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Thank you for your Purchase.jpg",
+        "size": "0.19 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Chosen generation- Black background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Black background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- blue background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- blue background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- Dark Pink background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Dark Pink background.pdf",
+        "size": "0.02 MB"
+      },
+      {
+        "name": "Chosen generation- Pink background.pdf",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Pink background.pdf",
+        "size": "0.02 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Chosen generation- Black Background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Black Background.jpg",
+        "size": "0.42 MB"
+      },
+      {
+        "name": "Chosen generation- Blue background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Blue background.jpg",
+        "size": "0.45 MB"
+      },
+      {
+        "name": "Chosen generation- Dark Pink background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Dark Pink background.jpg",
+        "size": "0.43 MB"
+      },
+      {
+        "name": "Chosen generation- Light Pink background.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Chosen generation- Light Pink background.jpg",
+        "size": "0.35 MB"
+      },
+      {
+        "name": "Thank you for your Purchase.jpg",
+        "path": "/public/New Digital Product/Chosen Generation/Thank you for your Purchase.jpg",
+        "size": "0.19 MB"
       }
     ],
     "mockups": [],
-    "folderPath": "Digital Products/Chosen",
-    "sizes": []
+    "videos": [],
+    "totalFiles": 9,
+    "totalSize": "1.92 MB",
+    "pricing": {
+      "Basic (Digital Files)": 9.99,
+      "Premium (All Files + Commercial License)": "14.98"
+    },
+    "features": [
+      "4 Print-Ready PDF Files",
+      "5 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF"
+    ],
+    "tags": [
+      "chosen generation",
+      "identity in christ",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.257Z",
+    "updatedAt": "2025-10-15T00:27:15.257Z"
   },
   {
-    "id": 15,
-    "name": "Chosen Generation - Christian Print",
-    "title": "Chosen Generation - Christian Print",
-    "price": 9.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/Chosen generation- Black Background_medium.webp",
-    "description": "Powerful Christian print featuring 'Chosen Generation' - perfect for youth ministry and Christian faith spaces.",
-    "tags": [
-      "chosen-generation",
-      "christian",
-      "youth",
-      "faith",
-      "generation"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 156,
-    "pdfs": [
+    "id": 7,
+    "title": "Daughters of Zion",
+    "price": 5.99,
+    "category": "Prophetic Art",
+    "image": "/public/New Digital Product/Daughters of Zion/Mockup- 2.png",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Daughters of Zion\". Includes all files: 1 PDF(s), 2 high-resolution image(s), 2 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Daughters of Zion",
+    "downloadType": "folder",
+    "allFiles": [
       {
-        "name": "Chosen- Black Boarder.pdf",
-        "path": "Digital Products/Chosen/PDF/Chosen- Black Boarder.pdf",
-        "size": null
+        "name": "16x20.jpg",
+        "path": "/public/New Digital Product/Daughters of Zion/16x20.jpg",
+        "size": "1.92 MB"
       },
       {
-        "name": "Chosen- No Boarder.pdf",
-        "path": "Digital Products/Chosen/PDF/Chosen- No Boarder.pdf",
-        "size": null
+        "name": "24×36.pdf",
+        "path": "/public/New Digital Product/Daughters of Zion/24×36.pdf",
+        "size": "1.03 MB"
+      },
+      {
+        "name": "5x7.jpg",
+        "path": "/public/New Digital Product/Daughters of Zion/5x7.jpg",
+        "size": "0.34 MB"
+      },
+      {
+        "name": "Mockup- 2.png",
+        "path": "/public/New Digital Product/Daughters of Zion/Mockup- 2.png",
+        "size": "1.98 MB"
+      },
+      {
+        "name": "Mockup- 3.png",
+        "path": "/public/New Digital Product/Daughters of Zion/Mockup- 3.png",
+        "size": "1.18 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "24×36.pdf",
+        "path": "/public/New Digital Product/Daughters of Zion/24×36.pdf",
+        "size": "1.03 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "16x20.jpg",
+        "path": "/public/New Digital Product/Daughters of Zion/16x20.jpg",
+        "size": "1.92 MB"
+      },
+      {
+        "name": "5x7.jpg",
+        "path": "/public/New Digital Product/Daughters of Zion/5x7.jpg",
+        "size": "0.34 MB"
+      }
+    ],
+    "mockups": [
+      {
+        "name": "Mockup- 2.png",
+        "path": "/public/New Digital Product/Daughters of Zion/Mockup- 2.png",
+        "size": "1.98 MB"
+      },
+      {
+        "name": "Mockup- 3.png",
+        "path": "/public/New Digital Product/Daughters of Zion/Mockup- 3.png",
+        "size": "1.18 MB"
+      }
+    ],
+    "videos": [],
+    "totalFiles": 5,
+    "totalSize": "6.45 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "2 High-Resolution Images (300 DPI)",
+      "2 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF",
+      "PNG"
+    ],
+    "tags": [
+      "daughters of zion",
+      "prophetic art",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.258Z",
+    "updatedAt": "2025-10-15T00:27:15.258Z"
+  },
+  {
+    "id": 8,
+    "title": "Healed Delevered Restored",
+    "price": 5.99,
+    "category": "Healing & Deliverance",
+    "image": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored - 1.png",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Healed Delevered Restored\". Includes all files: 1 PDF(s), 4 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Healed Delevered Restored",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Healed.Delivered.Restored - 1.png",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored - 1.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored- Black Background 1.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored- Black Background 1.jpg",
+        "size": "0.45 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored-Black Background 2.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Black Background 2.jpg",
+        "size": "0.34 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored-Black Background 2.pdf",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Black Background 2.pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored-Orange Background.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Orange Background.jpg",
+        "size": "0.45 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Healed.Delivered.Restored-Black Background 2.pdf",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Black Background 2.pdf",
+        "size": "0.01 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Healed.Delivered.Restored - 1.png",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored - 1.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored- Black Background 1.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored- Black Background 1.jpg",
+        "size": "0.45 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored-Black Background 2.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Black Background 2.jpg",
+        "size": "0.34 MB"
+      },
+      {
+        "name": "Healed.Delivered.Restored-Orange Background.jpg",
+        "path": "/public/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored-Orange Background.jpg",
+        "size": "0.45 MB"
       }
     ],
     "mockups": [],
-    "folderPath": "Digital Products/Chosen",
-    "sizes": []
-  },
-  {
-    "id": 16,
-    "name": "Daughters of Zion - Desert Background (Dark)",
-    "title": "Daughters of Zion - Desert Background (Dark)",
-    "price": 11,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/11×14_medium.webp",
-    "description": "Beautiful 'Daughters of Zion' print with dark desert background - perfect for faith-based home décor.",
-    "tags": [
-      "daughters-of-zion",
-      "desert",
-      "dark",
-      "faith",
-      "zion"
+    "videos": [],
+    "totalFiles": 5,
+    "totalSize": "2.41 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "4 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 134
-  },
-  {
-    "id": 17,
-    "name": "Daughters of Zion - Desert Background (Light)",
-    "title": "Daughters of Zion - Desert Background (Light)",
-    "price": 11,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/16x20_medium.webp",
-    "description": "Beautiful 'Daughters of Zion' print with light desert background - perfect for bright faith spaces.",
-    "tags": [
-      "daughters-of-zion",
-      "desert",
-      "light",
-      "faith",
-      "zion"
+    "formats": [
+      "PNG",
+      "JPG",
+      "PDF"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 98
-  },
-  {
-    "id": 18,
-    "name": "Daughters of Zion - Green Background",
-    "title": "Daughters of Zion - Green Background",
-    "price": 11,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/18x24_medium.webp",
-    "description": "Beautiful 'Daughters of Zion' print with green background - perfect for nature-inspired faith décor.",
     "tags": [
-      "daughters-of-zion",
-      "green",
-      "nature",
-      "faith",
-      "zion"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.6,
-    "downloads": 87
-  },
-  {
-    "id": 19,
-    "name": "Daughters of Zion - Grey Background",
-    "title": "Daughters of Zion - Grey Background",
-    "price": 11,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/24×36_medium.webp",
-    "description": "Beautiful 'Daughters of Zion' print with grey background - perfect for modern faith spaces.",
-    "tags": [
-      "daughters-of-zion",
-      "grey",
-      "modern",
-      "faith",
-      "zion"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.5,
-    "downloads": 76
-  },
-  {
-    "id": 20,
-    "name": "Daughters of Zion - Pink Background",
-    "title": "Daughters of Zion - Pink Background",
-    "price": 11,
-    "category": "faith-decor",
-    "image": "/optimized-products/medium/5x7_medium.webp",
-    "description": "Beautiful 'Daughters of Zion' print with pink background - perfect for feminine faith spaces.",
-    "tags": [
-      "daughters-of-zion",
-      "pink",
-      "feminine",
-      "faith",
-      "zion"
-    ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 112
-  },
-  {
-    "id": 21,
-    "name": "Rejoice - Black Background",
-    "title": "Rejoice - Black Background",
-    "price": 7.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/11×14_medium.webp",
-    "description": "Beautiful 'Rejoice' print with black background - perfect for modern Christian faith spaces.",
-    "tags": [
-      "rejoice",
-      "black",
-      "modern",
+      "healed delevered restored",
+      "healing & deliverance",
       "christian",
-      "faith"
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 89
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.260Z",
+    "updatedAt": "2025-10-15T00:27:15.260Z"
   },
   {
-    "id": 22,
-    "name": "Pray - Black Background",
-    "title": "Pray - Black Background",
-    "price": 7.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/16x20_medium.webp",
-    "description": "Beautiful 'Pray' print with black background - perfect for prayer rooms and Christian meditation spaces.",
+    "id": 9,
+    "title": "Hope",
+    "price": 5.99,
+    "category": "Faith & Hope",
+    "image": "/public/New Digital Product/Hope/Hope -Black Background (24 × 32in).jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Hope\". Includes all files: 2 PDF(s), 4 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Hope",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Hope -Black Background (24 × 32in).jpg",
+        "path": "/public/New Digital Product/Hope/Hope -Black Background (24 × 32in).jpg",
+        "size": "1.44 MB"
+      },
+      {
+        "name": "Hope -Black Background (24 × 32in).pdf",
+        "path": "/public/New Digital Product/Hope/Hope -Black Background (24 × 32in).pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "Hope 1.png",
+        "path": "/public/New Digital Product/Hope/Hope 1.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Hope 2.png",
+        "path": "/public/New Digital Product/Hope/Hope 2.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Hope Background (24 × 32in).pdf",
+        "path": "/public/New Digital Product/Hope/Hope Background (24 × 32in).pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "Hope- White Background (24 × 32in).jpg",
+        "path": "/public/New Digital Product/Hope/Hope- White Background (24 × 32in).jpg",
+        "size": "1.44 MB"
+      }
+    ],
+    "pdfs": [
+      {
+        "name": "Hope -Black Background (24 × 32in).pdf",
+        "path": "/public/New Digital Product/Hope/Hope -Black Background (24 × 32in).pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "Hope Background (24 × 32in).pdf",
+        "path": "/public/New Digital Product/Hope/Hope Background (24 × 32in).pdf",
+        "size": "0.01 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Hope -Black Background (24 × 32in).jpg",
+        "path": "/public/New Digital Product/Hope/Hope -Black Background (24 × 32in).jpg",
+        "size": "1.44 MB"
+      },
+      {
+        "name": "Hope 1.png",
+        "path": "/public/New Digital Product/Hope/Hope 1.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Hope 2.png",
+        "path": "/public/New Digital Product/Hope/Hope 2.png",
+        "size": "1.16 MB"
+      },
+      {
+        "name": "Hope- White Background (24 × 32in).jpg",
+        "path": "/public/New Digital Product/Hope/Hope- White Background (24 × 32in).jpg",
+        "size": "1.44 MB"
+      }
+    ],
+    "mockups": [],
+    "videos": [],
+    "totalFiles": 6,
+    "totalSize": "5.22 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "2 Print-Ready PDF Files",
+      "4 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF",
+      "PNG"
+    ],
     "tags": [
-      "pray",
-      "black",
-      "prayer",
+      "hope",
+      "faith & hope",
       "christian",
-      "meditation"
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 134
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.262Z",
+    "updatedAt": "2025-10-15T00:27:15.262Z"
   },
   {
-    "id": 23,
-    "name": "Give Thanks - Black Background",
-    "title": "Give Thanks - Black Background",
-    "price": 7.5,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/18x24_medium.webp",
-    "description": "Beautiful 'Give Thanks' print with black background - perfect for gratitude and thanksgiving spaces.",
-    "tags": [
-      "give-thanks",
-      "black",
-      "gratitude",
-      "thanksgiving",
-      "christian"
+    "id": 10,
+    "title": "I am enough",
+    "price": 5.99,
+    "category": "Affirmations",
+    "image": "/placeholder.svg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"I am enough\". Includes all files: 2 PDF(s), 0 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/I am enough",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "I am enough (16x20).pdf",
+        "path": "/public/New Digital Product/I am enough/I am enough (16x20).pdf",
+        "size": "0.20 MB"
+      },
+      {
+        "name": "I am enough (24 × 36in).pdf",
+        "path": "/public/New Digital Product/I am enough/I am enough (24 × 36in).pdf",
+        "size": "0.20 MB"
+      }
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.6,
-    "downloads": 98
-  },
-  {
-    "id": 24,
-    "name": "Rejoice - Definitions",
-    "title": "Rejoice - Definitions",
-    "price": 8,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/24×36_medium.webp",
-    "description": "Beautiful 'Rejoice' print with definitions - perfect for Christian education and learning spaces.",
+    "pdfs": [
+      {
+        "name": "I am enough (16x20).pdf",
+        "path": "/public/New Digital Product/I am enough/I am enough (16x20).pdf",
+        "size": "0.20 MB"
+      },
+      {
+        "name": "I am enough (24 × 36in).pdf",
+        "path": "/public/New Digital Product/I am enough/I am enough (24 × 36in).pdf",
+        "size": "0.20 MB"
+      }
+    ],
+    "images": [],
+    "mockups": [],
+    "videos": [],
+    "totalFiles": 2,
+    "totalSize": "0.40 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "2 Print-Ready PDF Files",
+      "0 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "PDF"
+    ],
     "tags": [
-      "rejoice",
-      "definitions",
-      "education",
+      "i am enough",
+      "affirmations",
       "christian",
-      "learning"
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 156
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.264Z",
+    "updatedAt": "2025-10-15T00:27:15.264Z"
   },
   {
-    "id": 25,
-    "name": "Pray - Definitions",
-    "title": "Pray - Definitions",
-    "price": 8,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/5x7_medium.webp",
-    "description": "Beautiful 'Pray' print with definitions - perfect for Christian education and prayer ministry.",
-    "tags": [
-      "pray",
-      "definitions",
-      "education",
-      "christian",
-      "prayer"
+    "id": 11,
+    "title": "I am saved",
+    "price": 5.99,
+    "category": "Identity in Christ",
+    "image": "/public/New Digital Product/I am saved/I AM saved  (11 × 14in).jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"I am saved\". Includes all files: 2 PDF(s), 1 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/I am saved",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "I AM saved  (11 × 14in).jpg",
+        "path": "/public/New Digital Product/I am saved/I AM saved  (11 × 14in).jpg",
+        "size": "0.32 MB"
+      },
+      {
+        "name": "I AM saved (16 × 20in).pdf",
+        "path": "/public/New Digital Product/I am saved/I AM saved (16 × 20in).pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "I AM saved (24 × 36in).pdf",
+        "path": "/public/New Digital Product/I am saved/I AM saved (24 × 36in).pdf",
+        "size": "0.01 MB"
+      }
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.7,
-    "downloads": 112
+    "pdfs": [
+      {
+        "name": "I AM saved (16 × 20in).pdf",
+        "path": "/public/New Digital Product/I am saved/I AM saved (16 × 20in).pdf",
+        "size": "0.01 MB"
+      },
+      {
+        "name": "I AM saved (24 × 36in).pdf",
+        "path": "/public/New Digital Product/I am saved/I AM saved (24 × 36in).pdf",
+        "size": "0.01 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "I AM saved  (11 × 14in).jpg",
+        "path": "/public/New Digital Product/I am saved/I AM saved  (11 × 14in).jpg",
+        "size": "0.32 MB"
+      }
+    ],
+    "mockups": [],
+    "videos": [],
+    "totalFiles": 3,
+    "totalSize": "0.34 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "2 Print-Ready PDF Files",
+      "1 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF"
+    ],
+    "tags": [
+      "i am saved",
+      "identity in christ",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.265Z",
+    "updatedAt": "2025-10-15T00:27:15.265Z"
   },
   {
-    "id": 26,
-    "name": "Give Thanks - Definitions",
-    "title": "Give Thanks - Definitions",
-    "price": 8,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/11×14_medium.webp",
-    "description": "Beautiful 'Give Thanks' print with definitions - perfect for Christian education and gratitude ministry.",
-    "tags": [
-      "give-thanks",
-      "definitions",
-      "education",
-      "christian",
-      "gratitude"
+    "id": 12,
+    "title": "Jesus&Me",
+    "price": 5.99,
+    "category": "Names of God",
+    "image": "/public/New Digital Product/Jesus&Me/Jesus & Me  (12 × 12in).jpg",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Jesus&Me\". Includes all files: 1 PDF(s), 4 high-resolution image(s), 0 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Jesus&Me",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Jesus & Me  (12 × 12in).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me  (12 × 12in).jpg",
+        "size": "0.52 MB"
+      },
+      {
+        "name": "Jesus & Me (18 × 24in).pdf",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me (18 × 24in).pdf",
+        "size": "0.03 MB"
+      },
+      {
+        "name": "Jesus & Me - (1).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (1).jpg",
+        "size": "0.09 MB"
+      },
+      {
+        "name": "Jesus & Me - (3).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (3).jpg",
+        "size": "0.16 MB"
+      },
+      {
+        "name": "Jesus & Me - (4).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (4).jpg",
+        "size": "0.11 MB"
+      }
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.8,
-    "downloads": 123
+    "pdfs": [
+      {
+        "name": "Jesus & Me (18 × 24in).pdf",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me (18 × 24in).pdf",
+        "size": "0.03 MB"
+      }
+    ],
+    "images": [
+      {
+        "name": "Jesus & Me  (12 × 12in).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me  (12 × 12in).jpg",
+        "size": "0.52 MB"
+      },
+      {
+        "name": "Jesus & Me - (1).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (1).jpg",
+        "size": "0.09 MB"
+      },
+      {
+        "name": "Jesus & Me - (3).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (3).jpg",
+        "size": "0.16 MB"
+      },
+      {
+        "name": "Jesus & Me - (4).jpg",
+        "path": "/public/New Digital Product/Jesus&Me/Jesus & Me - (4).jpg",
+        "size": "0.11 MB"
+      }
+    ],
+    "mockups": [],
+    "videos": [],
+    "totalFiles": 5,
+    "totalSize": "0.91 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "4 High-Resolution Images (300 DPI)",
+      "0 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "JPG",
+      "PDF"
+    ],
+    "tags": [
+      "jesus&me",
+      "names of god",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.267Z",
+    "updatedAt": "2025-10-15T00:27:15.267Z"
   },
   {
-    "id": 27,
-    "name": "Rejoice-Pray-Give Thanks Bundle",
-    "title": "Rejoice-Pray-Give Thanks Bundle",
-    "price": 20,
-    "category": "christian-faith",
-    "image": "/optimized-products/medium/16x20_medium.webp",
-    "description": "Complete bundle featuring all three prints: Rejoice, Pray, and Give Thanks - perfect for comprehensive Christian faith spaces.",
-    "tags": [
-      "bundle",
-      "rejoice",
-      "pray",
-      "give-thanks",
-      "christian",
-      "complete"
+    "id": 13,
+    "title": "Wonderfully made",
+    "price": 5.99,
+    "category": "Affirmations",
+    "image": "/public/New Digital Product/Wonderfully made/Mockup 2.png",
+    "artist": "Inspire Design",
+    "rating": 5,
+    "downloads": 0,
+    "description": "Complete digital download package for \"Wonderfully made\". Includes all files: 1 PDF(s), 0 high-resolution image(s), 2 mockup(s). Perfect for printing, framing, or digital use.",
+    "folderPath": "/New Digital Product/Wonderfully made",
+    "downloadType": "folder",
+    "allFiles": [
+      {
+        "name": "Mockup 2.png",
+        "path": "/public/New Digital Product/Wonderfully made/Mockup 2.png",
+        "size": "1.29 MB"
+      },
+      {
+        "name": "Mockup 4.png",
+        "path": "/public/New Digital Product/Wonderfully made/Mockup 4.png",
+        "size": "3.36 MB"
+      },
+      {
+        "name": "Wonderfully Made (11 × 14in).pdf",
+        "path": "/public/New Digital Product/Wonderfully made/Wonderfully Made (11 × 14in).pdf",
+        "size": "0.02 MB"
+      }
     ],
-    "artist": "Grace Aribasoye",
-    "rating": 4.9,
-    "downloads": 89
+    "pdfs": [
+      {
+        "name": "Wonderfully Made (11 × 14in).pdf",
+        "path": "/public/New Digital Product/Wonderfully made/Wonderfully Made (11 × 14in).pdf",
+        "size": "0.02 MB"
+      }
+    ],
+    "images": [],
+    "mockups": [
+      {
+        "name": "Mockup 2.png",
+        "path": "/public/New Digital Product/Wonderfully made/Mockup 2.png",
+        "size": "1.29 MB"
+      },
+      {
+        "name": "Mockup 4.png",
+        "path": "/public/New Digital Product/Wonderfully made/Mockup 4.png",
+        "size": "3.36 MB"
+      }
+    ],
+    "videos": [],
+    "totalFiles": 3,
+    "totalSize": "4.67 MB",
+    "pricing": {
+      "Basic (Digital Files)": 5.99,
+      "Premium (All Files + Commercial License)": "8.98"
+    },
+    "features": [
+      "1 Print-Ready PDF Files",
+      "0 High-Resolution Images (300 DPI)",
+      "2 Professional Mockups",
+      "Instant Digital Download",
+      "Multiple Size Options",
+      "Lifetime Access",
+      "Commercial Use Available"
+    ],
+    "formats": [
+      "PNG",
+      "PDF"
+    ],
+    "tags": [
+      "wonderfully made",
+      "affirmations",
+      "christian",
+      "faith-based",
+      "digital print",
+      "wall art",
+      "instant download"
+    ],
+    "requiresPayment": true,
+    "downloadAvailable": true,
+    "createdAt": "2025-10-15T00:27:15.270Z",
+    "updatedAt": "2025-10-15T00:27:15.270Z"
   }
 ]

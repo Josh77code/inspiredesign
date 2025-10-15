@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { SimplePDFViewer } from '@/components/simple-pdf-viewer'
 import { MockupGallery } from '@/components/mockup-gallery'
+import { ProductFilesIncluded } from '@/components/product-files-included'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft, MessageCircle } from 'lucide-react'
@@ -173,6 +174,19 @@ Thank you!`
                 </p>
               </CardContent>
             </Card>
+
+            {/* Files Included */}
+            {product.allFiles && product.allFiles.length > 0 && (
+              <ProductFilesIncluded 
+                allFiles={product.allFiles}
+                pdfs={product.pdfs}
+                images={product.images}
+                videos={product.videos}
+                mockups={product.mockups}
+                totalFiles={product.totalFiles}
+                totalSize={product.totalSize}
+              />
+            )}
 
             {/* Available Sizes */}
             {product.sizes && product.sizes.length > 0 && (

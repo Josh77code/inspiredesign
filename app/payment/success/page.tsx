@@ -6,7 +6,8 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Download, Mail, ArrowLeft } from "lucide-react"
+import { DownloadProductButton } from "@/components/download-product-button"
+import { CheckCircle, Download, Mail, ArrowLeft, Package } from "lucide-react"
 import Link from "next/link"
 
 interface PaymentDetails {
@@ -60,9 +61,13 @@ export default function PaymentSuccessPage() {
     }
   }
 
-  const handleDownload = (item: any) => {
-    // In a real app, this would generate secure download links
-    alert(`Download link for "${item.description}" would be generated here!`)
+  const getProductIdFromMetadata = (item: any) => {
+    // Try to extract product ID from metadata or price metadata
+    if (item.price?.product?.metadata?.productId) {
+      return parseInt(item.price.product.metadata.productId)
+    }
+    // Fallback: try to match by description/title
+    return null
   }
 
   const handleEmailReceipt = () => {
@@ -147,29 +152,42 @@ export default function PaymentSuccessPage() {
 
                 {/* Items */}
                 <div>
-                  <h3 className="font-semibold text-card-foreground mb-4">Purchased Items</h3>
-                  <div className="space-y-3">
-                    {paymentDetails.lineItems.map((item, index) => (
-                      <div key={index} className="flex justify-between items-center p-3 bg-background rounded-lg border border-border">
-                        <div className="flex-1">
-                          <h4 className="font-medium text-card-foreground">{item.description}</h4>
-                          <p className="text-sm text-muted-foreground">Quantity: {item.quantity}</p>
+                  <h3 className="font-semibold text-card-foreground mb-4">
+                    <Package className="inline w-5 h-5 mr-2" />
+                    Purchased Items - Download Your Files
+                  </h3>
+                  <div className="space-y-4">
+                    {paymentDetails.lineItems.map((item, index) => {
+                      const productId = getProductIdFromMetadata(item)
+                      
+                      return (
+                        <div key={index} className="p-4 bg-background rounded-lg border border-border space-y-3">
+                          <div className="flex justify-between items-start">
+                            <div className="flex-1">
+                              <h4 className="font-medium text-card-foreground text-lg">{item.description}</h4>
+                              <p className="text-sm text-muted-foreground mt-1">Quantity: {item.quantity}</p>
+                            </div>
+                            <span className="font-semibold text-card-foreground text-lg">
+                              €{((item.amount_total || 0) / 100).toFixed(2)}
+                            </span>
+                          </div>
+                          
+                          {productId ? (
+                            <DownloadProductButton
+                              productId={productId}
+                              productTitle={item.description}
+                              sessionId={paymentDetails.sessionId}
+                            />
+                          ) : (
+                            <div className="bg-primary/10 p-3 rounded-lg border border-primary/20">
+                              <p className="text-sm text-muted-foreground">
+                                📧 Download link will be sent to your email: {paymentDetails.customerEmail}
+                              </p>
+                            </div>
+                          )}
                         </div>
-                        <div className="flex items-center gap-2">
-                          <span className="font-semibold text-card-foreground">
-                            €{((item.amount_total || 0) / 100).toFixed(2)}
-                          </span>
-                          <Button
-                            size="sm"
-                            onClick={() => handleDownload(item)}
-                            className="bg-primary text-primary-foreground hover:bg-primary/90"
-                          >
-                            <Download className="w-4 h-4 mr-1" />
-                            Download
-                          </Button>
-                        </div>
-                      </div>
-                    ))}
+                      )
+                    })}
                   </div>
                 </div>
 
@@ -207,12 +225,14 @@ export default function PaymentSuccessPage() {
           {/* Additional Info */}
           <Card className="bg-primary/10 border border-primary/20">
             <CardContent className="p-6">
-              <h3 className="font-semibold text-card-foreground mb-2">What's Next?</h3>
+              <h3 className="font-semibold text-card-foreground mb-2">📥 Download Instructions</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>• Your digital art files are ready for download</li>
-                <li>• A confirmation email has been sent to your email address</li>
-                <li>• You can download your files anytime from your account</li>
-                <li>• Need help? Contact our support team</li>
+                <li>✅ Your digital files are ready for instant download</li>
+                <li>📦 Click "Download All Files" to get everything as a ZIP package</li>
+                <li>📧 A confirmation email with download links has been sent to {paymentDetails?.customerEmail}</li>
+                <li>🔒 Your files are print-ready at 300 DPI resolution</li>
+                <li>💾 Save the files to your computer for future access</li>
+                <li>❓ Need help? Contact us via WhatsApp or email</li>
               </ul>
             </CardContent>
           </Card>
