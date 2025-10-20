@@ -1,0 +1,3 @@
+[33m3ddbcb7[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Complete digital marketplace with 13 products, WhatsApp integration, and folder-based downloads
+[33m0af449c[m Remove video loading warning box and improve video preload
+[33mc2948ec[m Fix product image paths - remove /public prefix for correct Next.js routing
