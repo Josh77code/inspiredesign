@@ -1,0 +1,5 @@
+[33m0af449c[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m Remove video loading warning box and improve video preload
+[33mc2948ec[m Fix product image paths - remove /public prefix for correct Next.js routing
+[33m72cf984[m Implement folder-based product download system with ZIP bundles - Generate 13 new products from New Digital Product folder - Add download API endpoint for full folder downloads - Create ProductFilesIncluded component to display all files - Add DownloadProductButton for post-purchase downloads - Update product cards to show file counts - Integrate download functionality in payment success page - Support PDFs, images, mockups, and videos in bundles
+[33m7f14640[m Add constructive WhatsApp message templates with product details and contact information
+[33m2228a8f[m Update WhatsApp contact number to +353899464758 across product and contact pages
