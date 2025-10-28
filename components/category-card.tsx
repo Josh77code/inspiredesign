@@ -143,7 +143,7 @@ export function CategoryCard({
         )}
       </div>
       
-      <CardContent className="p-4">
+      <CardContent className="p-4 space-y-3">
         <div className="text-center">
           <h3 className="font-semibold text-lg mb-1">{category.name}</h3>
           {category.productCount && (
@@ -153,13 +153,51 @@ export function CategoryCard({
           )}
         </div>
         
-        <Button 
-          className="w-full mt-3" 
-          variant="outline"
-          onClick={handleClick}
-        >
-          View Products
-        </Button>
+        <div className="space-y-2">
+          <Button 
+            className="w-full h-10" 
+            variant="outline"
+            onClick={handleClick}
+          >
+            View Products
+          </Button>
+          
+          {showDownload && category.id !== "all" && (
+            <Button
+              size="sm"
+              variant={hasPurchase ? "default" : "secondary"}
+              className={`w-full h-8 text-xs ${
+                !hasPurchase ? "bg-amber-100 text-amber-800 hover:bg-amber-200 dark:bg-amber-900/20 dark:text-amber-400" : ""
+              }`}
+              onClick={(e) => {
+                e.stopPropagation()
+                handleCategoryDownload(category.id, category.name)
+              }}
+              disabled={downloading}
+              title={hasPurchase 
+                ? "Download all products in this category" 
+                : "Purchase required to download products"
+              }
+            >
+              {downloading ? (
+                <>
+                  <Package className="h-3 w-3 mr-1 animate-spin" />
+                  Downloading...
+                </>
+              ) : hasPurchase ? (
+                <>
+                  <Download className="h-3 w-3 mr-1" />
+                  Download All
+                </>
+              ) : (
+                <>
+                  <Lock className="h-3 w-3 mr-1" />
+                  Purchase Required
+                </>
+              )}
+            </Button>
+          )}
+        </div>
       </CardContent>
     </Card>
   )

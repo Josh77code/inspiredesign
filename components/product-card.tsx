@@ -220,46 +220,48 @@ Looking forward to hearing from you!`
         </div>
       </CardContent>
 
-      <CardFooter className="p-4 pt-0 flex items-center justify-between">
-        <div className="text-2xl font-bold text-primary">
+      <CardFooter className="p-4 pt-0 space-y-3">
+        <div className="text-2xl font-bold text-primary text-center">
           {product.pricing && Object.keys(product.pricing).length > 1 
             ? `€${Math.min(...Object.values(product.pricing))} - €${Math.max(...Object.values(product.pricing))}`
             : `€${product.price}`
           }
         </div>
 
-        <div className="flex gap-2">
-          <Link href={`/products/${product.id}`} className="flex-1">
+        <div className="grid grid-cols-1 gap-2">
+          <Link href={`/products/${product.id}`} className="w-full">
             <Button
               size="sm"
               variant="outline"
-              className="w-full bg-card text-card-foreground border-border hover:bg-blue-500 hover:text-white hover:border-blue-500"
+              className="w-full bg-card text-card-foreground border-border hover:bg-blue-500 hover:text-white hover:border-blue-500 h-10"
             >
-              <Eye className="h-4 w-4 mr-1" />
+              <Eye className="h-4 w-4 mr-2" />
               View Details
             </Button>
           </Link>
 
-          <Button
-            size="sm"
-            onClick={handleMessageArtist}
-            className="bg-green-500 text-white hover:bg-green-600 border-0"
-            title="Order via WhatsApp"
-          >
-            <MessageCircle className="h-4 w-4 mr-1" />
-            Order
-          </Button>
+          <div className="grid grid-cols-2 gap-2">
+            <Button
+              size="sm"
+              onClick={handleMessageArtist}
+              className="bg-green-500 text-white hover:bg-green-600 border-0 h-10"
+              title="Order via WhatsApp"
+            >
+              <MessageCircle className="h-4 w-4 mr-1" />
+              Order
+            </Button>
 
-          {isLoading ? (
-            <div className="flex items-center gap-2 px-4 py-2">
-              <TubeLoader size="sm" />
-            </div>
-          ) : (
-            <GlowButton onClick={handleAddToCart} className="text-sm px-4">
-              <ShoppingCart className="h-4 w-4 mr-1" />
-              Cart
-            </GlowButton>
-          )}
+            {isLoading ? (
+              <div className="flex items-center justify-center gap-2 px-4 py-2 bg-primary/10 rounded-md">
+                <TubeLoader size="sm" />
+              </div>
+            ) : (
+              <GlowButton onClick={handleAddToCart} className="text-sm h-10">
+                <ShoppingCart className="h-4 w-4 mr-1" />
+                Cart
+              </GlowButton>
+            )}
+          </div>
         </div>
       </CardFooter>
 
