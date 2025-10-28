@@ -9,6 +9,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DownloadProductButton } from "@/components/download-product-button"
 import { CheckCircle, Download, Mail, ArrowLeft, Package } from "lucide-react"
 import Link from "next/link"
+import { useCartStore } from "@/lib/cart-store"
+import { useOrderStore } from "@/lib/order-store"
 
 interface PaymentDetails {
   sessionId: string
@@ -26,6 +28,8 @@ export default function PaymentSuccessPage() {
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const { completeOrder, items: cartItems } = useCartStore()
+  const { addOrder } = useOrderStore()
 
   useEffect(() => {
     if (sessionId) {
@@ -50,6 +54,33 @@ export default function PaymentSuccessPage() {
 
       if (result.success) {
         setPaymentDetails(result.data)
+        
+        // Create order record
+        const order = {
+          orderId: sessionId,
+          sessionId: sessionId,
+          customerEmail: result.data.customerEmail,
+          amountTotal: result.data.amountTotal,
+          items: cartItems, // Items from cart
+          purchasedAt: new Date().toISOString(),
+          status: 'completed' as const
+        }
+        
+        // Add order to order store
+        addOrder(order)
+        
+        // Complete the order in cart store (clears cart and stores order ID)
+        completeOrder(sessionId)
+        
+        // Store payment details for future reference
+        localStorage.setItem('paymentDetails', JSON.stringify({
+          sessionId,
+          customerEmail: result.data.customerEmail,
+          amountTotal: result.data.amountTotal,
+          purchasedAt: new Date().toISOString()
+        }))
+        
+        console.log('Payment verified and order completed:', sessionId)
       } else {
         setError(result.error || 'Failed to verify payment')
       }

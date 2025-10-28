@@ -23,6 +23,7 @@ interface CartStore {
   toggleCart: () => void
   getTotalItems: () => number
   getTotalPrice: () => number
+  completeOrder: (orderId: string) => void
 }
 
 export const useCartStore = create<CartStore>()(
@@ -77,6 +78,17 @@ export const useCartStore = create<CartStore>()(
 
       getTotalPrice: () => {
         return get().items.reduce((total, item) => total + item.price * item.quantity, 0)
+      },
+
+      completeOrder: (orderId: string) => {
+        // Store order ID and clear cart after successful payment
+        localStorage.setItem('orderId', orderId)
+        localStorage.setItem('sessionId', orderId) // Use orderId as sessionId for compatibility
+        
+        // Clear the cart after successful order
+        set({ items: [], isOpen: false })
+        
+        console.log('Order completed:', orderId)
       },
     }),
     {
