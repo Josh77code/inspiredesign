@@ -10,43 +10,43 @@ const categories = [
   { 
     id: "faith-decor", 
     name: "Faith-Based Decor", 
-    image: "/New Digital Product/Adonai/Mockup 1.png",
+    image: "/optimized-products/medium/Adonai (12 × 12in) - No Broader_medium.webp",
     productCount: 4
   },
   { 
     id: "wedding-decor", 
     name: "Wedding Decor", 
-    image: "/New Digital Product/A wife of noble character/Mockup 1.jpg",
+    image: "/optimized-products/medium/A wife of noble character (4.5 ratio)_medium.webp",
     productCount: 1
   },
   { 
     id: "love-decor", 
     name: "Love Decor", 
-    image: "/New Digital Product/Jesus&Me/Jesus & Me  (12 × 12in).jpg",
+    image: "/optimized-products/medium/Jesus & Me  (12 × 12in)_medium.webp",
     productCount: 1
   },
   { 
     id: "home-decor", 
     name: "Home Décor", 
-    image: "/New Digital Product/Hope/Hope -Black Background (24 × 32in).jpg",
+    image: "/optimized-products/medium/Hope -Black Background (24 × 32in)_medium.webp",
     productCount: 1
   },
   { 
     id: "digital-prints", 
     name: "Digital Prints", 
-    image: "/New Digital Product/I am saved/I AM saved  (11 × 14in).jpg",
+    image: "/optimized-products/medium/I AM saved  (11 × 14in)_medium.webp",
     productCount: 1
   },
   { 
     id: "christian-faith", 
     name: "Christian Faith", 
-    image: "/New Digital Product/Chosen/Chosen- Black Boarder.jpg",
+    image: "/optimized-products/medium/Chosen- Black Boarder_medium.webp",
     productCount: 3
   },
   { 
     id: "inspirational", 
     name: "Inspirational", 
-    image: "/New Digital Product/Beleive in You/Mockup 1- Believe in you.png",
+    image: "/optimized-products/medium/Believe in You (16 × 20in)_medium.webp",
     productCount: 2
   },
 ]
