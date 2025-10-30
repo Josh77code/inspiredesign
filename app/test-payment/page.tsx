@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { useCartStore } from "@/lib/cart-store"
@@ -10,9 +10,26 @@ import { Download, ShoppingCart, CheckCircle } from "lucide-react"
 
 export default function TestPaymentPage() {
   const [testOrderId, setTestOrderId] = useState("")
+  const [clientReady, setClientReady] = useState(false)
+  const [orderIdDisplay, setOrderIdDisplay] = useState<string | null>(null)
+  const [debugLocalStorage, setDebugLocalStorage] = useState<{ orderId: string | null; sessionId: string | null }>({ orderId: null, sessionId: null })
   const { addItem, items, clearCart } = useCartStore()
   const { addOrder, hasValidOrder, getCurrentOrderId } = useOrderStore()
   const { hasPurchase, checkPurchaseStatus } = usePurchaseStatus()
+
+  useEffect(() => {
+    setClientReady(true)
+    // Safely read browser-only data after mount
+    try {
+      const currentIdFromStore = getCurrentOrderId()
+      const orderIdLs = typeof window !== 'undefined' ? localStorage.getItem('orderId') : null
+      const sessionIdLs = typeof window !== 'undefined' ? localStorage.getItem('sessionId') : null
+      setOrderIdDisplay(currentIdFromStore || orderIdLs)
+      setDebugLocalStorage({ orderId: orderIdLs, sessionId: sessionIdLs })
+    } catch {
+      // noop
+    }
+  }, [getCurrentOrderId])
 
   const handleAddTestItem = () => {
     addItem({
@@ -126,7 +143,7 @@ export default function TestPaymentPage() {
                 <strong>Purchase Status:</strong> {hasPurchase ? '✅ Has Purchase' : '❌ No Purchase'}
               </p>
               <p className="text-sm">
-                <strong>Order ID:</strong> {getCurrentOrderId() || 'None'}
+                <strong>Order ID:</strong> {clientReady ? (orderIdDisplay || 'None') : '…'}
               </p>
             </div>
             
@@ -180,11 +197,8 @@ export default function TestPaymentPage() {
             <pre className="text-xs bg-muted p-2 rounded overflow-auto">
               {JSON.stringify({
                 hasPurchase,
-                orderId: getCurrentOrderId(),
-                localStorage: {
-                  orderId: localStorage.getItem('orderId'),
-                  sessionId: localStorage.getItem('sessionId')
-                },
+                orderId: clientReady ? orderIdDisplay : null,
+                localStorage: clientReady ? debugLocalStorage : { orderId: null, sessionId: null },
                 cartItems: items.length
               }, null, 2)}
             </pre>
