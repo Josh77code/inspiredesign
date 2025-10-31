@@ -13,6 +13,7 @@ import { Footer } from '@/components/footer'
 import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft, MessageCircle } from 'lucide-react'
 import Link from 'next/link'
 import { productsDB } from '@/lib/database'
+import { ProductActions } from '@/components/product-actions'
 
 interface ProductPageProps {
   params: {
@@ -21,30 +22,45 @@ interface ProductPageProps {
 }
 
 export default async function ProductPage({ params }: ProductPageProps) {
-  const productId = parseInt(params.id)
-  
-  if (isNaN(productId)) {
-    notFound()
-  }
-
-  const product = productsDB.getById(productId)
-  
-  if (!product) {
-    notFound()
-  }
-
-  // Calculate price range if multiple pricing options exist
-  const getPriceRange = () => {
-    if (product.pricing) {
-      const prices = Object.values(product.pricing)
-      const minPrice = Math.min(...prices)
-      const maxPrice = Math.max(...prices)
-      return minPrice === maxPrice ? `€${minPrice.toFixed(2)}` : `€${minPrice.toFixed(2)} - €${maxPrice.toFixed(2)}`
+  try {
+    const productId = parseInt(params.id)
+    
+    if (isNaN(productId)) {
+      notFound()
     }
-    return `€${product.price.toFixed(2)}`
-  }
 
-  return (
+    const product = productsDB.getById(productId)
+    
+    if (!product) {
+      notFound()
+    }
+
+    // Ensure product has required fields with defaults
+    const safeProduct = {
+      ...product,
+      images: product.images || [],
+      allFiles: product.allFiles || [],
+      pdfs: product.pdfs || [],
+      mockups: product.mockups || [],
+      videos: product.videos || [],
+      sizes: product.sizes || [],
+      price: product.price || 0,
+      rating: product.rating || 0,
+      downloads: product.downloads || 0,
+    }
+
+    // Calculate price range if multiple pricing options exist
+    const getPriceRange = () => {
+      if (safeProduct.pricing) {
+        const prices = Object.values(safeProduct.pricing)
+        const minPrice = Math.min(...prices)
+        const maxPrice = Math.max(...prices)
+        return minPrice === maxPrice ? `€${minPrice.toFixed(2)}` : `€${minPrice.toFixed(2)} - €${maxPrice.toFixed(2)}`
+      }
+      return `€${(safeProduct.price || 0).toFixed(2)}`
+    }
+
+    return (
     <div className="min-h-screen bg-background">
       <Header />
       
@@ -55,23 +71,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
           <span>/</span>
           <Link href="/products" className="hover:text-foreground">Products</Link>
           <span>/</span>
-          <span className="text-foreground">{product.title}</span>
+          <span className="text-foreground">{safeProduct.title}</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Product Image Carousel */}
           <div className="space-y-4">
-            {product.images && product.images.length > 0 ? (
+            {safeProduct.images && safeProduct.images.length > 0 ? (
               <ProductImageCarousel
-                images={product.images}
-                productTitle={product.title}
-                fallbackImage={product.image}
+                images={safeProduct.images}
+                productTitle={safeProduct.title}
+                fallbackImage={safeProduct.image}
               />
             ) : (
               <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
                 <Image
-                  src={product.image}
-                  alt={product.title}
+                  src={safeProduct.image || '/placeholder.svg'}
+                  alt={safeProduct.title}
                   fill
                   className="object-cover"
                   priority
@@ -84,11 +100,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-2xl">{product.title}</CardTitle>
-                    <p className="text-muted-foreground">by {product.artist}</p>
+                    <CardTitle className="text-2xl">{safeProduct.title}</CardTitle>
+                    <p className="text-muted-foreground">by {safeProduct.artist || 'Unknown Artist'}</p>
                   </div>
                   <Badge variant="secondary" className="text-sm">
-                    {product.category.replace('-', ' ').toUpperCase()}
+                    {(safeProduct.category || '').replace('-', ' ').toUpperCase()}
                   </Badge>
                 </div>
               </CardHeader>
@@ -96,11 +112,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className="flex items-center gap-4">
                   <div className="flex items-center gap-1">
                     <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm font-medium">{product.rating}</span>
+                    <span className="text-sm font-medium">{safeProduct.rating}</span>
                   </div>
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Download className="h-4 w-4" />
-                    <span>{product.downloads} downloads</span>
+                    <span>{safeProduct.downloads} downloads</span>
                   </div>
                 </div>
                 
@@ -110,8 +126,8 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   <div>
                     <div className="text-3xl font-bold">{getPriceRange()}</div>
                     <div className="text-sm text-muted-foreground">
-                      {product.sizes && product.sizes.length > 0 
-                        ? `Available in ${product.sizes.length} sizes`
+                      {safeProduct.sizes && safeProduct.sizes.length > 0 
+                        ? `Available in ${safeProduct.sizes.length} sizes`
                         : 'Multiple formats available'
                       }
                     </div>
@@ -128,44 +144,10 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   </div>
                 </div>
                 
-                <div className="flex flex-col gap-3">
-                  <Button 
-                    className="w-full bg-green-500 hover:bg-green-600 text-white" 
-                    size="lg"
-                    onClick={() => {
-                      const message = `Hello Inspire Design! 👋
-
-I'm interested in ordering:
-📦 *${product.title}*
-💰 Price: ${getPriceRange()}
-🎨 By: ${product.artist}
-⭐ Rating: ${product.rating}/5
-
-Available sizes: ${product.sizes ? product.sizes.join(', ') : 'Multiple options'}
-
-Please provide more details about:
-• Available formats and sizes
-• Delivery/download options
-• Any current discounts
-
-Thank you!`
-                      window.open(`https://wa.me/353899464758?text=${encodeURIComponent(message)}`, '_blank')
-                    }}
-                  >
-                    <MessageCircle className="h-4 w-4 mr-2" />
-                    Order via WhatsApp
-                  </Button>
-                  <div className="flex gap-3">
-                    <Button className="flex-1" size="lg">
-                      <ShoppingCart className="h-4 w-4 mr-2" />
-                      Add to Cart
-                    </Button>
-                    <Button variant="outline" size="lg">
-                      <Download className="h-4 w-4 mr-2" />
-                      Buy Now
-                    </Button>
-                  </div>
-                </div>
+                <ProductActions 
+                  product={safeProduct}
+                  priceRange={getPriceRange()}
+                />
               </CardContent>
             </Card>
           </div>
@@ -179,33 +161,33 @@ Thank you!`
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground leading-relaxed">
-                  {product.description || `Discover this beautiful ${product.category.replace('-', ' ')} design by ${product.artist}. Perfect for your home, office, or as a gift. This high-quality digital print is ready for instant download and printing.`}
+                  {safeProduct.description || `Discover this beautiful ${(safeProduct.category || '').replace('-', ' ')} design by ${safeProduct.artist || 'our artist'}. Perfect for your home, office, or as a gift. This high-quality digital print is ready for instant download and printing.`}
                 </p>
               </CardContent>
             </Card>
 
             {/* Files Included */}
-            {product.allFiles && product.allFiles.length > 0 && (
+            {safeProduct.allFiles && safeProduct.allFiles.length > 0 && (
               <ProductFilesIncluded 
-                allFiles={product.allFiles}
-                pdfs={product.pdfs}
-                images={product.images}
-                videos={product.videos}
-                mockups={product.mockups}
-                totalFiles={product.totalFiles}
-                totalSize={product.totalSize}
+                allFiles={safeProduct.allFiles}
+                pdfs={safeProduct.pdfs}
+                images={safeProduct.images}
+                videos={safeProduct.videos}
+                mockups={safeProduct.mockups}
+                totalFiles={safeProduct.totalFiles}
+                totalSize={safeProduct.totalSize}
               />
             )}
 
             {/* Available Sizes */}
-            {product.sizes && product.sizes.length > 0 && (
+            {safeProduct.sizes && safeProduct.sizes.length > 0 && (
               <Card>
                 <CardHeader>
                   <CardTitle>Available Sizes</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-2">
-                    {product.sizes.map((size, index) => (
+                    {safeProduct.sizes.map((size, index) => (
                       <Badge key={index} variant="outline" className="justify-center py-2">
                         {size}
                       </Badge>
@@ -216,13 +198,13 @@ Thank you!`
             )}
 
             {/* PDF Downloads */}
-            {product.pdfs && product.pdfs.length > 0 && (
-              <SimplePDFViewer pdfs={product.pdfs} productName={product.title} />
+            {safeProduct.pdfs && safeProduct.pdfs.length > 0 && (
+              <SimplePDFViewer pdfs={safeProduct.pdfs} productName={safeProduct.title} />
             )}
 
             {/* Mockup Gallery */}
-            {product.mockups && product.mockups.length > 0 && (
-              <MockupGallery mockups={product.mockups} productName={product.title} />
+            {safeProduct.mockups && safeProduct.mockups.length > 0 && (
+              <MockupGallery mockups={safeProduct.mockups} productName={safeProduct.title} />
             )}
           </div>
         </div>
@@ -240,5 +222,9 @@ Thank you!`
       
       <Footer />
     </div>
-  )
+    )
+  } catch (error) {
+    console.error('Error loading product:', error)
+    notFound()
+  }
 }

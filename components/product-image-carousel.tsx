@@ -33,7 +33,10 @@ export function ProductImageCarousel({
 
   // Combine all images - include fallback as first if no images exist
   const allImages = images && images.length > 0 
-    ? images 
+    ? images.map(img => ({
+        name: img.name || productTitle,
+        path: img.path || img
+      }))
     : fallbackImage 
       ? [{ name: productTitle, path: fallbackImage }]
       : []
@@ -49,7 +52,17 @@ export function ProductImageCarousel({
   }, [api])
 
   if (allImages.length === 0) {
-    return null
+    return fallbackImage ? (
+      <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
+        <Image
+          src={fallbackImage}
+          alt={productTitle}
+          fill
+          className="object-cover"
+          priority
+        />
+      </div>
+    ) : null
   }
 
   return (
@@ -58,20 +71,31 @@ export function ProductImageCarousel({
       <div className="relative">
         <Carousel setApi={setApi} className="w-full">
           <CarouselContent>
-            {allImages.map((image, index) => (
-              <CarouselItem key={index}>
-                <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
-                  <Image
-                    src={image.path.startsWith('/') ? image.path : `/${image.path}`}
-                    alt={`${productTitle} - Image ${index + 1}`}
-                    fill
-                    className="object-cover"
-                    priority={index === 0}
-                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
-                  />
-                </div>
-              </CarouselItem>
-            ))}
+            {allImages.map((image, index) => {
+              const imagePath = typeof image === 'string' 
+                ? (image.startsWith('/') ? image : `/${image}`)
+                : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
+              
+              return (
+                <CarouselItem key={index}>
+                  <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
+                    <Image
+                      src={imagePath}
+                      alt={`${productTitle} - Image ${index + 1}`}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                      onError={(e) => {
+                        console.error('Image failed to load:', imagePath)
+                        // Fallback to placeholder or hide on error
+                        e.currentTarget.style.display = 'none'
+                      }}
+                    />
+                  </div>
+                </CarouselItem>
+              )
+            })}
           </CarouselContent>
           {allImages.length > 1 && (
             <>
@@ -104,11 +128,18 @@ export function ProductImageCarousel({
               aria-label={`View image ${index + 1}`}
             >
               <Image
-                src={image.path.startsWith('/') ? image.path : `/${image.path}`}
+                src={typeof image === 'string' 
+                  ? (image.startsWith('/') ? image : `/${image}`)
+                  : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
+                }
                 alt={`${productTitle} thumbnail ${index + 1}`}
                 fill
                 className="object-cover"
                 sizes="80px"
+                onError={(e) => {
+                  console.error('Thumbnail failed to load:', image)
+                  e.currentTarget.style.display = 'none'
+                }}
               />
             </button>
           ))}
