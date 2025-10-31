@@ -7,7 +7,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { DownloadProductButton } from "@/components/download-product-button"
-import { CheckCircle, Download, Mail, ArrowLeft, Package } from "lucide-react"
+import { CheckCircle, Download, Mail, ArrowLeft, Package, Heart, Sparkles, MessageCircle } from "lucide-react"
 import Link from "next/link"
 import { useCartStore } from "@/lib/cart-store"
 import { useOrderStore } from "@/lib/order-store"
@@ -101,6 +101,52 @@ export default function PaymentSuccessPage() {
     return null
   }
 
+  // Get category ID from product category name
+  const getCategoryIdFromCategory = (category: string) => {
+    const categoryMap: Record<string, string> = {
+      'Names of God': 'faith-decor',
+      'Faith-Based Art': 'faith-decor',
+      'Identity in Christ': 'faith-decor',
+      'Prophetic Art': 'faith-decor',
+      'Scripture Art': 'wedding-decor',
+      'Faith & Hope': 'home-decor',
+      'Affirmations': 'digital-prints',
+      'Healing & Deliverance': 'christian-faith'
+    }
+    return categoryMap[category] || null
+  }
+
+  // Get category name for display
+  const getCategoryDisplayName = (categoryId: string) => {
+    const nameMap: Record<string, string> = {
+      'faith-decor': 'Faith Decor',
+      'wedding-decor': 'Wedding Decor',
+      'love-decor': 'Love Decor',
+      'home-decor': 'Home Decor',
+      'digital-prints': 'Digital Prints',
+      'christian-faith': 'Christian Faith',
+      'inspirational': 'Inspirational'
+    }
+    return nameMap[categoryId] || categoryId
+  }
+
+  // Extract unique categories from purchased items
+  const getPurchasedCategories = () => {
+    if (!paymentDetails || !cartItems.length) return []
+    
+    const categories = new Set<string>()
+    cartItems.forEach(item => {
+      if (item.category) {
+        const categoryId = getCategoryIdFromCategory(item.category)
+        if (categoryId) {
+          categories.add(categoryId)
+        }
+      }
+    })
+    
+    return Array.from(categories)
+  }
+
   const handleEmailReceipt = () => {
     // In a real app, this would send an email receipt
     alert('Receipt email would be sent here!')
@@ -149,20 +195,71 @@ export default function PaymentSuccessPage() {
       <Header />
       <main className="container mx-auto px-4 py-16">
         <div className="max-w-2xl mx-auto space-y-8">
-          {/* Success Header */}
-          <div className="text-center">
-            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
-              <CheckCircle className="w-12 h-12 text-green-600" />
+          {/* Thank You Header - Enhanced with Animation */}
+          <div className="text-center relative overflow-hidden">
+            {/* Animated Background Elements */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              <div className="w-64 h-64 bg-primary/5 rounded-full blur-3xl animate-pulse"></div>
             </div>
-            <h1 className="text-4xl font-bold text-foreground mb-4">
-              Payment Successful!
-            </h1>
-            <p className="text-xl text-muted-foreground mb-2">
-              Thank you for your purchase
-            </p>
-            <p className="text-sm text-muted-foreground">
-              Order ID: {paymentDetails?.sessionId}
-            </p>
+            
+            {/* Main Thank You Content */}
+            <div className="relative z-10">
+              {/* Animated Check Icon */}
+              <div className="w-24 h-24 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg animate-bounce">
+                <CheckCircle className="w-14 h-14 text-white" strokeWidth={3} />
+              </div>
+              
+              {/* Thank You Message */}
+              <div className="space-y-4 mb-6">
+                <h1 className="text-5xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary via-purple-500 to-primary animate-pulse">
+                  Thank You! 🎉
+                </h1>
+                <div className="flex items-center justify-center gap-2 text-2xl font-semibold text-foreground">
+                  <Heart className="w-7 h-7 text-red-500 animate-pulse" fill="currentColor" />
+                  <span>We Appreciate Your Purchase</span>
+                  <Heart className="w-7 h-7 text-red-500 animate-pulse" fill="currentColor" />
+                </div>
+                <p className="text-xl text-muted-foreground max-w-md mx-auto">
+                  Your support means the world to us! We hope you love your digital products.
+                </p>
+              </div>
+              
+              {/* Order Details */}
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
+                <Package className="w-4 h-4 text-primary" />
+                <p className="text-sm font-medium text-foreground">
+                  Order ID: <span className="font-mono text-primary">{paymentDetails?.sessionId}</span>
+                </p>
+              </div>
+              
+              {/* Decorative Sparkles */}
+              <div className="flex items-center justify-center gap-1 mt-6 opacity-60">
+                <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse" />
+                <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse delay-75" />
+                <Sparkles className="w-5 h-5 text-yellow-400 animate-pulse delay-150" />
+              </div>
+              
+              {/* Contact Button */}
+              <div className="mt-8">
+                <Button
+                  onClick={() => {
+                    const message = `Hello Inspire Design! 👋
+
+I just made a purchase and I have a question about my order.
+
+Order ID: ${paymentDetails?.sessionId || 'N/A'}
+
+Thank you!`
+                    window.open(`https://wa.me/353899464758?text=${encodeURIComponent(message)}`, '_blank')
+                  }}
+                  size="lg"
+                  className="bg-green-500 hover:bg-green-600 text-white shadow-lg"
+                >
+                  <MessageCircle className="w-5 h-5 mr-2" />
+                  Contact Us via WhatsApp
+                </Button>
+              </div>
+            </div>
           </div>
 
           {/* Payment Details */}
@@ -258,13 +355,43 @@ export default function PaymentSuccessPage() {
             <CardContent className="p-6">
               <h3 className="font-semibold text-card-foreground mb-2">📥 Download Instructions</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>✅ Your digital files are ready for instant download</li>
-                <li>📦 Click "Download All Files" to get everything as a ZIP package</li>
-                <li>📧 A confirmation email with download links has been sent to {paymentDetails?.customerEmail}</li>
-                <li>🔒 Your files are print-ready at 300 DPI resolution</li>
-                <li>💾 Save the files to your computer for future access</li>
-                <li>❓ Need help? Contact us via WhatsApp or email</li>
+                <li className="flex items-center gap-2">
+                  <span className="text-green-500">✅</span>
+                  <span>Your digital files are ready for instant download</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-blue-500">📦</span>
+                  <span>Click "Download All Product Files" for each product to get individual ZIP packages</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-purple-500">📁</span>
+                  <span>Each product includes ALL files from that product's folder - PDFs, images, mockups, and more!</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-orange-500">📧</span>
+                  <span>A confirmation email with download links has been sent to <strong>{paymentDetails?.customerEmail}</strong></span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-red-500">🔒</span>
+                  <span>Your files are print-ready at 300 DPI resolution</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-cyan-500">💾</span>
+                  <span>Save the files to your computer for future access</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span className="text-yellow-500">❓</span>
+                  <span>Need help? Contact us via WhatsApp or email</span>
+                </li>
               </ul>
+              
+              {/* Additional Thank You Note */}
+              <div className="mt-6 p-4 bg-gradient-to-r from-primary/10 to-purple-500/10 rounded-lg border border-primary/20">
+                <p className="text-sm text-center text-foreground">
+                  <Heart className="inline w-4 h-4 text-red-500 mr-1" fill="currentColor" />
+                  <strong>Thank you again for choosing Inspire Design!</strong> We're thrilled to have you as a customer and hope you enjoy your digital products.
+                </p>
+              </div>
             </CardContent>
           </Card>
         </div>
