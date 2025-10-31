@@ -7,6 +7,7 @@ import { Separator } from '@/components/ui/separator'
 import { SimplePDFViewer } from '@/components/simple-pdf-viewer'
 import { MockupGallery } from '@/components/mockup-gallery'
 import { ProductFilesIncluded } from '@/components/product-files-included'
+import { ProductImageCarousel } from '@/components/product-image-carousel'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft, MessageCircle } from 'lucide-react'
@@ -58,17 +59,25 @@ export default async function ProductPage({ params }: ProductPageProps) {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Product Image */}
+          {/* Product Image Carousel */}
           <div className="space-y-4">
-            <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
-              <Image
-                src={product.image}
-                alt={product.title}
-                fill
-                className="object-cover"
-                priority
+            {product.images && product.images.length > 0 ? (
+              <ProductImageCarousel
+                images={product.images}
+                productTitle={product.title}
+                fallbackImage={product.image}
               />
-            </div>
+            ) : (
+              <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
+                <Image
+                  src={product.image}
+                  alt={product.title}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            )}
             
             {/* Product Info */}
             <Card>
