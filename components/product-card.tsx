@@ -128,13 +128,25 @@ Looking forward to hearing from you!`
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative">
+      <div className="relative aspect-square overflow-hidden bg-muted">
         <Image
-          src={product.image || "/placeholder.svg"}
-          alt={product.title}
-          width={300}
-          height={300}
-          className="w-full h-48 object-cover"
+          src={
+            product.image 
+              ? (product.image.startsWith('/') ? product.image : `/${product.image}`)
+              : "/placeholder.svg"
+          }
+          alt={product.title || "Product image"}
+          width={400}
+          height={400}
+          className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          onError={(e) => {
+            console.error('Image failed to load:', product.image)
+            // Fallback to placeholder if image fails
+            e.currentTarget.src = "/placeholder.svg"
+          }}
+          priority={false}
+          loading="lazy"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
         />
 
         {/* Overlay with actions */}

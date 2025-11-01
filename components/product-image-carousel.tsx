@@ -76,6 +76,11 @@ export function ProductImageCarousel({
                 ? (image.startsWith('/') ? image : `/${image}`)
                 : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
               
+              // Skip if path is invalid
+              if (!imagePath || imagePath === '/' || imagePath === '/undefined') {
+                return null
+              }
+              
               return (
                 <CarouselItem key={index}>
                   <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
@@ -88,8 +93,8 @@ export function ProductImageCarousel({
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                       onError={(e) => {
                         console.error('Image failed to load:', imagePath)
-                        // Fallback to placeholder or hide on error
-                        e.currentTarget.style.display = 'none'
+                        // Fallback to placeholder
+                        e.currentTarget.src = '/placeholder.svg'
                       }}
                     />
                   </div>
@@ -128,17 +133,19 @@ export function ProductImageCarousel({
               aria-label={`View image ${index + 1}`}
             >
               <Image
-                src={typeof image === 'string' 
-                  ? (image.startsWith('/') ? image : `/${image}`)
-                  : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
-                }
+                src={(() => {
+                  const path = typeof image === 'string' 
+                    ? (image.startsWith('/') ? image : `/${image}`)
+                    : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
+                  return path && path !== '/' && path !== '/undefined' ? path : '/placeholder.svg'
+                })()}
                 alt={`${productTitle} thumbnail ${index + 1}`}
                 fill
                 className="object-cover"
                 sizes="80px"
                 onError={(e) => {
                   console.error('Thumbnail failed to load:', image)
-                  e.currentTarget.style.display = 'none'
+                  e.currentTarget.src = '/placeholder.svg'
                 }}
               />
             </button>
