@@ -12,15 +12,11 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-// Helper function to encode image paths with spaces and special characters
-const encodeImagePath = (path: string): string => {
+// Helper function to get image path - Next.js handles paths with spaces when unoptimized
+const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
-  if (path.startsWith('/')) {
-    // Split path and encode each segment separately to preserve slashes
-    const parts = path.split('/').filter(Boolean)
-    return '/' + parts.map(part => encodeURIComponent(part)).join('/')
-  }
-  return '/' + encodeURIComponent(path)
+  // Ensure path starts with /
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 interface ProductImage {
@@ -92,27 +88,24 @@ export function ProductImageCarousel({
                 return null
               }
               
-              const imagePath = encodeImagePath(rawPath)
+              const imagePath = getImagePath(rawPath)
               
               return (
                 <CarouselItem key={index}>
                   <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
-                    <Image
+                    <img
                       src={imagePath}
                       alt={`${productTitle} - Image ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      priority={index === 0}
-                      unoptimized={true}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
+                      className="w-full h-full object-cover"
                       onError={(e) => {
-                        console.error('Image failed to load:', rawPath, 'Encoded:', imagePath)
+                        console.error('Image failed to load:', rawPath, 'Path:', imagePath)
                         // Fallback to placeholder
                         const target = e.target as HTMLImageElement
-                        if (target) {
+                        if (target && target.src !== '/placeholder.svg') {
                           target.src = '/placeholder.svg'
                         }
                       }}
+                      loading={index === 0 ? "eager" : "lazy"}
                     />
                   </div>
                 </CarouselItem>
@@ -149,7 +142,7 @@ export function ProductImageCarousel({
               }`}
               aria-label={`View image ${index + 1}`}
             >
-              <Image
+              <img
                 src={(() => {
                   const rawPath = typeof image === 'string' 
                     ? (image.startsWith('/') ? image : `/${image}`)
@@ -157,20 +150,18 @@ export function ProductImageCarousel({
                   if (!rawPath || rawPath === '/' || rawPath === '/undefined') {
                     return '/placeholder.svg'
                   }
-                  return encodeImagePath(rawPath)
+                  return getImagePath(rawPath)
                 })()}
                 alt={`${productTitle} thumbnail ${index + 1}`}
-                fill
-                className="object-cover"
-                sizes="80px"
-                unoptimized={true}
+                className="w-full h-full object-cover"
                 onError={(e) => {
                   console.error('Thumbnail failed to load:', image)
                   const target = e.target as HTMLImageElement
-                  if (target) {
+                  if (target && target.src !== '/placeholder.svg') {
                     target.src = '/placeholder.svg'
                   }
                 }}
+                loading="lazy"
               />
             </button>
           ))}

@@ -12,15 +12,11 @@ import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
 
-// Helper function to encode image paths with spaces and special characters
-const encodeImagePath = (path: string): string => {
+// Helper function to get image path - Next.js handles paths with spaces when unoptimized
+const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
-  if (path.startsWith('/')) {
-    // Split path and encode each segment separately to preserve slashes
-    const parts = path.split('/').filter(Boolean)
-    return '/' + parts.map(part => encodeURIComponent(part)).join('/')
-  }
-  return '/' + encodeURIComponent(path)
+  // Ensure path starts with /
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 interface Product {
@@ -140,24 +136,19 @@ Looking forward to hearing from you!`
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
-        <Image
-          src={encodeImagePath(product.image || "/placeholder.svg")}
+        <img
+          src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
-          width={400}
-          height={400}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
-            console.error('Image failed to load:', product.image, 'Encoded:', encodeImagePath(product.image || ""))
+            console.error('Image failed to load:', product.image, 'Path:', getImagePath(product.image || ""))
             // Fallback to placeholder if image fails
             const target = e.target as HTMLImageElement
-            if (target) {
+            if (target && target.src !== "/placeholder.svg") {
               target.src = "/placeholder.svg"
             }
           }}
-          priority={false}
           loading="lazy"
-          unoptimized={true}
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
         />
 
         {/* Overlay with actions */}
