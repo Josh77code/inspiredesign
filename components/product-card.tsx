@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { Download, ShoppingCart, MessageCircle, Star, Heart, Lock, Eye } from "lucide-react"
 import { Button } from "@/components/ui/button"
