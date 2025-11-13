@@ -12,6 +12,17 @@ import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
 
+// Helper function to encode image paths with spaces and special characters
+const encodeImagePath = (path: string): string => {
+  if (!path) return "/placeholder.svg"
+  if (path.startsWith('/')) {
+    // Split path and encode each segment separately to preserve slashes
+    const parts = path.split('/').filter(Boolean)
+    return '/' + parts.map(part => encodeURIComponent(part)).join('/')
+  }
+  return '/' + encodeURIComponent(path)
+}
+
 interface Product {
   id: number
   title: string
@@ -130,17 +141,13 @@ Looking forward to hearing from you!`
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <Image
-          src={
-            product.image 
-              ? (product.image.startsWith('/') ? product.image : `/${product.image}`)
-              : "/placeholder.svg"
-          }
+          src={encodeImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
           width={400}
           height={400}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
-            console.error('Image failed to load:', product.image)
+            console.error('Image failed to load:', product.image, 'Encoded:', encodeImagePath(product.image || ""))
             // Fallback to placeholder if image fails
             const target = e.target as HTMLImageElement
             if (target) {
