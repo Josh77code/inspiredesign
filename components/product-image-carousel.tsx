@@ -12,11 +12,25 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-// Helper function to get image path - Next.js handles paths with spaces when unoptimized
+// Helper function to encode image paths properly for browser
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
+  
   // Ensure path starts with /
-  return path.startsWith('/') ? path : `/${path}`
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  
+  // For paths with spaces, we need to encode them properly
+  // Split by / and encode each segment, then rejoin
+  const parts = normalizedPath.split('/').filter(Boolean)
+  const encodedParts = parts.map(part => {
+    // Only encode if it contains spaces or special characters
+    if (part.includes(' ') || part.includes('&') || part.includes('×')) {
+      return encodeURIComponent(part)
+    }
+    return part
+  })
+  
+  return '/' + encodedParts.join('/')
 }
 
 interface ProductImage {
