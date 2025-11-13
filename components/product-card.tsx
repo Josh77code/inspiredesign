@@ -142,10 +142,14 @@ Looking forward to hearing from you!`
           onError={(e) => {
             console.error('Image failed to load:', product.image)
             // Fallback to placeholder if image fails
-            e.currentTarget.src = "/placeholder.svg"
+            const target = e.target as HTMLImageElement
+            if (target) {
+              target.src = "/placeholder.svg"
+            }
           }}
           priority={false}
           loading="lazy"
+          unoptimized={true}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1280px) 33vw, 25vw"
         />
 

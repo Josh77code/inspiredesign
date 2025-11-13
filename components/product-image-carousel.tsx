@@ -90,11 +90,15 @@ export function ProductImageCarousel({
                       fill
                       className="object-cover"
                       priority={index === 0}
+                      unoptimized={true}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                       onError={(e) => {
                         console.error('Image failed to load:', imagePath)
                         // Fallback to placeholder
-                        e.currentTarget.src = '/placeholder.svg'
+                        const target = e.target as HTMLImageElement
+                        if (target) {
+                          target.src = '/placeholder.svg'
+                        }
                       }}
                     />
                   </div>
@@ -143,9 +147,13 @@ export function ProductImageCarousel({
                 fill
                 className="object-cover"
                 sizes="80px"
+                unoptimized={true}
                 onError={(e) => {
                   console.error('Thumbnail failed to load:', image)
-                  e.currentTarget.src = '/placeholder.svg'
+                  const target = e.target as HTMLImageElement
+                  if (target) {
+                    target.src = '/placeholder.svg'
+                  }
                 }}
               />
             </button>
