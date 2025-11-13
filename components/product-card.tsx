@@ -154,12 +154,23 @@ Looking forward to hearing from you!`
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
-            console.error('Image failed to load:', product.image, 'Path:', getImagePath(product.image || ""))
-            // Fallback to placeholder if image fails
             const target = e.target as HTMLImageElement
+            const originalPath = product.image || ""
+            const encodedPath = getImagePath(originalPath)
+            console.error('Image failed to load:', {
+              productId: product.id,
+              productTitle: product.title,
+              originalPath: originalPath,
+              encodedPath: encodedPath,
+              attemptedSrc: target?.src
+            })
+            // Fallback to placeholder if image fails
             if (target && target.src !== "/placeholder.svg") {
               target.src = "/placeholder.svg"
             }
+          }}
+          onLoad={() => {
+            console.log('Image loaded successfully:', product.title, getImagePath(product.image || ""))
           }}
           loading="lazy"
         />
