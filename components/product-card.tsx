@@ -150,13 +150,29 @@ Looking forward to hearing from you!`
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img
-          src={getImagePath(product.image || "/placeholder.svg")}
+          src={(() => {
+            const path = product.image || "/placeholder.svg"
+            // Try encoded path first for paths with spaces/special chars
+            if (path.includes(' ') || path.includes('&') || path.includes('×')) {
+              return getImagePath(path)
+            }
+            // Use original path for simple paths
+            return path.startsWith('/') ? path : `/${path}`
+          })()}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             const originalPath = product.image || ""
             const encodedPath = getImagePath(originalPath)
+            
+            // Try original path if encoded failed
+            if (target && target.src === encodedPath && originalPath !== encodedPath) {
+              console.log('Trying original path after encoded failed:', originalPath)
+              target.src = originalPath.startsWith('/') ? originalPath : `/${originalPath}`
+              return
+            }
+            
             console.error('Image failed to load:', {
               productId: product.id,
               productTitle: product.title,
@@ -164,13 +180,14 @@ Looking forward to hearing from you!`
               encodedPath: encodedPath,
               attemptedSrc: target?.src
             })
-            // Fallback to placeholder if image fails
+            
+            // Final fallback to placeholder
             if (target && target.src !== "/placeholder.svg") {
               target.src = "/placeholder.svg"
             }
           }}
           onLoad={() => {
-            console.log('Image loaded successfully:', product.title, getImagePath(product.image || ""))
+            console.log('Image loaded successfully:', product.title)
           }}
           loading="lazy"
         />
