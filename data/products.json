@@ -225,7 +225,7 @@
     "title": "Be the one that come back",
     "price": 5.99,
     "category": "Faith-Based Art",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Be the one that come back/Be that one that came back (8x10).jpg",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -330,7 +330,7 @@
     "title": "Beleive in You",
     "price": 5.99,
     "category": "Faith-Based Art",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Beleive in You/Believe in You (16 × 20in).jpg",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -641,7 +641,7 @@
     "title": "Daughters of Zion",
     "price": 5.99,
     "category": "Prophetic Art",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Daughters of Zion/16x20.jpg",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -746,7 +746,7 @@
     "title": "Healed Delevered Restored",
     "price": 5.99,
     "category": "Healing & Deliverance",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Healed Delevered Restored/Healed.Delivered.Restored - 1.png",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -964,7 +964,7 @@
     "title": "I am enough",
     "price": 5.99,
     "category": "Affirmations",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/I am enough/I am enough.png",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -995,10 +995,16 @@
         "size": "0.20 MB"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "name": "I am enough.png",
+        "path": "/New Digital Product/I am enough/I am enough.png",
+        "size": "0.00 MB"
+      }
+    ],
     "mockups": [],
     "videos": [],
-    "totalFiles": 2,
+    "totalFiles": 3,
     "totalSize": "0.40 MB",
     "pricing": {
       "Basic (Digital Files)": 5.99,
@@ -1006,7 +1012,7 @@
     },
     "features": [
       "2 Print-Ready PDF Files",
-      "0 High-Resolution Images (300 DPI)",
+      "1 High-Resolution Images (300 DPI)",
       "0 Professional Mockups",
       "Instant Digital Download",
       "Multiple Size Options",
@@ -1118,7 +1124,7 @@
     "title": "Jesus&Me",
     "price": 5.99,
     "category": "Names of God",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Jesus&Me/Jesus & Me  (12 × 12in).jpg",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -1221,7 +1227,7 @@
     "title": "Wonderfully made",
     "price": 5.99,
     "category": "Affirmations",
-    "image": "/optimized-products/medium/11×14_medium.webp",
+    "image": "/New Digital Product/Wonderfully made/wonderfullymade.png",
     "artist": "Inspire Design",
     "rating": 5,
     "downloads": 0,
@@ -1252,7 +1258,13 @@
         "size": "0.02 MB"
       }
     ],
-    "images": [],
+    "images": [
+      {
+        "name": "wonderfullymade.png",
+        "path": "/New Digital Product/Wonderfully made/wonderfullymade.png",
+        "size": "0.00 MB"
+      }
+    ],
     "mockups": [
       {
         "name": "Mockup 2.png",
@@ -1266,7 +1278,7 @@
       }
     ],
     "videos": [],
-    "totalFiles": 3,
+    "totalFiles": 4,
     "totalSize": "4.67 MB",
     "pricing": {
       "Basic (Digital Files)": 5.99,
@@ -1274,7 +1286,7 @@
     },
     "features": [
       "1 Print-Ready PDF Files",
-      "0 High-Resolution Images (300 DPI)",
+      "1 High-Resolution Images (300 DPI)",
       "2 Professional Mockups",
       "Instant Digital Download",
       "Multiple Size Options",
