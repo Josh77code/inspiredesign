@@ -12,6 +12,17 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
+// Helper function to encode image paths with spaces and special characters
+const encodeImagePath = (path: string): string => {
+  if (!path) return "/placeholder.svg"
+  if (path.startsWith('/')) {
+    // Split path and encode each segment separately to preserve slashes
+    const parts = path.split('/').filter(Boolean)
+    return '/' + parts.map(part => encodeURIComponent(part)).join('/')
+  }
+  return '/' + encodeURIComponent(path)
+}
+
 interface ProductImage {
   name: string
   path: string
@@ -72,14 +83,16 @@ export function ProductImageCarousel({
         <Carousel setApi={setApi} className="w-full">
           <CarouselContent>
             {allImages.map((image, index) => {
-              const imagePath = typeof image === 'string' 
+              const rawPath = typeof image === 'string' 
                 ? (image.startsWith('/') ? image : `/${image}`)
                 : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
               
               // Skip if path is invalid
-              if (!imagePath || imagePath === '/' || imagePath === '/undefined') {
+              if (!rawPath || rawPath === '/' || rawPath === '/undefined') {
                 return null
               }
+              
+              const imagePath = encodeImagePath(rawPath)
               
               return (
                 <CarouselItem key={index}>
@@ -93,7 +106,7 @@ export function ProductImageCarousel({
                       unoptimized={true}
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 50vw"
                       onError={(e) => {
-                        console.error('Image failed to load:', imagePath)
+                        console.error('Image failed to load:', rawPath, 'Encoded:', imagePath)
                         // Fallback to placeholder
                         const target = e.target as HTMLImageElement
                         if (target) {
@@ -138,10 +151,13 @@ export function ProductImageCarousel({
             >
               <Image
                 src={(() => {
-                  const path = typeof image === 'string' 
+                  const rawPath = typeof image === 'string' 
                     ? (image.startsWith('/') ? image : `/${image}`)
                     : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
-                  return path && path !== '/' && path !== '/undefined' ? path : '/placeholder.svg'
+                  if (!rawPath || rawPath === '/' || rawPath === '/undefined') {
+                    return '/placeholder.svg'
+                  }
+                  return encodeImagePath(rawPath)
                 })()}
                 alt={`${productTitle} thumbnail ${index + 1}`}
                 fill
