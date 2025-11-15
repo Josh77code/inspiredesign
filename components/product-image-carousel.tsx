@@ -12,25 +12,12 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-// Helper function to encode image paths properly for browser
+// Helper function to get image path - use path as-is, browser handles it
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
   
   // Ensure path starts with /
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  
-  // For paths with spaces, we need to encode them properly
-  // Split by / and encode each segment, then rejoin
-  const parts = normalizedPath.split('/').filter(Boolean)
-  const encodedParts = parts.map(part => {
-    // Only encode if it contains spaces or special characters
-    if (part.includes(' ') || part.includes('&') || part.includes('×')) {
-      return encodeURIComponent(part)
-    }
-    return part
-  })
-  
-  return '/' + encodedParts.join('/')
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 interface ProductImage {

@@ -11,25 +11,12 @@ import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
 
-// Helper function to encode image paths properly for browser
+// Helper function to get image path - use path as-is, browser handles it
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
   
   // Ensure path starts with /
-  const normalizedPath = path.startsWith('/') ? path : `/${path}`
-  
-  // For paths with spaces, we need to encode them properly
-  // Split by / and encode each segment, then rejoin
-  const parts = normalizedPath.split('/').filter(Boolean)
-  const encodedParts = parts.map(part => {
-    // Only encode if it contains spaces or special characters
-    if (part.includes(' ') || part.includes('&') || part.includes('×')) {
-      return encodeURIComponent(part)
-    }
-    return part
-  })
-  
-  return '/' + encodedParts.join('/')
+  return path.startsWith('/') ? path : `/${path}`
 }
 
 interface Product {
@@ -150,36 +137,35 @@ Looking forward to hearing from you!`
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img
-          src={(() => {
-            const path = product.image || "/placeholder.svg"
-            // Try encoded path first for paths with spaces/special chars
-            if (path.includes(' ') || path.includes('&') || path.includes('×')) {
-              return getImagePath(path)
-            }
-            // Use original path for simple paths
-            return path.startsWith('/') ? path : `/${path}`
-          })()}
+          src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             const originalPath = product.image || ""
-            const encodedPath = getImagePath(originalPath)
-            
-            // Try original path if encoded failed
-            if (target && target.src === encodedPath && originalPath !== encodedPath) {
-              console.log('Trying original path after encoded failed:', originalPath)
-              target.src = originalPath.startsWith('/') ? originalPath : `/${originalPath}`
-              return
-            }
+            const attemptedPath = getImagePath(originalPath)
             
             console.error('Image failed to load:', {
               productId: product.id,
               productTitle: product.title,
               originalPath: originalPath,
-              encodedPath: encodedPath,
-              attemptedSrc: target?.src
+              attemptedPath: attemptedPath,
+              attemptedSrc: target?.src,
+              fullUrl: target?.src
             })
+            
+            // Try URL encoding the entire path as fallback
+            if (target && target.src !== "/placeholder.svg" && originalPath) {
+              try {
+                // Encode the full path
+                const encoded = '/' + originalPath.split('/').filter(Boolean).map(part => encodeURIComponent(part)).join('/')
+                console.log('Trying encoded path:', encoded)
+                target.src = encoded
+                return
+              } catch (err) {
+                console.error('Encoding failed:', err)
+              }
+            }
             
             // Final fallback to placeholder
             if (target && target.src !== "/placeholder.svg") {
@@ -187,7 +173,7 @@ Looking forward to hearing from you!`
             }
           }}
           onLoad={() => {
-            console.log('Image loaded successfully:', product.title)
+            console.log('Image loaded successfully:', product.title, product.image)
           }}
           loading="lazy"
         />
