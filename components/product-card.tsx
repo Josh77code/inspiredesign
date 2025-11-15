@@ -11,11 +11,20 @@ import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
 
-// Helper function to get image path - use path as-is, browser handles it
+// Helper function to get image path - use API route for paths with spaces
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
   
-  // Ensure path starts with /
+  // Remove leading slash if present
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  
+  // If path contains "New Digital Product" or has spaces, use API route
+  if (cleanPath.includes('New Digital Product') || cleanPath.includes(' ')) {
+    // Use API route to serve images with spaces
+    return `/api/images/${cleanPath}`
+  }
+  
+  // For other paths, use direct public folder access
   return path.startsWith('/') ? path : `/${path}`
 }
 
