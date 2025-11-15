@@ -137,7 +137,19 @@ Looking forward to hearing from you!`
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img
-          src={getImagePath(product.image || "/placeholder.svg")}
+          src={(() => {
+            const imgPath = product.image || "/placeholder.svg"
+            const finalPath = getImagePath(imgPath)
+            // Log the path being used for debugging
+            if (process.env.NODE_ENV === 'development') {
+              console.log(`[Product ${product.id}] Loading image:`, {
+                original: imgPath,
+                final: finalPath,
+                product: product.title
+              })
+            }
+            return finalPath
+          })()}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
@@ -145,21 +157,21 @@ Looking forward to hearing from you!`
             const originalPath = product.image || ""
             const attemptedPath = getImagePath(originalPath)
             
-            console.error('Image failed to load:', {
+            console.error('❌ Image failed to load:', {
               productId: product.id,
               productTitle: product.title,
               originalPath: originalPath,
               attemptedPath: attemptedPath,
               attemptedSrc: target?.src,
-              fullUrl: target?.src
+              fullUrl: typeof window !== 'undefined' ? window.location.origin + attemptedPath : attemptedPath
             })
             
             // Try URL encoding the entire path as fallback
             if (target && target.src !== "/placeholder.svg" && originalPath) {
               try {
-                // Encode the full path
+                // Encode the full path segment by segment
                 const encoded = '/' + originalPath.split('/').filter(Boolean).map(part => encodeURIComponent(part)).join('/')
-                console.log('Trying encoded path:', encoded)
+                console.log('🔄 Trying encoded path:', encoded)
                 target.src = encoded
                 return
               } catch (err) {
@@ -169,11 +181,12 @@ Looking forward to hearing from you!`
             
             // Final fallback to placeholder
             if (target && target.src !== "/placeholder.svg") {
+              console.log('⚠️ Falling back to placeholder')
               target.src = "/placeholder.svg"
             }
           }}
           onLoad={() => {
-            console.log('Image loaded successfully:', product.title, product.image)
+            console.log('✅ Image loaded successfully:', product.title, product.image)
           }}
           loading="lazy"
         />
