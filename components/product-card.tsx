@@ -20,8 +20,9 @@ const getImagePath = (path: string): string => {
   
   // If path contains "New Digital Product" or has spaces, use API route
   if (cleanPath.includes('New Digital Product') || cleanPath.includes(' ')) {
-    // Use API route to serve images with spaces
-    return `/api/images/${cleanPath}`
+    // Encode each path segment for the API route URL
+    const encodedSegments = cleanPath.split('/').map(segment => encodeURIComponent(segment)).join('/')
+    return `/api/images/${encodedSegments}`
   }
   
   // For other paths, use direct public folder access
