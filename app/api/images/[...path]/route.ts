@@ -7,20 +7,21 @@ export async function GET(
   { params }: { params: { path: string[] } }
 ) {
   try {
-    // Reconstruct the path from the array
-    const imagePath = params.path.join('/')
+    // Decode each path segment and reconstruct the path
+    const decodedPath = params.path.map(segment => decodeURIComponent(segment)).join('/')
     
     // Security: Only allow paths that start with "New Digital Product" or "optimized-products"
-    if (!imagePath.startsWith('New Digital Product') && !imagePath.startsWith('optimized-products')) {
+    if (!decodedPath.startsWith('New Digital Product') && !decodedPath.startsWith('optimized-products')) {
       return NextResponse.json({ error: 'Invalid path' }, { status: 403 })
     }
     
     // Construct full file path
-    const fullPath = path.join(process.cwd(), 'public', imagePath)
+    const fullPath = path.join(process.cwd(), 'public', decodedPath)
     
     // Check if file exists
     if (!fs.existsSync(fullPath)) {
-      return NextResponse.json({ error: 'File not found' }, { status: 404 })
+      console.error('File not found:', fullPath)
+      return NextResponse.json({ error: 'File not found', path: decodedPath, fullPath }, { status: 404 })
     }
     
     // Read the file
@@ -44,7 +45,7 @@ export async function GET(
     })
   } catch (error: any) {
     console.error('Error serving image:', error)
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
+    return NextResponse.json({ error: 'Internal server error', message: error.message }, { status: 500 })
   }
 }
 

@@ -175,12 +175,12 @@ Looking forward to hearing from you!`
               fullUrl: typeof window !== 'undefined' ? window.location.origin + attemptedPath : attemptedPath
             })
             
-            // Try URL encoding the entire path as fallback
-            if (target && target.src !== "/placeholder.svg" && originalPath) {
+            // If API route failed, try direct path with encoding
+            if (target && target.src.includes('/api/images/') && originalPath) {
               try {
-                // Encode the full path segment by segment
+                // Try direct path with URL encoding
                 const encoded = '/' + originalPath.split('/').filter(Boolean).map(part => encodeURIComponent(part)).join('/')
-                console.log('🔄 Trying encoded path:', encoded)
+                console.log('🔄 Trying direct encoded path:', encoded)
                 target.src = encoded
                 return
               } catch (err) {
