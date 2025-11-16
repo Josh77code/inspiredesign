@@ -10,6 +10,12 @@ export async function GET(
     // Handle both Promise and direct params (Next.js 13+ vs 14+)
     const resolvedParams = params instanceof Promise ? await params : params
     
+    // Log the request for debugging
+    console.log('Image API request:', {
+      segments: resolvedParams.path,
+      url: request.url
+    })
+    
     // Decode each path segment and reconstruct the path
     // Handle both single and double encoding (some browsers encode twice)
     const decodedPath = resolvedParams.path.map(segment => {
@@ -77,19 +83,33 @@ export async function GET(
     // If still not found, return 404
     if (!fileFound) {
       const dirPath = path.dirname(fullPath)
+      const publicDir = path.join(process.cwd(), 'public')
+      const dirExists = fs.existsSync(dirPath)
+      const publicExists = fs.existsSync(publicDir)
+      
       console.error('File not found:', {
         decodedPath,
         fullPath,
-        publicDir: path.join(process.cwd(), 'public'),
+        publicDir,
+        publicExists,
         segments: resolvedParams.path,
-        dirExists: fs.existsSync(dirPath),
-        dirContents: fs.existsSync(dirPath) ? fs.readdirSync(dirPath).slice(0, 10) : []
+        dirExists,
+        dirPath,
+        dirContents: dirExists ? fs.readdirSync(dirPath).slice(0, 10) : [],
+        // Check if the public directory exists and list its contents
+        publicDirContents: publicExists ? fs.readdirSync(publicDir).slice(0, 5) : []
       })
       return NextResponse.json({ 
         error: 'File not found', 
         path: decodedPath, 
         fullPath,
-        segments: resolvedParams.path
+        segments: resolvedParams.path,
+        debug: {
+          publicDir,
+          publicExists,
+          dirExists,
+          dirPath
+        }
       }, { status: 404 })
     }
     
