@@ -30,14 +30,55 @@ export async function GET(
     
     // Check if file exists
     if (!fs.existsSync(fullPath)) {
+      // Try case-insensitive matching (for Linux/Vercel case sensitivity)
+      const dirPath = path.dirname(fullPath)
+      const fileName = path.basename(fullPath)
+      
+      if (fs.existsSync(dirPath)) {
+        try {
+          const files = fs.readdirSync(dirPath)
+          const foundFile = files.find(f => f.toLowerCase() === fileName.toLowerCase())
+          
+          if (foundFile) {
+            // Use the actual file name (with correct case)
+            const correctedPath = path.join(dirPath, foundFile)
+            console.log('Found file with case-insensitive match:', {
+              requested: fileName,
+              found: foundFile,
+              originalPath: decodedPath,
+              correctedPath: correctedPath
+            })
+            
+            // Read the file with corrected case
+            const fileBuffer = fs.readFileSync(correctedPath)
+            const ext = path.extname(correctedPath).toLowerCase()
+            const contentType = 
+              ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' :
+              ext === '.png' ? 'image/png' :
+              ext === '.webp' ? 'image/webp' :
+              ext === '.gif' ? 'image/gif' :
+              'application/octet-stream'
+            
+            return new NextResponse(fileBuffer, {
+              headers: {
+                'Content-Type': contentType,
+                'Cache-Control': 'public, max-age=31536000, immutable',
+              },
+            })
+          }
+        } catch (dirError) {
+          console.error('Error reading directory:', dirError)
+        }
+      }
+      
       console.error('File not found:', {
         decodedPath,
         fullPath,
         exists: fs.existsSync(fullPath),
         publicDir: path.join(process.cwd(), 'public'),
         segments: resolvedParams.path,
-        // Try to find similar files
-        dirExists: fs.existsSync(path.dirname(fullPath))
+        dirExists: fs.existsSync(dirPath),
+        dirContents: fs.existsSync(dirPath) ? fs.readdirSync(dirPath).slice(0, 5) : []
       })
       return NextResponse.json({ 
         error: 'File not found', 
