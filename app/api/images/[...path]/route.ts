@@ -28,9 +28,12 @@ export async function GET(
     // Construct full file path
     const fullPath = path.join(process.cwd(), 'public', decodedPath)
     
-    // Check if file exists
-    if (!fs.existsSync(fullPath)) {
-      // Try case-insensitive matching (for Linux/Vercel case sensitivity)
+    // Check if file exists (try exact match first)
+    let actualFilePath = fullPath
+    let fileFound = fs.existsSync(fullPath)
+    
+    // If exact match fails, try case-insensitive matching (for Linux/Vercel case sensitivity)
+    if (!fileFound) {
       const dirPath = path.dirname(fullPath)
       const fileName = path.basename(fullPath)
       
@@ -41,44 +44,30 @@ export async function GET(
           
           if (foundFile) {
             // Use the actual file name (with correct case)
-            const correctedPath = path.join(dirPath, foundFile)
+            actualFilePath = path.join(dirPath, foundFile)
+            fileFound = true
             console.log('Found file with case-insensitive match:', {
               requested: fileName,
               found: foundFile,
-              originalPath: decodedPath,
-              correctedPath: correctedPath
-            })
-            
-            // Read the file with corrected case
-            const fileBuffer = fs.readFileSync(correctedPath)
-            const ext = path.extname(correctedPath).toLowerCase()
-            const contentType = 
-              ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' :
-              ext === '.png' ? 'image/png' :
-              ext === '.webp' ? 'image/webp' :
-              ext === '.gif' ? 'image/gif' :
-              'application/octet-stream'
-            
-            return new NextResponse(fileBuffer, {
-              headers: {
-                'Content-Type': contentType,
-                'Cache-Control': 'public, max-age=31536000, immutable',
-              },
+              originalPath: decodedPath
             })
           }
         } catch (dirError) {
           console.error('Error reading directory:', dirError)
         }
       }
-      
+    }
+    
+    // If still not found, return 404
+    if (!fileFound) {
+      const dirPath = path.dirname(fullPath)
       console.error('File not found:', {
         decodedPath,
         fullPath,
-        exists: fs.existsSync(fullPath),
         publicDir: path.join(process.cwd(), 'public'),
         segments: resolvedParams.path,
         dirExists: fs.existsSync(dirPath),
-        dirContents: fs.existsSync(dirPath) ? fs.readdirSync(dirPath).slice(0, 5) : []
+        dirContents: fs.existsSync(dirPath) ? fs.readdirSync(dirPath).slice(0, 10) : []
       })
       return NextResponse.json({ 
         error: 'File not found', 
@@ -88,11 +77,11 @@ export async function GET(
       }, { status: 404 })
     }
     
-    // Read the file
-    const fileBuffer = fs.readFileSync(fullPath)
+    // Read the file (using actualFilePath which may have been corrected for case)
+    const fileBuffer = fs.readFileSync(actualFilePath)
     
     // Determine content type based on extension
-    const ext = path.extname(fullPath).toLowerCase()
+    const ext = path.extname(actualFilePath).toLowerCase()
     const contentType = 
       ext === '.jpg' || ext === '.jpeg' ? 'image/jpeg' :
       ext === '.png' ? 'image/png' :
