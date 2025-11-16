@@ -11,12 +11,28 @@ export async function GET(
     const resolvedParams = params instanceof Promise ? await params : params
     
     // Decode each path segment and reconstruct the path
+    // Handle both single and double encoding (some browsers encode twice)
     const decodedPath = resolvedParams.path.map(segment => {
       try {
-        return decodeURIComponent(segment)
+        // Try decoding twice in case of double encoding
+        let decoded = decodeURIComponent(segment)
+        // If it still contains encoded characters, try decoding again
+        if (decoded.includes('%')) {
+          try {
+            decoded = decodeURIComponent(decoded)
+          } catch (e2) {
+            // If second decode fails, use first decode
+          }
+        }
+        return decoded
       } catch (e) {
-        // If decoding fails, use the segment as-is
-        return segment
+        // If decoding fails, try to decode the raw segment
+        try {
+          return decodeURIComponent(segment.replace(/\+/g, ' '))
+        } catch (e2) {
+          // If all decoding fails, use the segment as-is
+          return segment
+        }
       }
     }).join('/')
     
