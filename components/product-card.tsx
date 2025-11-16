@@ -147,19 +147,7 @@ Looking forward to hearing from you!`
     >
       <div className="relative aspect-square overflow-hidden bg-muted">
         <img
-          src={(() => {
-            const imgPath = product.image || "/placeholder.svg"
-            const finalPath = getImagePath(imgPath)
-            // Log the path being used for debugging
-            if (process.env.NODE_ENV === 'development') {
-              console.log(`[Product ${product.id}] Loading image:`, {
-                original: imgPath,
-                final: finalPath,
-                product: product.title
-              })
-            }
-            return finalPath
-          })()}
+          src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
           onError={(e) => {
@@ -184,17 +172,12 @@ Looking forward to hearing from you!`
             
             console.error('❌ Image failed to load:', JSON.stringify(errorDetails, null, 2))
             
-            // If API route failed, try direct path with encoding
+            // If API route failed, check if it's a 404 and try alternative
             if (target && target.src.includes('/api/images/') && originalPath) {
-              try {
-                // Try direct path with URL encoding
-                const encoded = '/' + originalPath.split('/').filter(Boolean).map(part => encodeURIComponent(part)).join('/')
-                console.log('🔄 Trying direct encoded path:', encoded)
-                target.src = encoded
-                return
-              } catch (err) {
-                console.error('Encoding failed:', err)
-              }
+              // The API route should work, but if it doesn't, the file might not exist
+              // Check Network tab for actual error code
+              console.log('🔍 API route failed, check Network tab for status code')
+              // Don't try direct path as it will also fail on Vercel
             }
             
             // Final fallback to placeholder
