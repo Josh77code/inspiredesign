@@ -78,6 +78,25 @@ export function ProductImageCarousel({
           loading="eager"
           onError={(e) => {
             const target = e.target as HTMLImageElement
+            const attemptedPath = getImagePath(fallbackImage || '')
+            
+            // Prevent infinite loop
+            if (target.src.includes('/placeholder.svg')) {
+              return
+            }
+            
+            // Retry mechanism: If API route failed, retry once with a small delay
+            if (target && target.src.includes('/api/images/') && !target.dataset.retried) {
+              target.dataset.retried = 'true'
+              setTimeout(() => {
+                if (target && target.src.includes('/api/images/')) {
+                  target.src = attemptedPath + (attemptedPath.includes('?') ? '&' : '?') + '_retry=' + Date.now()
+                }
+              }, 100)
+              return
+            }
+            
+            // Final fallback to placeholder
             if (target && target.src !== '/placeholder.svg') {
               target.src = '/placeholder.svg'
             }
@@ -113,9 +132,30 @@ export function ProductImageCarousel({
                       alt={`${productTitle} - Image ${index + 1}`}
                       className="w-full h-full object-cover"
                       onError={(e) => {
-                        console.error('Image failed to load:', rawPath, 'Path:', imagePath)
-                        // Fallback to placeholder
                         const target = e.target as HTMLImageElement
+                        
+                        // Prevent infinite loop
+                        if (target.src.includes('/placeholder.svg')) {
+                          return
+                        }
+                        
+                        // Retry mechanism: If API route failed, retry once with a small delay
+                        if (target && target.src.includes('/api/images/') && !target.dataset.retried) {
+                          target.dataset.retried = 'true'
+                          setTimeout(() => {
+                            if (target && target.src.includes('/api/images/')) {
+                              target.src = imagePath + (imagePath.includes('?') ? '&' : '?') + '_retry=' + Date.now()
+                            }
+                          }, 100)
+                          return
+                        }
+                        
+                        // Only log error if we've already retried
+                        if (target?.dataset.retried === 'true') {
+                          console.error('Image failed to load after retry:', rawPath, 'Path:', imagePath)
+                        }
+                        
+                        // Final fallback to placeholder
                         if (target && target.src !== '/placeholder.svg') {
                           target.src = '/placeholder.svg'
                         }
@@ -170,8 +210,39 @@ export function ProductImageCarousel({
                 alt={`${productTitle} thumbnail ${index + 1}`}
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  console.error('Thumbnail failed to load:', image)
                   const target = e.target as HTMLImageElement
+                  const thumbnailPath = (() => {
+                    const rawPath = typeof image === 'string' 
+                      ? (image.startsWith('/') ? image : `/${image}`)
+                      : (image.path?.startsWith('/') ? image.path : `/${image.path || image}`)
+                    if (!rawPath || rawPath === '/' || rawPath === '/undefined') {
+                      return '/placeholder.svg'
+                    }
+                    return getImagePath(rawPath)
+                  })()
+                  
+                  // Prevent infinite loop
+                  if (target.src.includes('/placeholder.svg')) {
+                    return
+                  }
+                  
+                  // Retry mechanism: If API route failed, retry once with a small delay
+                  if (target && target.src.includes('/api/images/') && !target.dataset.retried) {
+                    target.dataset.retried = 'true'
+                    setTimeout(() => {
+                      if (target && target.src.includes('/api/images/')) {
+                        target.src = thumbnailPath + (thumbnailPath.includes('?') ? '&' : '?') + '_retry=' + Date.now()
+                      }
+                    }, 100)
+                    return
+                  }
+                  
+                  // Only log error if we've already retried
+                  if (target?.dataset.retried === 'true') {
+                    console.error('Thumbnail failed to load after retry:', image)
+                  }
+                  
+                  // Final fallback to placeholder
                   if (target && target.src !== '/placeholder.svg') {
                     target.src = '/placeholder.svg'
                   }
