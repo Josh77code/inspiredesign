@@ -43,7 +43,7 @@ export async function GET(
         error: 'File not found', 
         path: decodedPath, 
         fullPath,
-        segments: params.path
+        segments: resolvedParams.path
       }, { status: 404 })
     }
     
