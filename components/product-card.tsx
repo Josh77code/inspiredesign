@@ -173,6 +173,20 @@ Looking forward to hearing from you!`
               return
             }
             
+            // Retry mechanism: If API route failed, retry once with a small delay
+            // This handles Vercel cold starts and timing issues
+            if (target && target.src.includes('/api/images/') && !target.dataset.retried) {
+              target.dataset.retried = 'true'
+              console.log('🔄 Retrying image load after 100ms:', attemptedPath)
+              setTimeout(() => {
+                if (target && target.src.includes('/api/images/')) {
+                  // Force reload by adding cache buster
+                  target.src = attemptedPath + (attemptedPath.includes('?') ? '&' : '?') + '_retry=' + Date.now()
+                }
+              }, 100)
+              return
+            }
+            
             const errorDetails = {
               productId: product.id,
               productTitle: product.title,
@@ -180,17 +194,13 @@ Looking forward to hearing from you!`
               attemptedPath: attemptedPath,
               attemptedSrc: target?.src,
               fullUrl: typeof window !== 'undefined' ? window.location.origin + attemptedPath : attemptedPath,
-              errorEvent: e.type
+              errorEvent: e.type,
+              retried: target?.dataset.retried === 'true'
             }
             
-            console.error('❌ Image failed to load:', JSON.stringify(errorDetails, null, 2))
-            
-            // If API route failed, the file might not exist on server
-            // Check Network tab for actual HTTP status code (404, 500, etc.)
-            if (target && target.src.includes('/api/images/')) {
-              console.log('🔍 API route returned error - check Network tab for HTTP status')
-              console.log('   Requested path:', attemptedPath)
-              console.log('   This usually means the file doesn\'t exist on the server')
+            // Only log error if we've already retried
+            if (target?.dataset.retried === 'true') {
+              console.error('❌ Image failed to load after retry:', JSON.stringify(errorDetails, null, 2))
             }
             
             // Final fallback to placeholder
