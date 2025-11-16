@@ -4,15 +4,25 @@ import path from 'path'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { path: string[] } }
+  { params }: { params: Promise<{ path: string[] }> | { path: string[] } }
 ) {
   try {
+    // Handle both Promise and direct params (Next.js 13+ vs 14+)
+    const resolvedParams = params instanceof Promise ? await params : params
+    
     // Decode each path segment and reconstruct the path
-    const decodedPath = params.path.map(segment => decodeURIComponent(segment)).join('/')
+    const decodedPath = resolvedParams.path.map(segment => {
+      try {
+        return decodeURIComponent(segment)
+      } catch (e) {
+        // If decoding fails, use the segment as-is
+        return segment
+      }
+    }).join('/')
     
     // Security: Only allow paths that start with "New Digital Product" or "optimized-products"
     if (!decodedPath.startsWith('New Digital Product') && !decodedPath.startsWith('optimized-products')) {
-      return NextResponse.json({ error: 'Invalid path' }, { status: 403 })
+      return NextResponse.json({ error: 'Invalid path', received: decodedPath }, { status: 403 })
     }
     
     // Construct full file path
