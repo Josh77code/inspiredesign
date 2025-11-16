@@ -20,8 +20,19 @@ export async function GET(
     
     // Check if file exists
     if (!fs.existsSync(fullPath)) {
-      console.error('File not found:', fullPath)
-      return NextResponse.json({ error: 'File not found', path: decodedPath, fullPath }, { status: 404 })
+      console.error('File not found:', {
+        decodedPath,
+        fullPath,
+        exists: fs.existsSync(fullPath),
+        publicDir: path.join(process.cwd(), 'public'),
+        segments: params.path
+      })
+      return NextResponse.json({ 
+        error: 'File not found', 
+        path: decodedPath, 
+        fullPath,
+        segments: params.path
+      }, { status: 404 })
     }
     
     // Read the file

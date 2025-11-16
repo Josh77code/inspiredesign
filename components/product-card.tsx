@@ -167,14 +167,22 @@ Looking forward to hearing from you!`
             const originalPath = product.image || ""
             const attemptedPath = getImagePath(originalPath)
             
-            console.error('❌ Image failed to load:', {
+            // Prevent infinite loop
+            if (target.src.includes('/placeholder.svg')) {
+              return
+            }
+            
+            const errorDetails = {
               productId: product.id,
               productTitle: product.title,
               originalPath: originalPath,
               attemptedPath: attemptedPath,
               attemptedSrc: target?.src,
-              fullUrl: typeof window !== 'undefined' ? window.location.origin + attemptedPath : attemptedPath
-            })
+              fullUrl: typeof window !== 'undefined' ? window.location.origin + attemptedPath : attemptedPath,
+              errorEvent: e.type
+            }
+            
+            console.error('❌ Image failed to load:', JSON.stringify(errorDetails, null, 2))
             
             // If API route failed, try direct path with encoding
             if (target && target.src.includes('/api/images/') && originalPath) {
@@ -190,7 +198,7 @@ Looking forward to hearing from you!`
             }
             
             // Final fallback to placeholder
-            if (target && target.src !== "/placeholder.svg") {
+            if (target && target.src !== "/placeholder.svg" && !target.src.includes('/placeholder.svg')) {
               console.log('⚠️ Falling back to placeholder')
               target.src = "/placeholder.svg"
             }
