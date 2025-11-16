@@ -35,7 +35,9 @@ export async function GET(
         fullPath,
         exists: fs.existsSync(fullPath),
         publicDir: path.join(process.cwd(), 'public'),
-        segments: params.path
+        segments: resolvedParams.path,
+        // Try to find similar files
+        dirExists: fs.existsSync(path.dirname(fullPath))
       })
       return NextResponse.json({ 
         error: 'File not found', 

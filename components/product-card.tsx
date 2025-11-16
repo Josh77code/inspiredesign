@@ -11,21 +11,27 @@ import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
 
-// Helper function to get image path - use API route for paths with spaces
+// Helper function to get image path - ALWAYS use API route for "New Digital Product" paths
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
   
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path
   
-  // If path contains "New Digital Product" or has spaces, use API route
-  if (cleanPath.includes('New Digital Product') || cleanPath.includes(' ')) {
+  // ALWAYS use API route for "New Digital Product" paths to avoid direct path issues
+  if (cleanPath.includes('New Digital Product')) {
     // Encode each path segment for the API route URL
     const encodedSegments = cleanPath.split('/').map(segment => encodeURIComponent(segment)).join('/')
     return `/api/images/${encodedSegments}`
   }
   
-  // For other paths, use direct public folder access
+  // For paths with spaces (but not "New Digital Product"), also use API route
+  if (cleanPath.includes(' ')) {
+    const encodedSegments = cleanPath.split('/').map(segment => encodeURIComponent(segment)).join('/')
+    return `/api/images/${encodedSegments}`
+  }
+  
+  // For other paths without spaces, use direct public folder access
   return path.startsWith('/') ? path : `/${path}`
 }
 
