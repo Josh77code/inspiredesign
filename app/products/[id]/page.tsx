@@ -1,5 +1,4 @@
 import { notFound } from 'next/navigation'
-import Image from 'next/image'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -85,12 +84,26 @@ export default async function ProductPage({ params }: ProductPageProps) {
               />
             ) : (
               <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
-                <Image
-                  src={safeProduct.image || '/placeholder.svg'}
+                <img
+                  src={(() => {
+                    const imgPath = safeProduct.image || '/placeholder.svg'
+                    // Use API route for paths with spaces
+                    if (imgPath.includes('New Digital Product') || imgPath.includes(' ')) {
+                      const cleanPath = imgPath.startsWith('/') ? imgPath.slice(1) : imgPath
+                      const encodedSegments = cleanPath.split('/').map(segment => encodeURIComponent(segment)).join('/')
+                      return `/api/images/${encodedSegments}`
+                    }
+                    return imgPath
+                  })()}
                   alt={safeProduct.title}
-                  fill
-                  className="object-cover"
-                  priority
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement
+                    if (target && target.src !== '/placeholder.svg') {
+                      target.src = '/placeholder.svg'
+                    }
+                  }}
                 />
               </div>
             )}

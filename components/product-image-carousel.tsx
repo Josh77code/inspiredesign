@@ -72,12 +72,17 @@ export function ProductImageCarousel({
   if (allImages.length === 0) {
     return fallbackImage ? (
       <div className="relative aspect-square rounded-lg overflow-hidden border bg-white">
-        <Image
-          src={fallbackImage}
+        <img
+          src={getImagePath(fallbackImage)}
           alt={productTitle}
-          fill
-          className="object-cover"
-          priority
+          className="w-full h-full object-cover"
+          loading="eager"
+          onError={(e) => {
+            const target = e.target as HTMLImageElement
+            if (target && target.src !== '/placeholder.svg') {
+              target.src = '/placeholder.svg'
+            }
+          }}
         />
       </div>
     ) : null
