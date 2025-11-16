@@ -166,6 +166,13 @@ Looking forward to hearing from you!`
               return
             }
             
+            // If the browser tried the direct path instead of API route, switch to API route
+            if (target && !target.src.includes('/api/images/') && originalPath.includes('New Digital Product')) {
+              console.log('🔄 Browser tried direct path, switching to API route:', attemptedPath)
+              target.src = attemptedPath
+              return
+            }
+            
             const errorDetails = {
               productId: product.id,
               productTitle: product.title,
