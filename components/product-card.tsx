@@ -178,12 +178,12 @@ Looking forward to hearing from you!`
             
             console.error('❌ Image failed to load:', JSON.stringify(errorDetails, null, 2))
             
-            // If API route failed, check if it's a 404 and try alternative
-            if (target && target.src.includes('/api/images/') && originalPath) {
-              // The API route should work, but if it doesn't, the file might not exist
-              // Check Network tab for actual error code
-              console.log('🔍 API route failed, check Network tab for status code')
-              // Don't try direct path as it will also fail on Vercel
+            // If API route failed, the file might not exist on server
+            // Check Network tab for actual HTTP status code (404, 500, etc.)
+            if (target && target.src.includes('/api/images/')) {
+              console.log('🔍 API route returned error - check Network tab for HTTP status')
+              console.log('   Requested path:', attemptedPath)
+              console.log('   This usually means the file doesn\'t exist on the server')
             }
             
             // Final fallback to placeholder
