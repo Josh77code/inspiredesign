@@ -1,22 +1,72 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient, SupabaseClient } from '@supabase/supabase-js'
+
+// Helper function to get Supabase URL
+function getSupabaseUrl(): string {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  if (!url) {
+    // Return a placeholder URL during build if env var is not set
+    // This prevents build failures
+    return 'https://placeholder.supabase.co'
+  }
+  return url
+}
+
+// Helper function to get Supabase anon key
+function getSupabaseAnonKey(): string {
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!key) {
+    // Return a placeholder key during build if env var is not set
+    return 'placeholder-anon-key'
+  }
+  return key
+}
+
+// Helper function to get Supabase service role key
+function getSupabaseServiceKey(): string {
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY
+  if (!key) {
+    // Return a placeholder key during build if env var is not set
+    return 'placeholder-service-key'
+  }
+  return key
+}
 
 // Client-side Supabase client (uses anon key)
-export const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-)
+// Only create client if URL and key are available and not placeholders
+let supabaseInstance: SupabaseClient | null = null
+try {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (url && key && url !== 'https://placeholder.supabase.co' && key !== 'placeholder-anon-key') {
+    supabaseInstance = createClient(url, key)
+  }
+} catch (error) {
+  // Silently fail during build if env vars aren't set
+  console.warn('Supabase client initialization skipped:', error)
+}
+export const supabase = supabaseInstance
 
 // Server-side Supabase client (uses service role key for admin operations)
-export const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
-  {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false
-    }
+// Only create client if URL and key are available and not placeholders
+// Note: Check both SUPABASE_SERVICE_ROLE_KEY and NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY for compatibility
+let supabaseAdminInstance: SupabaseClient | null = null
+try {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  // Check both variable names (prefer SUPABASE_SERVICE_ROLE_KEY without NEXT_PUBLIC_)
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY
+  if (url && key && url !== 'https://placeholder.supabase.co' && key !== 'placeholder-service-key') {
+    supabaseAdminInstance = createClient(url, key, {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false
+      }
+    })
   }
-)
+} catch (error) {
+  // Silently fail during build if env vars aren't set
+  console.warn('Supabase admin client initialization skipped:', error)
+}
+export const supabaseAdmin = supabaseAdminInstance
 
 // Database types (you can generate these with Supabase CLI later)
 export interface Product {

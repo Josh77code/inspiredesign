@@ -1,5 +1,13 @@
 import { supabaseAdmin, Product, Order, Contact } from './supabase'
 
+// Helper function to ensure Supabase client is available
+function ensureSupabaseClient() {
+  if (!supabaseAdmin) {
+    throw new Error('Supabase client not initialized. Please check environment variables.')
+  }
+  return supabaseAdmin
+}
+
 // Products database operations using Supabase
 export const productsDB = {
   /**
@@ -7,7 +15,13 @@ export const productsDB = {
    */
   getAll: async (): Promise<Product[]> => {
     try {
-      const { data, error } = await supabaseAdmin
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized. Returning empty array.')
+        return []
+      }
+      
+      const client = ensureSupabaseClient()
+      const { data, error } = await client
         .from('products')
         .select('*')
         .order('created_at', { ascending: false })
@@ -29,7 +43,13 @@ export const productsDB = {
    */
   getById: async (id: number): Promise<Product | null> => {
     try {
-      const { data, error } = await supabaseAdmin
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
+      
+      const client = ensureSupabaseClient()
+      const { data, error } = await client
         .from('products')
         .select('*')
         .eq('id', id)
@@ -52,6 +72,10 @@ export const productsDB = {
    */
   create: async (product: Partial<Product>): Promise<Product | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('products')
         .insert({
@@ -93,6 +117,10 @@ export const productsDB = {
    */
   update: async (id: number, updates: Partial<Product>): Promise<Product | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('products')
         .update(updates)
@@ -117,6 +145,10 @@ export const productsDB = {
    */
   delete: async (id: number): Promise<boolean> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return false
+      }
       const { error } = await supabaseAdmin
         .from('products')
         .delete()
@@ -139,6 +171,10 @@ export const productsDB = {
    */
   search: async (query: string): Promise<Product[]> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized. Returning empty array.')
+        return []
+      }
       const { data, error } = await supabaseAdmin
         .from('products')
         .select('*')
@@ -162,6 +198,10 @@ export const productsDB = {
    */
   getByCategory: async (category: string): Promise<Product[]> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized. Returning empty array.')
+        return []
+      }
       const { data, error } = await supabaseAdmin
         .from('products')
         .select('*')
@@ -185,6 +225,10 @@ export const productsDB = {
 export const ordersDB = {
   getAll: async (): Promise<Order[]> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized. Returning empty array.')
+        return []
+      }
       const { data, error } = await supabaseAdmin
         .from('orders')
         .select('*')
@@ -204,6 +248,10 @@ export const ordersDB = {
 
   getById: async (id: string): Promise<Order | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('orders')
         .select('*')
@@ -224,6 +272,10 @@ export const ordersDB = {
 
   getByStripeSessionId: async (sessionId: string): Promise<Order | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('orders')
         .select('*')
@@ -244,6 +296,10 @@ export const ordersDB = {
 
   create: async (order: Partial<Order>): Promise<Order | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('orders')
         .insert({
@@ -272,6 +328,10 @@ export const ordersDB = {
 
   update: async (id: string, updates: Partial<Order>): Promise<Order | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('orders')
         .update(updates)
@@ -293,6 +353,10 @@ export const ordersDB = {
 
   delete: async (id: string): Promise<boolean> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return false
+      }
       const { error } = await supabaseAdmin
         .from('orders')
         .delete()
@@ -315,6 +379,10 @@ export const ordersDB = {
 export const contactsDB = {
   getAll: async (): Promise<Contact[]> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized. Returning empty array.')
+        return []
+      }
       const { data, error } = await supabaseAdmin
         .from('contacts')
         .select('*')
@@ -334,6 +402,10 @@ export const contactsDB = {
 
   create: async (contact: Partial<Contact>): Promise<Contact | null> => {
     try {
+      if (!supabaseAdmin) {
+        console.warn('Supabase client not initialized.')
+        return null
+      }
       const { data, error } = await supabaseAdmin
         .from('contacts')
         .insert({
