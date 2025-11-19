@@ -46,12 +46,16 @@ export function Header() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start space-y-0.5 hover:opacity-90 transition-opacity min-w-0 flex-shrink-0">
-            <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px]">
+            <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px] flex items-center">
               <img
                 src="/Inspire Design-Business Logo.png"
                 alt="Inspire Design Logo"
-                className="h-full w-auto object-contain"
-                style={{ maxHeight: '56px' }}
+                className="h-full w-auto object-contain max-h-[56px]"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement
+                  console.error('Logo failed to load:', target.src)
+                  target.src = '/placeholder-logo.png'
+                }}
               />
             </div>
             <p className="text-[10px] sm:text-xs font-medium text-primary tracking-wide whitespace-nowrap">

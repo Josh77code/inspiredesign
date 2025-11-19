@@ -57,7 +57,13 @@ export function SimplePDFViewer({ pdfs, productName }: SimplePDFViewerProps) {
     return pdf.path ? (pdf.path.startsWith('/') ? pdf.path : `/${pdf.path}`) : '#'
   }
 
-  const downloadPDF = (pdf: PDFFile) => {
+  const downloadPDF = (pdf: PDFFile, requirePayment: boolean = true) => {
+    if (requirePayment) {
+      // Show payment required message
+      alert('Payment required to download this PDF. Please add to cart and complete checkout.')
+      return
+    }
+    
     const link = document.createElement('a')
     link.href = getPDFUrl(pdf)
     link.download = pdf.name
@@ -106,11 +112,13 @@ export function SimplePDFViewer({ pdfs, productName }: SimplePDFViewerProps) {
                   </Button>
                   <Button
                     size="sm"
-                    onClick={() => downloadPDF(pdf)}
+                    onClick={() => downloadPDF(pdf, true)}
                     className="flex-1"
+                    variant="outline"
+                    disabled
                   >
-                    <Download className="h-4 w-4 mr-1" />
-                    Download
+                    <Lock className="h-4 w-4 mr-1" />
+                    Purchase Required
                   </Button>
                 </div>
               </div>
@@ -160,10 +168,11 @@ export function SimplePDFViewer({ pdfs, productName }: SimplePDFViewerProps) {
             <div className="flex gap-2">
               <Button
                 variant="outline"
-                onClick={() => selectedPDF && downloadPDF(selectedPDF)}
+                onClick={() => selectedPDF && downloadPDF(selectedPDF, true)}
+                disabled
               >
-                <Download className="h-4 w-4 mr-2" />
-                Download PDF
+                <Lock className="h-4 w-4 mr-2" />
+                Purchase Required
               </Button>
               <Button onClick={closePDFViewer}>
                 Close

@@ -52,14 +52,18 @@ export async function GET(
         name: pdf.name,
         path: pdf.path,
         url: pdf.url || (pdf.path && pdf.path.includes('blob.vercel-storage.com') ? pdf.path : null),
-        size: pdf.size
+        size: pdf.size,
+        price: pdf.price || 8.00
       })),
       images: (product.images || []).map((img: any) => ({
         name: img.name,
         path: img.path,
         url: img.url || (img.path && img.path.includes('blob.vercel-storage.com') ? img.path : null),
-        size: img.size
+        size: img.size,
+        price: img.price || 6.50
       })),
+      // Subcategories with pricing
+      subcategories: (product as any).subcategories || [],
     }
 
     return NextResponse.json({

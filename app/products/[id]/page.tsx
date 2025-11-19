@@ -7,6 +7,7 @@ import { SimplePDFViewer } from '@/components/simple-pdf-viewer'
 import { MockupGallery } from '@/components/mockup-gallery'
 import { ProductFilesIncluded } from '@/components/product-files-included'
 import { ProductImageCarousel } from '@/components/product-image-carousel'
+import { ProductSubcategories } from '@/components/product-subcategories'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { Download, ShoppingCart, Star, Heart, Share2, ArrowLeft, MessageCircle } from 'lucide-react'
@@ -47,6 +48,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       price: product.price || 0,
       rating: product.rating || 0,
       downloads: product.downloads || 0,
+      subcategories: (product as any).subcategories || [],
     }
 
     // Calculate price range if multiple pricing options exist
@@ -180,8 +182,17 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </CardContent>
             </Card>
 
-            {/* Files Included */}
-            {safeProduct.allFiles && safeProduct.allFiles.length > 0 && (
+            {/* Files by Subcategory */}
+            {safeProduct.subcategories && safeProduct.subcategories.length > 0 && (
+              <ProductSubcategories 
+                subcategories={safeProduct.subcategories}
+                productId={safeProduct.id}
+                productTitle={safeProduct.title}
+              />
+            )}
+
+            {/* Files Included (fallback) */}
+            {(!safeProduct.subcategories || safeProduct.subcategories.length === 0) && safeProduct.allFiles && safeProduct.allFiles.length > 0 && (
               <ProductFilesIncluded 
                 allFiles={safeProduct.allFiles}
                 pdfs={safeProduct.pdfs}
