@@ -167,6 +167,7 @@ Looking forward to hearing from you!`
           src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+          crossOrigin="anonymous"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             const originalPath = product.image || ""
