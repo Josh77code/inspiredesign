@@ -1,0 +1,15 @@
+# Add these lines to your .env.local file (after your existing Stripe variables)
+
+# ============================================
+# Supabase Configuration
+# ============================================
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key-here
+SUPABASE_SERVICE_ROLE_KEY=your-service-role-key-here
+
+# ============================================
+# Vercel Blob Configuration
+# ============================================
+BLOB_READ_WRITE_TOKEN=vercel_blob_rw_your-token-here
+BLOB_STORE_URL=https://mr0u602ri2txkwqt.public.blob.vercel-storage.com
+

@@ -2,14 +2,23 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import { ShoppingCart, Menu, X } from "lucide-react"
+import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react"
 import { AnimatedSearch } from "./animated-search"
 import { ThemeToggle } from "./theme-toggle"
 import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/lib/cart-store"
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [isMounted, setIsMounted] = useState(false)
   const { toggleCart, getTotalItems } = useCartStore()
   const cartCount = getTotalItems()
@@ -20,10 +29,15 @@ export function Header() {
 
   const navItems = [
     { name: "Home", href: "/" },
-    { name: "Products", href: "/products" },
-    { name: "Categories", href: "/categories" },
     { name: "About", href: "/about" },
+    { name: "Products", href: "/products" },
     { name: "Contact", href: "/contact" },
+  ]
+
+  const servicesItems = [
+    { name: "Church flyers", href: "/services/church-flyers" },
+    { name: "Photography", href: "/services/photography" },
+    { name: "Logo design", href: "/services/logo-design" },
   ]
 
   return (
@@ -87,6 +101,34 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="magic-nav text-foreground hover:text-primary transition-colors duration-300 font-medium bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[200px] gap-3 p-4">
+                      {servicesItems.map((service) => (
+                        <li key={service.name}>
+                          <NavigationMenuLink asChild>
+                            <Link
+                              href={service.href}
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                            >
+                              <div className="text-sm font-medium leading-none text-foreground">
+                                {service.name}
+                              </div>
+                            </Link>
+                          </NavigationMenuLink>
+                        </li>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
           </nav>
 
           {/* Search, Theme Toggle and Cart */}
@@ -144,6 +186,33 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
+              {/* Services Dropdown for Mobile */}
+              <div>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="magic-nav text-foreground hover:text-primary transition-colors duration-300 font-medium flex items-center w-full"
+                >
+                  Services
+                  <ChevronDown className={`ml-2 h-4 w-4 transition-transform ${isServicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {isServicesOpen && (
+                  <div className="ml-4 mt-2 space-y-2">
+                    {servicesItems.map((service) => (
+                      <Link
+                        key={service.name}
+                        href={service.href}
+                        className="block text-muted-foreground hover:text-primary transition-colors duration-300"
+                        onClick={() => {
+                          setIsMenuOpen(false)
+                          setIsServicesOpen(false)
+                        }}
+                      >
+                        {service.name}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </nav>
         )}

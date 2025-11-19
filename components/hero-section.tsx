@@ -10,7 +10,7 @@ export function HeroSection() {
   const [currentText, setCurrentText] = useState(0)
   const [isVisible, setIsVisible] = useState(false)
 
-  const animatedTexts = ["Faith-Based Designs", "Christian Art", "Spiritual Inspiration", "Divine Creations"]
+  const animatedTexts = ["Faith-based designs", "Inspired designs", "Divine Creations"]
 
   useEffect(() => {
     setIsVisible(true)
@@ -55,8 +55,7 @@ export function HeroSection() {
               </div>
 
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg text-pretty">
-                Inspire Design is part of Inspire Change, a Christian business with a mission to make Jesus known in creative ways. 
-                Discover unique digital and physical products inspired by the Spirit of God.
+                Discover amazing digital art and shop with us for premium creative assets that bring your projects to life.
               </p>
             </div>
 
@@ -82,7 +81,7 @@ export function HeroSection() {
             <div className="grid grid-cols-3 gap-6 pt-8 border-t border-border">
               <div className="text-center">
                 <CounterAnimation
-                  end={30}
+                  end={500}
                   duration={2000}
                   suffix="+"
                   className="text-2xl font-bold text-primary"
@@ -90,31 +89,24 @@ export function HeroSection() {
                   delay={0}
                   easing="easeOut"
                 />
-                <div className="text-sm text-muted-foreground">Faith-Based Designs</div>
+                <div className="text-sm text-muted-foreground">Inspired designs</div>
               </div>
               <div className="text-center">
                 <CounterAnimation
                   end={4}
                   duration={2000}
-                  suffix=""
+                  suffix="+"
                   className="text-2xl font-bold text-primary"
                   startOnView={true}
                   delay={200}
                   easing="bounce"
                 />
-                <div className="text-sm text-muted-foreground">Product Categories</div>
+                <div className="text-sm text-muted-foreground">Services</div>
               </div>
               <div className="text-center">
-                <CounterAnimation
-                  end={160}
-                  duration={2000}
-                  suffix="€"
-                  className="text-2xl font-bold text-primary"
-                  startOnView={true}
-                  delay={400}
-                  easing="easeInOut"
-                />
-                <div className="text-sm text-muted-foreground">Price Range</div>
+                <div className="text-2xl font-bold text-primary">
+                  Affordable prices
+                </div>
               </div>
             </div>
           </div>
@@ -167,7 +159,7 @@ export function HeroSection() {
                         <Palette className="h-6 w-6 text-primary" />
                       </div>
                       <div className="flex-1">
-                        <div className="font-medium text-gray-900">Adonai Faith Art</div>
+                        <div className="font-medium text-gray-900">Adonai Faith print</div>
                         <div className="text-sm text-gray-600">€10.50</div>
                       </div>
                     </div>

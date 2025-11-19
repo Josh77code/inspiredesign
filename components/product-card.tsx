@@ -10,10 +10,21 @@ import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, D
 import { GlowButton } from "./glow-button"
 import { TubeLoader } from "./tube-loader"
 import { useCartStore } from "@/lib/cart-store"
+import { getBlobImageUrl } from "@/lib/vercel-blob"
 
-// Helper function to get image path - ALWAYS use API route for "New Digital Product" paths
+// Helper function to get image path - Prioritizes Vercel Blob URLs
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
+  
+  // If it's already a Vercel Blob URL or full URL, return as-is
+  if (path.includes('blob.vercel-storage.com') || path.startsWith('http://') || path.startsWith('https://')) {
+    return path
+  }
+  
+  // If it looks like a Vercel Blob path (starts with products/), use blob URL
+  if (path.startsWith('products/') || path.includes('/products/')) {
+    return getBlobImageUrl(path)
+  }
   
   // Remove leading slash if present
   const cleanPath = path.startsWith('/') ? path.slice(1) : path

@@ -1,38 +1,52 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { productsDB } from '@/lib/database'
-import { getBlobImageUrl } from '@/lib/vercel-blob'
+import { productsDB, initializeDatabase } from '@/lib/database'
 
-// GET /api/products - Fetch all products with optional filtering (Supabase version)
+// Initialize database on first load
+initializeDatabase()
+
+// GET /api/products - Fetch all products with optional filtering
 export async function GET(request: NextRequest) {
   try {
+    // Get products from database
+    const allProducts = productsDB.getAll()
     const { searchParams } = new URL(request.url)
     const category = searchParams.get('category')
     const search = searchParams.get('search')
     const minPrice = searchParams.get('minPrice')
     const maxPrice = searchParams.get('maxPrice')
-    const sortBy = searchParams.get('sortBy') || 'created_at'
+    const sortBy = searchParams.get('sortBy') || 'createdAt'
     const sortOrder = searchParams.get('sortOrder') || 'desc'
     const page = parseInt(searchParams.get('page') || '1')
     const limit = parseInt(searchParams.get('limit') || '50')
 
-    // Get all products from Supabase
-    let allProducts = await productsDB.getAll()
+    let filteredProducts = [...allProducts]
 
     // Filter by category
     if (category) {
-      allProducts = await productsDB.getByCategory(category)
+      filteredProducts = filteredProducts.filter(product => 
+        product.category.toLowerCase() === category.toLowerCase()
+      )
     }
 
-    // Search products
+    // Enhanced search by title, description, artist, or tags
     if (search) {
-      const searchResults = await productsDB.search(search)
-      allProducts = category 
-        ? allProducts.filter(p => searchResults.some(s => s.id === p.id))
-        : searchResults
+      const searchLower = search.toLowerCase()
+      const searchTerms = searchLower.split(' ').filter(term => term.length > 0)
+      
+      filteredProducts = filteredProducts.filter(product => {
+        const searchableText = [
+          product.title,
+          product.description,
+          product.artist,
+          ...product.tags
+        ].join(' ').toLowerCase()
+        
+        // Match all search terms
+        return searchTerms.every(term => searchableText.includes(term))
+      })
     }
 
     // Filter by price range
-    let filteredProducts = [...allProducts]
     if (minPrice) {
       filteredProducts = filteredProducts.filter(product => product.price >= parseFloat(minPrice))
     }
@@ -42,10 +56,10 @@ export async function GET(request: NextRequest) {
 
     // Sort products
     filteredProducts.sort((a, b) => {
-      let aValue: any = a[sortBy as keyof typeof a]
-      let bValue: any = b[sortBy as keyof typeof b]
+      let aValue = a[sortBy as keyof typeof a]
+      let bValue = b[sortBy as keyof typeof b]
 
-      if (sortBy === 'created_at' || sortBy === 'updated_at') {
+      if (sortBy === 'createdAt' || sortBy === 'updatedAt') {
         aValue = new Date(aValue as string).getTime()
         bValue = new Date(bValue as string).getTime()
       }
@@ -62,38 +76,15 @@ export async function GET(request: NextRequest) {
     const endIndex = startIndex + limit
     const paginatedProducts = filteredProducts.slice(startIndex, endIndex)
 
-    // Transform products to match expected format and use Vercel Blob URLs
+    // Remove download URLs from public product listings
     const publicProducts = paginatedProducts.map(product => {
-      // Convert Supabase product to expected format
+      const { downloadUrl, ...publicProduct } = product
       return {
-        id: product.id,
-        title: product.title,
-        price: product.price,
-        category: product.category,
-        description: product.description,
-        artist: product.artist,
-        rating: product.rating,
-        downloads: product.downloads,
-        tags: product.tags,
-        // Use Vercel Blob URLs for images
-        image: product.image_url ? getBlobImageUrl(product.image_url) : '/placeholder.svg',
-        imageThumbnail: product.image_thumbnail_url ? getBlobImageUrl(product.image_thumbnail_url) : null,
-        imageLarge: product.image_large_url ? getBlobImageUrl(product.image_large_url) : null,
-        folderPath: product.folder_path,
-        downloadType: product.download_type,
-        downloadUrl: product.download_url,
-        allFiles: product.all_files,
-        pdfs: product.pdfs,
-        images: product.images,
-        createdAt: product.created_at,
-        updatedAt: product.updated_at,
+        ...publicProduct,
         downloadAvailable: true,
         requiresPayment: true
       }
     })
-
-    // Get all categories for filters
-    const allCategories = [...new Set(allProducts.map(p => p.category))]
 
     return NextResponse.json({
       success: true,
@@ -106,7 +97,7 @@ export async function GET(request: NextRequest) {
           totalPages: Math.ceil(filteredProducts.length / limit)
         },
         filters: {
-          categories: allCategories,
+          categories: [...new Set(allProducts.map(p => p.category))],
           priceRange: {
             min: allProducts.length > 0 ? Math.min(...allProducts.map(p => p.price)) : 0,
             max: allProducts.length > 0 ? Math.max(...allProducts.map(p => p.price)) : 0
@@ -123,7 +114,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// POST /api/products - Create a new product (admin only) - Supabase version
+// POST /api/products - Create a new product (admin only)
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -138,28 +129,19 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Create new product using Supabase
-    const newProduct = await productsDB.create({
+    // Create new product using database
+    const newProduct = productsDB.create({
       title,
       price: parseFloat(price),
       category,
-      description,
+      image: body.image || "/placeholder.jpg",
+      downloadUrl: body.downloadUrl || "#",
       artist,
-      tags: tags || [],
-      image_url: body.image_url || null,
-      image_thumbnail_url: body.image_thumbnail_url || null,
-      image_large_url: body.image_large_url || null,
-      download_url: body.download_url || null,
       rating: 0,
       downloads: 0,
+      description,
+      tags: tags || []
     })
-
-    if (!newProduct) {
-      return NextResponse.json(
-        { success: false, error: 'Failed to create product' },
-        { status: 500 }
-      )
-    }
 
     return NextResponse.json({
       success: true,
@@ -174,4 +156,3 @@ export async function POST(request: NextRequest) {
     )
   }
 }
-

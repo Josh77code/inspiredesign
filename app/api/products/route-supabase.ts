@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { productsDB } from '@/lib/database'
+import { productsDB } from '@/lib/database-supabase'
 import { getBlobImageUrl } from '@/lib/vercel-blob'
 
 // GET /api/products - Fetch all products with optional filtering (Supabase version)
