@@ -36,7 +36,7 @@ function convertProduct(oldProduct) {
   const artistValue = oldProduct.artist || oldProduct.artist_name || null
   
   return {
-    id: oldProduct.id, // Keep same ID if possible, or let Supabase generate
+    // Note: id is excluded - Supabase will auto-generate it
     title: oldProduct.title || oldProduct.name || 'Untitled',
     price: parseFloat(oldProduct.price) || 0,
     category: oldProduct.category || 'Uncategorized',
