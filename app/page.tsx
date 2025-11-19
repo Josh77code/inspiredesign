@@ -1,6 +1,6 @@
 import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
-import { VideoSection } from "@/components/video-section"
+// import { VideoSection } from "@/components/video-section"
 import { Footer } from "@/components/footer"
 
 export default function HomePage() {
@@ -9,7 +9,7 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
-        <VideoSection />
+        {/* Video section removed */}
       </main>
       <Footer />
     </div>

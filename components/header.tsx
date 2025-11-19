@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react"
 import { AnimatedSearch } from "./animated-search"
 import { ThemeToggle } from "./theme-toggle"
@@ -48,14 +47,11 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start space-y-0.5 hover:opacity-90 transition-opacity min-w-0 flex-shrink-0">
             <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px]">
-              <Image
+              <img
                 src="/Inspire Design-Business Logo.png"
                 alt="Inspire Design Logo"
-                width={200}
-                height={56}
                 className="h-full w-auto object-contain"
-                priority
-                unoptimized
+                style={{ maxHeight: '56px' }}
               />
             </div>
             <p className="text-[10px] sm:text-xs font-medium text-primary tracking-wide whitespace-nowrap">
@@ -81,7 +77,7 @@ export function Header() {
                   <NavigationMenuTrigger className="magic-nav text-foreground hover:text-primary transition-colors duration-300 font-medium bg-transparent hover:bg-transparent data-[state=open]:bg-transparent">
                     Services
                   </NavigationMenuTrigger>
-                  <NavigationMenuContent>
+                  <NavigationMenuContent className="bg-popover border border-border shadow-lg">
                     <ul className="grid w-[200px] gap-3 p-4">
                       {servicesItems.map((service) => (
                         <li key={service.name}>

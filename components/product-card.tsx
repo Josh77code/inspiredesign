@@ -162,7 +162,7 @@ Looking forward to hearing from you!`
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="relative aspect-square overflow-hidden bg-muted">
+      <Link href={`/products/${product.id}`} className="relative aspect-square overflow-hidden bg-muted block">
         <img
           src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
@@ -231,11 +231,19 @@ Looking forward to hearing from you!`
           className={`absolute inset-0 bg-black/60 flex items-center justify-center gap-2 transition-opacity duration-300 ${
             isHovered ? "opacity-100" : "opacity-0"
           }`}
+          onClick={(e) => {
+            // Prevent navigation when clicking overlay buttons
+            e.preventDefault()
+            e.stopPropagation()
+          }}
         >
           <Button
             size="icon"
             variant="secondary"
-            onClick={handleDownloadClick}
+            onClick={(e) => {
+              e.stopPropagation()
+              handleDownloadClick()
+            }}
             className="bg-card/90 text-card-foreground hover:bg-orange-500 hover:text-white"
             title="Download (Payment Required)"
           >
@@ -248,7 +256,10 @@ Looking forward to hearing from you!`
               <span className="text-xs text-white">Adding...</span>
             </div>
           ) : (
-            <GlowButton onClick={handleAddToCart} className="px-4">
+            <GlowButton onClick={(e) => {
+              e.stopPropagation()
+              handleAddToCart()
+            }} className="px-4">
               <ShoppingCart className="h-4 w-4 mr-2" />
               Add to Cart
             </GlowButton>
@@ -257,7 +268,10 @@ Looking forward to hearing from you!`
           <Button
             size="icon"
             variant="secondary"
-            onClick={handleMessageArtist}
+            onClick={(e) => {
+              e.stopPropagation()
+              handleMessageArtist()
+            }}
             className="bg-green-500 text-white hover:bg-green-600"
             title="Order via WhatsApp"
           >
@@ -269,15 +283,19 @@ Looking forward to hearing from you!`
         <Button
           size="icon"
           variant="ghost"
-          className="absolute top-2 right-2 bg-black/20 hover:bg-black/40"
-          onClick={() => setIsLiked(!isLiked)}
+          className="absolute top-2 right-2 bg-black/20 hover:bg-black/40 z-10"
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            setIsLiked(!isLiked)
+          }}
         >
           <Heart className={`h-4 w-4 ${isLiked ? "fill-red-500 text-red-500" : "text-white"}`} />
         </Button>
 
         {/* Category badge */}
-        <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground">{product.category}</Badge>
-      </div>
+        <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground z-10">{product.category}</Badge>
+      </Link>
 
       <CardContent className="p-4">
         <div className="space-y-2">
