@@ -9,7 +9,8 @@ import { ChevronLeft, ChevronRight, X, Maximize2 } from 'lucide-react'
 
 interface MockupFile {
   name: string
-  path: string
+  path?: string
+  url?: string
 }
 
 interface MockupGalleryProps {
@@ -78,11 +79,12 @@ export function MockupGallery({ mockups, productName }: MockupGalleryProps) {
               >
                 <div className="aspect-square relative">
                   <Image
-                    src={`/${mockup.path}`}
+                    src={mockup.url || (mockup.path ? (mockup.path.startsWith('/') ? mockup.path : `/${mockup.path}`) : '/placeholder.svg')}
                     alt={`${productName} - Mockup ${index + 1}`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-200"
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    unoptimized={mockup.url?.includes('blob.vercel-storage.com')}
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-200 flex items-center justify-center">
                     <Maximize2 className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
@@ -126,12 +128,13 @@ export function MockupGallery({ mockups, productName }: MockupGalleryProps) {
             {selectedMockup && (
               <div className="relative max-w-full max-h-full">
                 <Image
-                  src={`/${selectedMockup.path}`}
+                  src={selectedMockup.url || (selectedMockup.path ? (selectedMockup.path.startsWith('/') ? selectedMockup.path : `/${selectedMockup.path}`) : '/placeholder.svg')}
                   alt={`${productName} - Mockup ${currentIndex + 1}`}
                   width={800}
                   height={600}
                   className="max-w-full max-h-full object-contain rounded-lg shadow-lg"
                   priority
+                  unoptimized={selectedMockup.url?.includes('blob.vercel-storage.com')}
                 />
               </div>
             )}
@@ -177,9 +180,10 @@ export function MockupGallery({ mockups, productName }: MockupGalleryProps) {
                     }}
                   >
                     <Image
-                      src={`/${mockup.path}`}
+                      src={mockup.url || (mockup.path ? (mockup.path.startsWith('/') ? mockup.path : `/${mockup.path}`) : '/placeholder.svg')}
                       alt={`Thumbnail ${index + 1}`}
                       fill
+                      unoptimized={mockup.url?.includes('blob.vercel-storage.com')}
                       className="object-cover"
                       sizes="64px"
                     />

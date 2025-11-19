@@ -100,9 +100,20 @@ export async function GET(request: NextRequest) {
         folderPath: product.folder_path,
         downloadType: product.download_type,
         downloadUrl: product.download_url,
-        allFiles: product.all_files,
-        pdfs: product.pdfs,
-        images: product.images,
+        // Files from blob storage - already have URLs
+        allFiles: product.all_files || [],
+        pdfs: (product.pdfs || []).map((pdf: any) => ({
+          name: pdf.name,
+          path: pdf.path,
+          url: pdf.url || (pdf.path && pdf.path.includes('blob.vercel-storage.com') ? pdf.path : null),
+          size: pdf.size
+        })),
+        images: (product.images || []).map((img: any) => ({
+          name: img.name,
+          path: img.path,
+          url: img.url || (img.path && img.path.includes('blob.vercel-storage.com') ? img.path : null),
+          size: img.size
+        })),
         createdAt: product.created_at,
         updatedAt: product.updated_at,
         downloadAvailable: true,

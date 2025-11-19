@@ -11,12 +11,23 @@ import {
 import { Button } from '@/components/ui/button'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 
-// Helper function to get image path - use API route for paths with spaces
-const getImagePath = (path: string): string => {
-  if (!path) return "/placeholder.svg"
+// Helper function to get image path - Prioritizes Vercel Blob URLs
+const getImagePath = (path: string | { url?: string; path?: string }): string => {
+  // Handle object with url property (from blob storage)
+  if (typeof path === 'object' && path.url) {
+    return path.url
+  }
+  
+  const pathString = typeof path === 'string' ? path : path.path || ''
+  if (!pathString) return "/placeholder.svg"
+  
+  // If it's already a Vercel Blob URL or full URL, return as-is
+  if (pathString.includes('blob.vercel-storage.com') || pathString.startsWith('http://') || pathString.startsWith('https://')) {
+    return pathString
+  }
   
   // Remove leading slash if present
-  const cleanPath = path.startsWith('/') ? path.slice(1) : path
+  const cleanPath = pathString.startsWith('/') ? pathString.slice(1) : pathString
   
   // If path contains "New Digital Product" or has spaces, use API route
   if (cleanPath.includes('New Digital Product') || cleanPath.includes(' ')) {
@@ -26,12 +37,14 @@ const getImagePath = (path: string): string => {
   }
   
   // For other paths, use direct public folder access
-  return path.startsWith('/') ? path : `/${path}`
+  return pathString.startsWith('/') ? pathString : `/${pathString}`
 }
 
 interface ProductImage {
   name: string
-  path: string
+  path?: string
+  url?: string
+  size?: string
 }
 
 interface ProductImageCarouselProps {

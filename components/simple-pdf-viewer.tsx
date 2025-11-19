@@ -48,9 +48,18 @@ export function SimplePDFViewer({ pdfs, productName }: SimplePDFViewerProps) {
     setSelectedPDF(null)
   }
 
+  const getPDFUrl = (pdf: PDFFile): string => {
+    // If it's a blob URL, use it directly
+    if (pdf.url) {
+      return pdf.url
+    }
+    // Otherwise use the path
+    return pdf.path ? (pdf.path.startsWith('/') ? pdf.path : `/${pdf.path}`) : '#'
+  }
+
   const downloadPDF = (pdf: PDFFile) => {
     const link = document.createElement('a')
-    link.href = `/${pdf.path}`
+    link.href = getPDFUrl(pdf)
     link.download = pdf.name
     link.target = '_blank'
     document.body.appendChild(link)
@@ -133,7 +142,7 @@ export function SimplePDFViewer({ pdfs, productName }: SimplePDFViewerProps) {
             {selectedPDF && (
               <div className="w-full h-[70vh] border rounded-lg overflow-hidden">
                 <iframe
-                  src={`/${selectedPDF.path}#toolbar=1&navpanes=1&scrollbar=1`}
+                  src={`${getPDFUrl(selectedPDF)}#toolbar=1&navpanes=1&scrollbar=1`}
                   className="w-full h-full"
                   title={`PDF Preview: ${selectedPDF.name}`}
                   style={{ border: 'none' }}

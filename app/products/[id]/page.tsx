@@ -28,7 +28,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       notFound()
     }
 
-    const product = productsDB.getById(productId)
+    const product = await productsDB.getById(productId)
     
     if (!product) {
       notFound()
@@ -37,8 +37,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
     // Ensure product has required fields with defaults
     const safeProduct = {
       ...product,
+      image: product.image_url || product.image || '/placeholder.svg',
       images: product.images || [],
-      allFiles: product.allFiles || [],
+      allFiles: product.all_files || [],
       pdfs: product.pdfs || [],
       mockups: product.mockups || [],
       videos: product.videos || [],
