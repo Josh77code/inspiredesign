@@ -64,6 +64,24 @@ export async function GET(request: NextRequest) {
 
     // Transform products to match expected format and use Vercel Blob URLs
     const publicProducts = paginatedProducts.map(product => {
+      // Helper to get image URL - try blob first, then fallback to local path
+      const getImageUrl = (blobPath: string | null, fallbackPath?: string | null): string => {
+        if (blobPath) {
+          // If it's already a full URL, return as-is
+          if (blobPath.startsWith('http://') || blobPath.startsWith('https://')) {
+            return blobPath
+          }
+          // Try blob URL
+          const blobUrl = getBlobImageUrl(blobPath)
+          return blobUrl
+        }
+        // Fallback to local path if available
+        if (fallbackPath) {
+          return fallbackPath.startsWith('/') ? fallbackPath : `/${fallbackPath}`
+        }
+        return '/placeholder.svg'
+      }
+
       // Convert Supabase product to expected format
       return {
         id: product.id,
@@ -75,8 +93,8 @@ export async function GET(request: NextRequest) {
         rating: product.rating,
         downloads: product.downloads,
         tags: product.tags,
-        // Use Vercel Blob URLs for images
-        image: product.image_url ? getBlobImageUrl(product.image_url) : '/placeholder.svg',
+        // Use Vercel Blob URLs for images, with fallback
+        image: getImageUrl(product.image_url, product.folder_path ? `${product.folder_path}/main.jpg` : null),
         imageThumbnail: product.image_thumbnail_url ? getBlobImageUrl(product.image_thumbnail_url) : null,
         imageLarge: product.image_large_url ? getBlobImageUrl(product.image_large_url) : null,
         folderPath: product.folder_path,

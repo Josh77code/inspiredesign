@@ -126,6 +126,7 @@ export function VideoSection() {
                 preload="auto"
                 style={{ backgroundColor: '#191314' }}
               >
+                <source src="/invideo-ai-1080%20Discover%20Artistry—Shop%20Inspire%20Design%20To%202025-09-14%20(1).mp4" type="video/mp4" />
                 <source src="/invideo-ai-1080 Discover Artistry—Shop Inspire Design To 2025-09-14 (1).mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
