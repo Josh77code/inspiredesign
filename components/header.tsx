@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react"
 import { AnimatedSearch } from "./animated-search"
 import { ThemeToggle } from "./theme-toggle"
@@ -45,49 +46,21 @@ export function Header() {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3">
-            <svg width="200" height="60" viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg" className="h-12 w-auto">
-              <defs>
-                {/* Golden gradient for the circle and text */}
-                <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:"#FFD700",stopOpacity:1}} />
-                  <stop offset="50%" style={{stopColor:"#FFA500",stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:"#B8860B",stopOpacity:1}} />
-                </linearGradient>
-                {/* Dark teal for the dot */}
-                <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style={{stopColor:"#008B8B",stopOpacity:1}} />
-                  <stop offset="100%" style={{stopColor:"#2F4F4F",stopOpacity:1}} />
-                </linearGradient>
-              </defs>
-              
-              {/* Main golden circle */}
-              <circle cx="30" cy="30" r="25" fill="none" stroke="url(#goldGradient)" strokeWidth="3"/>
-              
-              {/* Script "id" text */}
-              <g transform="translate(30, 30)">
-                {/* Letter "i" */}
-                <path d="M-8 -8 Q-8 -12 -4 -12 Q0 -12 0 -8 Q0 -4 -4 -4 Q-8 -4 -8 -8" 
-                      fill="url(#goldGradient)" 
-                      stroke="url(#goldGradient)" 
-                      strokeWidth="1.5"/>
-                {/* Dot above "i" */}
-                <circle cx="0" cy="-15" r="2.5" fill="url(#tealGradient)"/>
-                {/* Letter "d" */}
-                <path d="M0 -8 Q0 -12 4 -12 Q8 -12 8 -8 Q8 -4 4 -4 Q0 -4 0 -8 M0 -8 L0 8 Q0 12 4 12 Q8 12 8 8" 
-                      fill="none" 
-                      stroke="url(#goldGradient)" 
-                      strokeWidth="1.5"/>
-              </g>
-              
-              {/* "INSPIRE DESIGNS" text */}
-              <text x="70" y="25" fontSize="14" fontWeight="600" fill="url(#goldGradient)" letterSpacing="1px">
-                INSPIRE DESIGNS
-              </text>
-              <text x="70" y="45" fontSize="10" fill="currentColor" className="text-muted-foreground">
-                Faith-Based Digital Prints
-              </text>
-            </svg>
+          <Link href="/" className="flex flex-col items-start space-y-0.5 hover:opacity-90 transition-opacity min-w-0 flex-shrink-0">
+            <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px]">
+              <Image
+                src="/Inspire Design-Business Logo.png"
+                alt="Inspire Design Logo"
+                width={200}
+                height={56}
+                className="h-full w-auto object-contain"
+                priority
+                unoptimized
+              />
+            </div>
+            <p className="text-[10px] sm:text-xs font-medium text-primary tracking-wide whitespace-nowrap">
+              Designs beyond Limits
+            </p>
           </Link>
 
           {/* Desktop Navigation */}
