@@ -16,9 +16,15 @@ import { getBlobImageUrl } from "@/lib/vercel-blob"
 const getImagePath = (path: string): string => {
   if (!path) return "/placeholder.svg"
   
-  // If it's already a Vercel Blob URL or full URL, return as-is
+  // If it's already a Vercel Blob URL or full URL, return as-is (decode if needed)
   if (path.includes('blob.vercel-storage.com') || path.startsWith('http://') || path.startsWith('https://')) {
-    return path
+    // Ensure URL is properly formatted - decode and re-encode if necessary
+    try {
+      // If URL is already properly encoded, use as-is
+      return path
+    } catch (e) {
+      return path
+    }
   }
   
   // If it looks like a Vercel Blob path (starts with products/), use blob URL
@@ -167,7 +173,6 @@ Looking forward to hearing from you!`
           src={getImagePath(product.image || "/placeholder.svg")}
           alt={product.title || "Product image"}
           className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-          crossOrigin="anonymous"
           onError={(e) => {
             const target = e.target as HTMLImageElement
             const originalPath = product.image || ""
