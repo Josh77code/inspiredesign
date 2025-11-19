@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import { Play, Pause, Volume2, VolumeX, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -8,16 +8,49 @@ export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const [hasVideo, setHasVideo] = useState(false)
+  const [showOverlay, setShowOverlay] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+
+  // Auto-play video when component mounts
+  useEffect(() => {
+    const video = videoRef.current
+    if (video) {
+      // Try to play the video automatically
+      const playPromise = video.play()
+      
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Video started playing
+            setIsPlaying(true)
+            setShowOverlay(false)
+          })
+          .catch((error) => {
+            // Auto-play was prevented, user interaction required
+            console.log('Auto-play prevented:', error)
+            setIsPlaying(false)
+            setShowOverlay(true)
+          })
+      }
+    }
+  }, [])
 
   const togglePlay = () => {
     if (videoRef.current) {
       if (isPlaying) {
         videoRef.current.pause()
+        setIsPlaying(false)
+        setShowOverlay(true)
       } else {
         videoRef.current.play()
+          .then(() => {
+            setIsPlaying(true)
+            setShowOverlay(false)
+          })
+          .catch((error) => {
+            console.error('Error playing video:', error)
+          })
       }
-      setIsPlaying(!isPlaying)
     }
   }
 
@@ -30,6 +63,16 @@ export function VideoSection() {
 
   const handleVideoEnd = () => {
     setIsPlaying(false)
+    setShowOverlay(true)
+    // Restart video
+    if (videoRef.current) {
+      videoRef.current.currentTime = 0
+      videoRef.current.play()
+        .then(() => {
+          setIsPlaying(true)
+          setShowOverlay(false)
+        })
+    }
   }
 
   const handleVideoLoaded = () => {
@@ -38,6 +81,17 @@ export function VideoSection() {
 
   const handleVideoError = () => {
     setHasVideo(false)
+    console.error('Video failed to load')
+  }
+
+  const handleVideoPlay = () => {
+    setIsPlaying(true)
+    setShowOverlay(false)
+  }
+
+  const handleVideoPause = () => {
+    setIsPlaying(false)
+    setShowOverlay(true)
   }
 
   return (
@@ -62,18 +116,22 @@ export function VideoSection() {
                 onEnded={handleVideoEnd}
                 onLoadedData={handleVideoLoaded}
                 onError={handleVideoError}
+                onPlay={handleVideoPlay}
+                onPause={handleVideoPause}
                 muted={isMuted}
-                preload="metadata"
+                autoPlay
+                loop
                 playsInline
                 controls={false}
+                preload="auto"
                 style={{ backgroundColor: '#191314' }}
               >
                 <source src="/invideo-ai-1080 Discover Artistry—Shop Inspire Design To 2025-09-14 (1).mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
-              {/* Video Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40 flex flex-col items-center justify-center">
+              {/* Video Overlay - Show when paused or not playing */}
+              <div className={`absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40 flex flex-col items-center justify-center transition-opacity duration-300 ${showOverlay ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
                 {/* Welcome Text Overlay */}
                 <div className="text-center mb-8">
                   <h4 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold mb-2 animate-pulse">
