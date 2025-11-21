@@ -47,10 +47,14 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start space-y-0.5 hover:opacity-90 transition-opacity min-w-0 flex-shrink-0">
             <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px] flex items-center">
-              <img
+              <Image
                 src="/Inspire Design-Business Logo.png"
                 alt="Inspire Design Logo"
+                width={200}
+                height={56}
                 className="h-full w-auto object-contain max-h-[56px]"
+                priority
+                unoptimized
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
                   console.error('Logo failed to load:', target.src)
