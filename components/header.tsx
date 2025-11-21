@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react"
 import { AnimatedSearch } from "./animated-search"
 import { ThemeToggle } from "./theme-toggle"
