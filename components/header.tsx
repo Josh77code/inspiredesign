@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { ShoppingCart, Menu, X, ChevronDown } from "lucide-react"
 import { AnimatedSearch } from "./animated-search"
 import { ThemeToggle } from "./theme-toggle"
@@ -48,18 +47,17 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col items-start space-y-0.5 hover:opacity-90 transition-opacity min-w-0 flex-shrink-0">
             <div className="relative h-10 sm:h-12 md:h-14 w-auto max-w-[180px] sm:max-w-[200px] flex items-center">
-              <Image
+              <img
                 src="/Inspire Design-Business Logo.png"
                 alt="Inspire Design Logo"
-                width={200}
-                height={56}
                 className="h-full w-auto object-contain max-h-[56px]"
-                priority
-                unoptimized
                 onError={(e) => {
                   const target = e.target as HTMLImageElement
                   console.error('Logo failed to load:', target.src)
-                  target.src = '/placeholder-logo.png'
+                  // Try alternative paths
+                  if (!target.src.includes('placeholder')) {
+                    target.src = '/placeholder-logo.png'
+                  }
                 }}
               />
             </div>
